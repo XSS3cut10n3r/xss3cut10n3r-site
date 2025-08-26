@@ -1,16 +1,5 @@
 // LofiCode Main JavaScript
 
-setTimeout(() => {
-  document.querySelectorAll('.nav-links a[href="/posts/"]').forEach(link => {
-    // Stop the SPA interception
-    link.addEventListener('click', e => {
-      e.stopPropagation();       // prevent SPA handler
-      window.location.href = link.href; // force normal navigation
-    });
-  });
-}, 100); // 100ms after main.js loads
-
-
 (function () {
   "use strict";
 
@@ -1902,3 +1891,12 @@ setTimeout(() => {
     Happy coding! ✨
     `);
 })();
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.nav-links a[href="/posts/"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.stopPropagation();           // prevent SPA interception
+      window.location.href = link.href; // force normal navigation
+    });
+  });
+});
