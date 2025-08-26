@@ -19,3 +19,8 @@ title = "XSS3cut10n3r"
   name = "Posts"
   url = '/posts/'
   weight = 10
+
+[[menu.main]]
+  name = "Tags"
+  url = '/tags/'
+  weight = 20
