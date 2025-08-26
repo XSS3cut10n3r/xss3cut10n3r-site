@@ -2,7 +2,7 @@
 title: "Gaining Interactive Shells"
 subtitle: "Cheatsheet for obtaining fully-interactive shells"
 date: 2025-08-26
-tags: ["general", "cheatsheet", "privesc"]
+tags: ["linux", "cheatsheet", "privesc"]
 featured: false
 draft: false
 ---
