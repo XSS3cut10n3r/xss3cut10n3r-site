@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 26 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello NCL</title>
+      <title>Whoami</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;p&gt;Hello World!&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;english&#34;&gt;English&lt;/h1&gt;&#xA;&lt;p&gt;Hello! I’m an individual with a strong interest in cybersecurity. I’m particularly drawn to penetration testing and ethical hacking, and I plan to document my learning journey here. My goal is to explore and share knowledge about security, techniques, and best practices, all in a safe and responsible manner. This website will serve as a place to catalog insights, experiences, and resources as I continue to grow in this field.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

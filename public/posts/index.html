@@ -83,16 +83,57 @@
 
     <main>
         
+
+<header class="site-header">
+    <nav>
+        <div class="nav-left">
+            <a href="http://localhost:1313/" class="logo">XSS3cut10n3r</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <a href="http://localhost:1313/posts/" class="nav-link">Posts</a>
+            
+            <a href="http://localhost:1313/tags/" class="nav-link">Tags</a>
+            
+        </div>
+
+        <div class="header-controls">
+            <button class="search-toggle" title="Search posts">🔍</button>
+            <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    
+    <div class="search-form-container" id="searchForm">
+        <div class="search-form">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search posts..." autocomplete="off">
+                <button class="search-submit" type="button">
+                    <span>🔍</span>
+                </button>
+                <button class="search-close" type="button">
+                    <span>✕</span>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</header>
+  
+
 <div class="container">
-   
+  
 
   <div class="posts-list" id="posts-container">
-       
+    
+    
+      
 <article class="post-item featured">
   <div class="post-content">
     <div class="post-header-inline">
       <h2 class="post-title-vaporwave">
-        <a href="http://localhost:1313/posts/my-first-post/">Hello NCL</a>
+        <a href="http://localhost:1313/posts/my-first-post/">Whoami</a>
       </h2>
     </div>
 
@@ -101,23 +142,20 @@
       
       <span class="featured-badge">✨ Featured</span>
        
-      <span class="post-mood">warm</span>
-      
     </div>
 
     
-    <p class="post-list-subtitle">Welcome to my website!</p>
+    <p class="post-list-subtitle">A brief overview 简短介绍 Краткий обзор</p>
     
 
     <p class="post-excerpt-vaporwave">
-      Hello World!
-
+      English Hello! I’m an individual with a strong interest in cybersecurity. I’m particularly drawn to penetration testing and ethical hacking, and I plan to …
     </p>
 
     
     <div class="post-tags-vaporwave">
       
-      <span class="post-tag-vaporwave">Hello World</span>
+      <span class="post-tag-vaporwave">hello-world</span>
       
     </div>
     
@@ -136,11 +174,11 @@
     </div>
   </div>
 </article>
- 
-  </div>
 
-   
+    
+  </div>
 </div>
+
 
     </main>
 

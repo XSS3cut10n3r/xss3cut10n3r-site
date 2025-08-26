@@ -24,3 +24,8 @@ title = "XSS3cut10n3r"
   name = "Tags"
   url = '/tags/'
   weight = 20
+
+[[menu.main]]
+  name = HTB
+  url = "https://app.hackthebox.com/profile/2280564"
+  weight = 0
