@@ -1,0 +1,20 @@
+theme = "loficode"
+title = "XSS3cut10n3r"
+
+[params]
+  description = "Your site description"
+  tagline = "Don’t tell people your plans.  \nShow them your results."
+  headerText = "XSS3cut10n3r"
+
+[params.author]
+  name = "XSS3cut10n3r"
+  image = "/images/profile.png"
+
+[params.social]
+  email = "contact@xss3cut10n3r.me"
+  github = "xss3cut10n3r"
+
+[[menu.main]]
+  name = "Posts"
+  url = '/posts/'
+  weight = 10
