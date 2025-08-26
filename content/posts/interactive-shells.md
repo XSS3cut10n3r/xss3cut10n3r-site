@@ -13,7 +13,7 @@ Often when uploading a reverse shell on a webserver we are dealing with non-inte
 
 The biggest problem with a non-interactive shell is that you can't run `su` or `sudo`.
 
-Here are some useful ways to upgrade your shell to an interactive one:
+**Useful ways to upgrade your shell to an interactive one:**
 
 ```python -c 'import pty; pty.spawn("/bin/sh")'```
 
@@ -43,6 +43,8 @@ Here are some useful ways to upgrade your shell to an interactive one:
 
 **When to use it:** This resets your terminal to raw mode and resumes the background shell. You should use it when your shell has been suspended with Ctrl + Z.
 
+
+
 ## Cheatsheet
 
 **Start by checking available interpreters:**
@@ -60,4 +62,4 @@ Here are some useful ways to upgrade your shell to an interactive one:
 ```reset```
 
 
-Try Ctrl + C, Ctrl + Z, and Tab completion to make sure the shell is fully interactive.
+>**Tip: **Try Ctrl + C, Ctrl + Z, and Tab completion to make sure the shell is fully interactive.
