@@ -650,15 +650,24 @@
     // Close search first
     toggleSearch();
 
-    // Use SPA navigation if available
+    // Before: intercept all /posts/ links
     if (window.spa && url.startsWith("/posts/")) {
       const slug = url.split("/posts/")[1].replace("/", "");
       window.spa.showPost(slug, true);
     } else {
-      // Fallback to regular navigation
       window.location.href = url;
     }
-  }
+
+    // After: bypass SPA for the section page
+    if (url === "/posts/") {
+      window.location.href = url;  // force normal navigation
+    } else if (window.spa && url.startsWith("/posts/")) {
+      const slug = url.split("/posts/")[1].replace("/", "");
+      window.spa.showPost(slug, true);
+    } else {
+      window.location.href = url;
+    }
+
 
   // Make handleSearchResultClick globally accessible
   window.handleSearchResultClick = handleSearchResultClick;
