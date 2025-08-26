@@ -1,6 +1,6 @@
 ---
 title: "Whoami"
-subtitle: "A brief overview of who I am, and why I created this website."
+subtitle: "Краткий обзор 简短介绍 A brief overview"
 date: 2025-08-26
 tags: ["hello-world"]
 featured: true
