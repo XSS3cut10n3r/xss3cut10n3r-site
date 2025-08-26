@@ -45,11 +45,11 @@ Here are some useful ways to upgrade your shell to an interactive one:
 
 ## Cheatsheet
 
-Start by checking available interpreters:
+**Start by checking available interpreters:**
 
 ```which python3 python perl bash sh```
 
-How to fix terminal controls after an upgrade:
+**Fix terminal controls after an upgrade:**
 
 ```Ctrl+Z```
  
