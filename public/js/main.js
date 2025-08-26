@@ -1892,11 +1892,3 @@
     `);
 })();
 
-window.addEventListener('load', () => {
-  document.querySelectorAll('.nav-links a[href="/posts/"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.stopPropagation();           // prevent SPA interception
-      window.location.href = link.href; // force normal navigation
-    });
-  });
-});

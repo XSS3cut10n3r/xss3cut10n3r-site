@@ -39,8 +39,8 @@
         --accent-primary: #0BE052;
         --accent-secondary: #0BE052;
         --accent-tertiary: #FF35FF;
-        --text-primary: #E0E0FF;
-        --text-secondary: #B8B3D4;
+        --text-primary: #F2F2F2;
+        --text-secondary: #E6E6E6;
         --text-muted: #8A7CA8;
         --border-color: rgba(11, 224, 82, 0.3);
         --shadow-color: rgba(255, 53, 255, 0.2);
@@ -55,7 +55,7 @@
 
         /* Tag gradients for dark */
         --tag-gradient: linear-gradient(135deg, #1B4B29 0%, #2B5F36 100%);
-        --tag-text: #B8B3D4;
+        --tag-text: #E6E6E6;
     }
 }
 
@@ -93,8 +93,8 @@
     --accent-primary: #0BE052;
     --accent-secondary: #0BE052;
     --accent-tertiary: #FF35FF;
-    --text-primary: #E0E0FF;
-    --text-secondary: #B8B3D4;
+    --text-primary: #F2F2F2;
+    --text-secondary: #E6E6E6;
     --text-muted: #8A7CA8;
     --border-color: rgba(11, 224, 82, 0.3);
     --shadow-color: rgba(255, 53, 255, 0.2);
@@ -109,7 +109,7 @@
 
     /* Tag gradients for dark */
     --tag-gradient: linear-gradient(135deg, #1B4B29 0%, #2B5F36 100%);
-    --tag-text: #B8B3D4;
+    --tag-text: #E6E6E6;
 }
 
 * {

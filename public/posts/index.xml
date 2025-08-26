@@ -9,6 +9,13 @@
     <lastBuildDate>Tue, 26 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Gaining Interactive Shells</title>
+      <link>http://localhost:1313/posts/interactive-shells/</link>
+      <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/interactive-shells/</guid>
+      <description>&lt;h1 id=&#34;gaining-interactive-shells&#34;&gt;Gaining Interactive Shells&lt;/h1&gt;&#xA;&lt;p&gt;Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&amp;rsquo;t prompt us for user input or display output in real-time in a traditional terminal window.&lt;/p&gt;&#xA;&lt;p&gt;The biggest problem with a non-interactive shell is that you can&amp;rsquo;t run &lt;code&gt;su&lt;/code&gt; or &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Useful ways to upgrade your shell to an interactive one:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;python -c &#39;import pty; pty.spawn(&amp;quot;/bin/sh&amp;quot;)&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;When to use it:&lt;/strong&gt; Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Whoami</title>
       <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
