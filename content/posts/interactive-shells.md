@@ -51,11 +51,10 @@ Start by checking available interpreters:
 
 How to fix terminal controls after an upgrade:
 
-```
-Ctrl-Z 
-stty raw -echo 
-fg
-reset
-```
+```Ctrl-Z``` 
+```stty raw -echo``` 
+```fg```
+```reset```
+
 
 Try Ctrl + C, Ctrl + Z, and Tab completion to make sure the shell is fully interactive.
