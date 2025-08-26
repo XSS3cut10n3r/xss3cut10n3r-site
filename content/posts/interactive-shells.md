@@ -51,9 +51,12 @@ Start by checking available interpreters:
 
 How to fix terminal controls after an upgrade:
 
-```Ctrl-Z``` 
+```Ctrl+Z```
+ 
 ```stty raw -echo``` 
+
 ```fg```
+
 ```reset```
 
 
