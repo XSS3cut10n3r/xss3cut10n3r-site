@@ -62,4 +62,4 @@ The biggest problem with a non-interactive shell is that you can't run `su` or `
 ```reset```
 
 
->**Tip: **Try Ctrl + C, Ctrl + Z, and Tab completion to make sure the shell is fully interactive.
+> **Tip:** Try Ctrl + C, Ctrl + Z, and Tab completion to make sure the shell is fully interactive.
