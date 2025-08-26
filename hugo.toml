@@ -26,6 +26,6 @@ title = "XSS3cut10n3r"
   weight = 3
 
 [[menu.main]]
-  name = HTB
+  name = "HTB"
   url = "https://app.hackthebox.com/profile/2280564"
   weight = 1
