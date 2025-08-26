@@ -5,6 +5,7 @@ date: 2025-08-26
 tags: ["hello-world"]
 featured: true
 draft: false
+description: "Hello! I’m an individual with a strong interest in cybersecurity. I'm particularly drawn to penetration testing and ethical hacking."
 ---
 # English
 Hello! I’m an individual with a strong interest in cybersecurity. I’m particularly drawn to penetration testing and ethical hacking, and I plan to document my learning journey here. My goal is to explore and share knowledge about security, techniques, and best practices, all in a safe and responsible manner. This website will serve as a place to catalog insights, experiences, and resources as I continue to grow in this field.
