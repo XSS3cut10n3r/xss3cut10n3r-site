@@ -7,10 +7,10 @@
         <div class="nav-links">
             {{ range .Site.Menus.main }}
             <a href="{{ .URL | relURL }}"
-                {{ if and (strings.HasPrefix .URL "http") (not (strings.HasPrefix .URL .Site.BaseURL)) }}
+            {{ if and (strings.HasPrefix .URL "http") (not (strings.HasPrefix .URL $.Site.BaseURL)) }}
                 target="_blank" rel="noopener noreferrer"
-                {{ end }}>
-                {{ .Name }}
+            {{ end }}>
+            {{ .Name }}
             </a>
             {{ end }}
 
