@@ -1,6 +1,9 @@
-+++
-date = '2025-08-26T01:12:55-05:00'
-draft = true
-title = 'My First Post'
-+++
-test
+---
+title: "Hello NCL"
+subtitle: "Welcome to my website!"
+date: 2025-08-26
+tags: ["Hello World"]
+featured: true
+mood: "warm"
+draft = false
+---
