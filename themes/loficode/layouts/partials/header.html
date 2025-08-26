@@ -6,8 +6,9 @@
 
         <div class="nav-links">
         {{ range .Site.Menus.main }}
-            {{ $isExternal := and (strings.HasPrefix .URL "http") (not (strings.HasPrefix .URL $.Site.BaseURL)) }}
-            <a href="{{ .URL | relURL }}" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Name }}</a>
+        {{ $target := .Params.target }}
+        {{ $rel := .Params.rel }}
+        <a href="{{ .URL | relURL }}"{{ if $target }} target="{{ $target }}"{{ end }}{{ if $rel }} rel="{{ $rel }}"{{ end }}>{{ .Name }}</a>
         {{ end }}
         </div>
 
