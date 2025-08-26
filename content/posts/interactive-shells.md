@@ -52,20 +52,9 @@ Start by checking available interpreters:
 How to fix terminal controls after an upgrade:
 
 ```
-#Suspend the shell to the background
-
 Ctrl-Z 
-
-#Sets your terminal to raw mode so input is sent immediately and not echoed
-
 stty raw -echo 
-
-#Bring the shell back to the foreground with proper input handling
-
 fg
-
-#optional - Clear and reset the terminal display
-
 reset
 ```
 
