@@ -1,9 +1,9 @@
 ---
 title: "Gaining Interactive Shells"
-subtitle: "A brief overview - 简短介绍 -  Краткий обзор"
+subtitle: "Cheatsheet for Obtaining Fully-Interactive Shells"
 date: 2025-08-26
 tags: ["general", "cheatsheet", "privesc"]
-featured: true
+featured: false
 draft: false
 ---
 
