@@ -16,11 +16,6 @@ title = "XSS3cut10n3r"
   github = "https://github.com/xss3cut10n3r"
 
 [[menu.main]]
-  name = "Posts"
-  url = '/posts/'
-  weight = 1
-
-[[menu.main]]
   name = "Tags"
   url = '/tags/'
   weight = 2
