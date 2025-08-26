@@ -2,7 +2,7 @@
 title: "Whoami"
 subtitle: "A brief overview of who I am, and why I created this website."
 date: 2025-08-26
-tags: ["Hello World"]
+tags: ["hello-world"]
 featured: true
 draft: false
 ---
