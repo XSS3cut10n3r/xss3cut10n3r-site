@@ -19,8 +19,7 @@
 
 
 
-<meta name="description" content="Gaining Interactive Shells
-Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us …" />
+<meta name="description" content="Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us for user input or display …" />
 
 
 
@@ -30,8 +29,7 @@ Often when uploading a reverse shell on a webserver we are dealing with non-inte
 />
 <meta
   property="og:description"
-  content="Gaining Interactive Shells
-Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us …"
+  content="Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us for user input or display …"
 />
 <meta
   property="og:type"
@@ -48,8 +46,7 @@ Often when uploading a reverse shell on a webserver we are dealing with non-inte
 />
 <meta
   name="twitter:description"
-  content="Gaining Interactive Shells
-Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us …"
+  content="Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us for user input or display …"
 />
 
 
@@ -132,33 +129,37 @@ Often when uploading a reverse shell on a webserver we are dealing with non-inte
                 
             </header>
             <div class="post-body">
-                <h1 id="gaining-interactive-shells">Gaining Interactive Shells</h1>
-<p>Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us for user input or display output in real-time in a traditional terminal window.</p>
+                <p>Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&rsquo;t prompt us for user input or display output in real-time in a traditional terminal window.</p>
 <p>The biggest problem with a non-interactive shell is that you can&rsquo;t run <code>su</code> or <code>sudo</code>.</p>
 <p><strong>Useful ways to upgrade your shell to an interactive one:</strong></p>
-<p><code>python -c 'import pty; pty.spawn(&quot;/bin/sh&quot;)'</code></p>
-<p><strong>When to use it:</strong> Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.</p>
-<p><code>echo 'os.system('/bin/bash')'</code></p>
-<p><strong>When to use it:</strong> When you can inject Python code but can’t directly execute shell commands.</p>
-<p><code>/bin/sh -i</code> or <code>/bin/bash -i</code></p>
-<p><strong>When to use it:</strong> Works on minimal systems where Python or Perl might not be installed. Note the -i flag forces the terminal to be interactive.</p>
-<p><code>perl -e 'exec &quot;/bin/sh&quot;;'</code></p>
-<p><strong>When to use it:</strong> When Python isn’t available, but Perl is. This takes advantage of Perl’s exec function.</p>
-<p><code>:!bash</code></p>
-<p><strong>When to use it:</strong> If you can edit files on the system and Vim is installed. This is often used in “local shell escape” scenarios.</p>
-<p><code>SHELL=/bin/bash script -q /dev/null</code></p>
-<p><strong>When to use it:</strong> This command is very reliable if <code>script</code> is installed. <code>Script</code> spawns a fully interactive shell session, which fixes TTY issues</p>
-<p><code>stty raw -echo &amp;&amp; fg</code></p>
-<p><strong>When to use it:</strong> This resets your terminal to raw mode and resumes the background shell. You should use it when your shell has been suspended with Ctrl + Z.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#39;import pty; pty.spawn(&#34;/bin/sh&#34;)&#39;</span>
+</span></span></code></pre></div><p><strong>When to use it:</strong> Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>echo &#39;os.system(&#39;/bin/bash&#39;)&#39;
+</span></span></code></pre></div><p><strong>When to use it:</strong> When you can inject Python code but can’t directly execute shell commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>/bin/sh -i
+</span></span></code></pre></div><p><strong>or</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>/bin/bash -i
+</span></span></code></pre></div><p><strong>When to use it:</strong> Works on minimal systems where Python or Perl might not be installed. Note the -i flag forces the terminal to be interactive.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>perl -e &#39;exec &#34;/bin/sh&#34;;&#39;
+</span></span></code></pre></div><p><strong>When to use it:</strong> When Python isn’t available, but Perl is. This takes advantage of Perl’s exec function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>:!bash
+</span></span></code></pre></div><p><strong>When to use it:</strong> If you can edit files on the system and Vim is installed. This is often used in “local shell escape” scenarios.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>SHELL=/bin/bash script -q /dev/null
+</span></span></code></pre></div><p><strong>When to use it:</strong> This command is very reliable if <code>script</code> is installed. <code>Script</code> spawns a fully interactive shell session, which fixes TTY issues</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>stty raw -echo &amp;&amp; fg
+</span></span></code></pre></div><p><strong>When to use it:</strong> This resets your terminal to raw mode and resumes the background shell. You should use it when your shell has been suspended with Ctrl + Z.</p>
 <h2 id="cheatsheet">Cheatsheet</h2>
 <p><strong>Start by checking available interpreters:</strong></p>
-<p><code>which python3 python perl bash sh</code></p>
-<p><strong>Fix terminal controls after an upgrade:</strong></p>
-<p><code>Ctrl+Z</code></p>
-<p><code>stty raw -echo</code></p>
-<p><code>fg</code></p>
-<p><code>reset</code></p>
-<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>which python3 python perl bash sh
+</span></span></code></pre></div><p><strong>Fix terminal controls after an upgrade:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Ctrl+Z
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>stty raw -echo
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>fg
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>reset
+</span></span></code></pre></div><blockquote>
 <p><strong>Tip:</strong> Try Ctrl + C, Ctrl + Z, and Tab completion to make sure the shell is fully interactive.</p></blockquote>
 
             </div>
@@ -176,7 +177,10 @@ Often when uploading a reverse shell on a webserver we are dealing with non-inte
                 
 
                 
-                <div></div>
+                <div class="nav-next">
+                    <span class="nav-label">Next →</span>
+                    <a href="http://localhost:1313/posts/crypto-cheatsheet/" class="nav-title">Crypto Cheatsheet for CTFs</a>
+                </div>
                 
             </nav>
         </article>
@@ -196,6 +200,6 @@ Often when uploading a reverse shell on a webserver we are dealing with non-inte
 
     
 
-    <script src="http://localhost:1313/js/main.js"></script>
+    <script src="http://localhost:1313/js/main.min.js"></script>
 </body>
 </html>
