@@ -2,7 +2,6 @@
 title: "Whoami"
 subtitle: "简短介绍 - Краткий обзор - A brief overview"
 date: 2025-08-26
-tags: ["hello-world"]
 featured: true
 draft: false
 ---
