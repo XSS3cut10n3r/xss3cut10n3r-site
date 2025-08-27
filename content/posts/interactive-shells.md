@@ -18,29 +18,43 @@ python -c 'import pty; pty.spawn("/bin/sh")'
 
 **When to use it:** Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.
 
-```bash
+```terminal
 echo 'os.system('/bin/bash')'
 ```
 
 **When to use it:** When you can inject Python code but can’t directly execute shell commands.
 
-```/bin/sh -i``` or ```/bin/bash -i```
+```terminal
+/bin/sh -i
+```
+**or** 
+```terminal
+/bin/bash -i
+```
 
 **When to use it:** Works on minimal systems where Python or Perl might not be installed. Note the -i flag forces the terminal to be interactive.
 
-```perl -e 'exec "/bin/sh";'```
+```terminal
+perl -e 'exec "/bin/sh";'
+```
 
 **When to use it:** When Python isn’t available, but Perl is. This takes advantage of Perl’s exec function.
 
-```:!bash```
+```vim/vi
+:!bash
+```
 
 **When to use it:** If you can edit files on the system and Vim is installed. This is often used in “local shell escape” scenarios.
 
-```SHELL=/bin/bash script -q /dev/null```
+```terminal
+SHELL=/bin/bash script -q /dev/null
+```
 
 **When to use it:** This command is very reliable if `script` is installed. `Script` spawns a fully interactive shell session, which fixes TTY issues
 
-```stty raw -echo && fg```
+```bash
+stty raw -echo && fg
+```
 
 **When to use it:** This resets your terminal to raw mode and resumes the background shell. You should use it when your shell has been suspended with Ctrl + Z.
 
@@ -50,7 +64,9 @@ echo 'os.system('/bin/bash')'
 
 **Start by checking available interpreters:**
 
-```which python3 python perl bash sh```
+```terminal
+which python3 python perl bash sh
+```
 
 **Fix terminal controls after an upgrade:**
 
