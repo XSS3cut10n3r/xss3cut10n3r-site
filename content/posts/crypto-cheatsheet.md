@@ -10,6 +10,26 @@ Cryptography challenges are one of the most common categories in Capture the Fla
 
 ---
 
+## Common CTF Crypto Patterns
+
+- Flags often follow formats like `CTF{...}`, which can help in known-plaintext scenarios.  
+- Key reuse across ciphertexts can allow XOR analysis.  
+- Small RSA exponents (`e = 3`) can lead to direct root extraction if the plaintext is small.  
+- Small primes allow for easy factorization of RSA moduli.  
+- Padding issues in AES frequently lead to oracle-style attacks.  
+- Images encrypted with ECB will show visible repeated patterns.
+
+---
+
+## Tools
+
+- [CyberChef](https://gchq.github.io/CyberChef/) - versatile tool for conversions, encodings, and ciphers.  
+- [CacheSleuth MultiDecoder](https://www.cachesleuth.com/multidecoder/) - automated format and cipher detection. Easily my favorite tool.  
+- [dCode](https://www.dcode.fr/en) - classical cipher solvers and crypto utilities.  
+- [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool) - specialized RSA attack tool.  
+
+---
+
 ## Core Algorithms
 
 ### RSA
@@ -129,26 +149,6 @@ key       = b"thisisasecretkey"   # 16 bytes (AES-128)
 cipher    = aes_encrypt_block(plaintext, key)
 print(cipher.hex())
 ```
-
----
-
-## Common CTF Crypto Patterns
-
-- Flags often follow formats like `CTF{...}`, which can help in known-plaintext scenarios.  
-- Key reuse across ciphertexts can allow XOR analysis.  
-- Small RSA exponents (`e = 3`) can lead to direct root extraction if the plaintext is small.  
-- Small primes allow for easy factorization of RSA moduli.  
-- Padding issues in AES frequently lead to oracle-style attacks.  
-- Images encrypted with ECB will show visible repeated patterns.
-
----
-
-## Tools
-
-- [CyberChef](https://gchq.github.io/CyberChef/) - versatile tool for conversions, encodings, and ciphers.  
-- [CacheSleuth MultiDecoder](https://www.cachesleuth.com/multidecoder/) - automated format and cipher detection. Easily my favorite tool.  
-- [dCode](https://www.dcode.fr/en) - classical cipher solvers and crypto utilities.  
-- [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool) - specialized RSA attack tool.  
 
 ---
 
