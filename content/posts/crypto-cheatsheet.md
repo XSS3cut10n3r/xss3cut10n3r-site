@@ -6,7 +6,6 @@ tags: ["crypto", "cheatsheet", "ctf"]
 featured: false
 draft: false
 ---
-
 Cryptography challenges are one of the most common categories in Capture the Flag (CTF) competitions. This guide provides a focused overview of essential algorithms, how to recognize them, common weaknesses exploited in CTFs, and practical resources for practice.
 
 ---

@@ -6,20 +6,21 @@ tags: ["linux", "cheatsheet", "privesc"]
 featured: false
 draft: false
 ---
-
-# Gaining Interactive Shells
-
 Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn't prompt us for user input or display output in real-time in a traditional terminal window. 
 
 The biggest problem with a non-interactive shell is that you can't run `su` or `sudo`.
 
 **Useful ways to upgrade your shell to an interactive one:**
 
-```python -c 'import pty; pty.spawn("/bin/sh")'```
+```python 
+python -c 'import pty; pty.spawn("/bin/sh")'
+```
 
 **When to use it:** Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.
 
-```echo 'os.system('/bin/bash')'```
+```bash
+echo 'os.system('/bin/bash')'
+```
 
 **When to use it:** When you can inject Python code but can’t directly execute shell commands.
 
