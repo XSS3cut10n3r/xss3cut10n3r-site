@@ -34,5 +34,11 @@ title = "XSS3cut10n3r"
   unsafe = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "pages"]
   section = ["HTML", "RSS", "JSON"]
+
+[outputFormats.pages]
+  mediaType = "application/json"
+  baseName = "pages"
+  isPlainText = true
+  notAlternative = true
