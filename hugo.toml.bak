@@ -3,10 +3,9 @@ theme = "loficode"
 title = "XSS3cut10n3r"
 
 [params]
-  description = "Tomi Bodwell Mamic - Cybersecurity student specializing in penetration testing, cryptography, and web application security."
+  description = "Your site description"
   tagline = "Don’t tell people your plans.  \nShow them your results."
   headerText = "XSS3cut10n3r"
-  keywords = ["Tomi Bodwell Mamic", "Tomislav Bodwell Mamic", "cybersecurity", "penetration testing", "cryptography", "web application security", "incident response", "digital forensics", "NSA Codebreaker", "National Cyber League", "CTF", "exploit development", "security engineering"]
 
 [params.author]
   name = "XSS3cut10n3r"
@@ -15,7 +14,6 @@ title = "XSS3cut10n3r"
 [params.social]
   email = "contact@xss3cut10n3r.me"
   github = "https://github.com/xss3cut10n3r"
-  linkedin = "https://linkedin.com/in/tomibodwellmamic"
 
 [[menu.main]]
   name = "Tags"
