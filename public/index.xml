@@ -6,8 +6,15 @@
     <description>Recent content on XSS3cut10n3r</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hire Me</title>
+      <link>http://localhost:1313/hireme/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/hireme/</guid>
+      <description>&lt;p&gt;Hey! I&amp;rsquo;m Tomi, a cybersecurity student looking for opportunities in the field.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-ive-been-up-to&#34;&gt;What I&amp;rsquo;ve Been Up To&lt;/h3&gt;&#xA;&lt;p&gt;I&amp;rsquo;m currently pursuing my Bachelor&amp;rsquo;s in Applied Cybersecurity at the SANS Technology Institute. I&amp;rsquo;ve been lucky enough to do well in some competitions and pick up some practical skills along the way.&lt;/p&gt;&#xA;&lt;h3 id=&#34;recent-projects--competitions&#34;&gt;Recent Projects &amp;amp; Competitions&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;NSA Codebreaker Challenge 2025&lt;/strong&gt;: Completed all 7 tasks, working through Android exploitation and reverse engineering&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;National Cyber League Spring 2025&lt;/strong&gt;: Placed 13th individually out of 8,575 participants&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Fireplace&lt;/strong&gt;: Building an open-source chat app with Flutter and working on implementing end-to-end encryption&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;skills--experience&#34;&gt;Skills &amp;amp; Experience&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Certifications&lt;/strong&gt;: GIAC Security Essentials (GSEC) and Foundational Cybersecurity Technologies (GFACT)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Languages&lt;/strong&gt;: Python, C, Bash, SQL, PowerShell, Assembly&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Areas of interest&lt;/strong&gt;: Penetration testing, web app security, cryptography, incident response&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve also spent time managing a team of 60+ residents as a Labor Operations Manager, which taught me a lot about communication and working with people from different backgrounds.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Crypto Cheatsheet for CTFs</title>
       <link>http://localhost:1313/posts/crypto-cheatsheet/</link>
