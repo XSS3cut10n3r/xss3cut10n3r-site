@@ -27,3 +27,6 @@ title = "XSS3cut10n3r"
   [menu.main.params]
     target = "_blank"
     rel = "noopener noreferrer"
+
+[markup.goldmark.renderer]
+  unsafe = true

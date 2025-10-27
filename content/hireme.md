@@ -4,7 +4,10 @@ date: 2025-10-27
 draft: false
 ---
 
-Hey! I'm Tomi, a cybersecurity student looking for opportunities in the field.
+<div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+  <img src="/images/tomi.jpg" alt="Tomi Bodwell Mamic" style="border-radius: 15px; width: 250px; height: 250px; object-fit: cover; flex-shrink: 0;">
+  <h1 style="margin: 0; font-size: 2.5rem;">Hey! I'm Tomi, a cybersecurity student looking for opportunities in the field.</h1>
+</div>
 
 ### What I've Been Up To
 
@@ -28,7 +31,10 @@ I'm interested in entry-level or internship positions in cybersecurity, particul
 
 ---
 
+<br>
+
 **[Download My Resume](/files/BodwellMamicResume.pdf)**
+
 
 **Get in touch:**
 - Email: Bodwell@utexas.edu
