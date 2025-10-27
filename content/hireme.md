@@ -11,7 +11,7 @@ draft: false
 
 ### What I've Been Up To
 
-I'm currently pursuing my Bachelor's in Applied Cybersecurity at the SANS Technology Institute. I've been lucky enough to do well in some competitions and pick up some practical skills along the way.
+I'm currently pursuing my **Bachelor's in Applied Cybersecurity** at the **SANS Technology Institute**. I've been lucky enough to do well in some competitions and pick up some practical skills along the way.
 
 ### Recent Projects & Competitions
 - **NSA Codebreaker Challenge 2025**: Completed all 7 tasks, working through Android exploitation and reverse engineering
