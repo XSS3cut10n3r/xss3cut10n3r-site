@@ -30,3 +30,7 @@ title = "XSS3cut10n3r"
 
 [markup.goldmark.renderer]
   unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
