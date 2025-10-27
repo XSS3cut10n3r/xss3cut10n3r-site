@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on XSS3cut10n3r</title>
-    <link>http://localhost:1313/tags/linux/</link>
+    <link>https://xss3cut10n3r.me/tags/linux/</link>
     <description>Recent content in Linux on XSS3cut10n3r</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 26 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xss3cut10n3r.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gaining Interactive Shells</title>
-      <link>http://localhost:1313/posts/interactive-shells/</link>
+      <link>https://xss3cut10n3r.me/posts/interactive-shells/</link>
       <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/interactive-shells/</guid>
+      <guid>https://xss3cut10n3r.me/posts/interactive-shells/</guid>
       <description>&lt;p&gt;Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&amp;rsquo;t prompt us for user input or display output in real-time in a traditional terminal window.&lt;/p&gt;&#xA;&lt;p&gt;The biggest problem with a non-interactive shell is that you can&amp;rsquo;t run &lt;code&gt;su&lt;/code&gt; or &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Useful ways to upgrade your shell to an interactive one:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;import pty; pty.spawn(&amp;#34;/bin/sh&amp;#34;)&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;When to use it:&lt;/strong&gt; Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.&lt;/p&gt;</description>
     </item>
   </channel>

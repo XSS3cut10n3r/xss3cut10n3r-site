@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>XSS3cut10n3r</title>
-    <link>http://localhost:1313/</link>
+    <link>https://xss3cut10n3r.me/</link>
     <description>Recent content on XSS3cut10n3r</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 27 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xss3cut10n3r.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hire Me</title>
-      <link>http://localhost:1313/hireme/</link>
+      <link>https://xss3cut10n3r.me/hireme/</link>
       <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/hireme/</guid>
-      <description>&lt;div style=&#34;display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;&#34;&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/images/tomi.jpg&#34; alt=&#34;Tomi Bodwell Mamic&#34; style=&#34;border-radius: 15px; width: 250px; height: 250px; object-fit: cover; flex-shrink: 0;&#34;&gt;&#xA;  &lt;h1 style=&#34;margin: 0; font-size: 2.5rem;&#34;&gt;Hey! I&#39;m Tomi, a cybersecurity student looking for opportunities in the field.&lt;/h1&gt;&#xA;&lt;/div&gt;&#xA;&lt;h3 id=&#34;what-ive-been-up-to&#34;&gt;What I&amp;rsquo;ve Been Up To&lt;/h3&gt;&#xA;&lt;p&gt;I&amp;rsquo;m currently pursuing my Bachelor&amp;rsquo;s in Applied Cybersecurity at the SANS Technology Institute. I&amp;rsquo;ve been lucky enough to do well in some competitions and pick up some practical skills along the way.&lt;/p&gt;</description>
+      <guid>https://xss3cut10n3r.me/hireme/</guid>
+      <description>&lt;div style=&#34;display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;&#34;&gt;&#xA;  &lt;img src=&#34;https://xss3cut10n3r.me/images/tomi.jpg&#34; alt=&#34;Tomi Bodwell Mamic&#34; style=&#34;border-radius: 15px; width: 250px; height: 250px; object-fit: cover; flex-shrink: 0;&#34;&gt;&#xA;  &lt;h1 style=&#34;margin: 0; font-size: 2.5rem;&#34;&gt;Hey! I&#39;m Tomi, a cybersecurity student looking for opportunities in the field.&lt;/h1&gt;&#xA;&lt;/div&gt;&#xA;&lt;h3 id=&#34;what-ive-been-up-to&#34;&gt;What I&amp;rsquo;ve Been Up To&lt;/h3&gt;&#xA;&lt;p&gt;I&amp;rsquo;m currently pursuing my Bachelor&amp;rsquo;s in Applied Cybersecurity at the SANS Technology Institute. I&amp;rsquo;ve been lucky enough to do well in some competitions and pick up some practical skills along the way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crypto Cheatsheet for CTFs</title>
-      <link>http://localhost:1313/posts/crypto-cheatsheet/</link>
+      <link>https://xss3cut10n3r.me/posts/crypto-cheatsheet/</link>
       <pubDate>Wed, 27 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/crypto-cheatsheet/</guid>
+      <guid>https://xss3cut10n3r.me/posts/crypto-cheatsheet/</guid>
       <description>&lt;p&gt;Cryptography challenges are one of the most common categories in Capture the Flag (CTF) competitions. This guide provides a focused overview of essential algorithms, how to recognize them, common weaknesses exploited in CTFs, and practical resources for practice.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;common-ctf-crypto-patterns&#34;&gt;Common CTF Crypto Patterns&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Flags often follow formats like &lt;code&gt;CTF{...}&lt;/code&gt;, which can help in known-plaintext scenarios.&lt;/li&gt;&#xA;&lt;li&gt;Key reuse across ciphertexts can allow XOR analysis.&lt;/li&gt;&#xA;&lt;li&gt;Small RSA exponents (&lt;code&gt;e = 3&lt;/code&gt;) can lead to direct root extraction if the plaintext is small.&lt;/li&gt;&#xA;&lt;li&gt;Small primes allow for easy factorization of RSA moduli.&lt;/li&gt;&#xA;&lt;li&gt;Padding issues in AES frequently lead to oracle-style attacks.&lt;/li&gt;&#xA;&lt;li&gt;Images encrypted with ECB will show visible repeated patterns.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gchq.github.io/CyberChef/&#34;&gt;CyberChef&lt;/a&gt; - versatile tool for conversions, encodings, and ciphers.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.cachesleuth.com/multidecoder/&#34;&gt;CacheSleuth MultiDecoder&lt;/a&gt; - automated format and cipher detection. Easily my favorite tool.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.dcode.fr/en&#34;&gt;dCode&lt;/a&gt; - classical cipher solvers and crypto utilities.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/RsaCtfTool/RsaCtfTool&#34;&gt;RsaCtfTool&lt;/a&gt; - specialized RSA attack tool.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;core-algorithms&#34;&gt;Core Algorithms&lt;/h2&gt;&#xA;&lt;h3 id=&#34;rsa&#34;&gt;RSA&lt;/h3&gt;&#xA;&lt;p&gt;RSA is an asymmetric encryption algorithm based on modular arithmetic with large primes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gaining Interactive Shells</title>
-      <link>http://localhost:1313/posts/interactive-shells/</link>
+      <link>https://xss3cut10n3r.me/posts/interactive-shells/</link>
       <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/interactive-shells/</guid>
+      <guid>https://xss3cut10n3r.me/posts/interactive-shells/</guid>
       <description>&lt;p&gt;Often when uploading a reverse shell on a webserver we are dealing with non-interactive shell. This means it doesn&amp;rsquo;t prompt us for user input or display output in real-time in a traditional terminal window.&lt;/p&gt;&#xA;&lt;p&gt;The biggest problem with a non-interactive shell is that you can&amp;rsquo;t run &lt;code&gt;su&lt;/code&gt; or &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Useful ways to upgrade your shell to an interactive one:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;import pty; pty.spawn(&amp;#34;/bin/sh&amp;#34;)&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;When to use it:&lt;/strong&gt; Almost always the first go-to if Python is available on the target. After spawning, run Ctrl-Z and then stty raw -echo; fg on your local terminal to fully fix arrow keys and job control.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Whoami</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>https://xss3cut10n3r.me/posts/my-first-post/</link>
       <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      <guid>https://xss3cut10n3r.me/posts/my-first-post/</guid>
       <description>&lt;h3 id=&#34;中國人&#34;&gt;中國人&lt;/h3&gt;&#xA;&lt;p&gt;你好！我是一名对网络安全充满热情的人，尤其对渗透测试和道德黑客很感兴趣。我计划在这里记录自己的学习过程，分享在安全、技术和实践方面的心得与体会。希望这个网站能成为我整理经验、总结知识的地方，同时与大家一起在这个领域不断成长。&lt;/p&gt;&#xA;&lt;h3 id=&#34;русский&#34;&gt;Русский&lt;/h3&gt;&#xA;&lt;p&gt;Привет! Я человек, увлеченный кибербезопасностью, особенно меня интересуют тестирование на проникновение и этичный хакеринг. Я планирую здесь документировать свой процесс обучения и делиться своими знаниями и наблюдениями в области безопасности, технологий и лучших практик. Надеюсь, что этот сайт станет для меня местом, где можно систематизировать опыт, аккумулировать знания и расти в этой области вместе с другими.&lt;/p&gt;&#xA;&lt;h3 id=&#34;english&#34;&gt;English&lt;/h3&gt;&#xA;&lt;p&gt;Hello! I’m an individual with a strong interest in cybersecurity. I’m particularly drawn to penetration testing and ethical hacking, and I plan to document my learning journey here. My goal is to explore and share knowledge about security, techniques, and best practices, all in a safe and responsible manner. This website will serve as a place to catalog insights, experiences, and resources as I continue to grow in this field.&lt;/p&gt;</description>
     </item>
   </channel>
