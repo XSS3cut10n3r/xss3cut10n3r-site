@@ -29,7 +29,8 @@
         {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
       </nav>
     </article>
-    {{ if .Fragments.Headings }}<aside class="reading-contents"><nav aria-label="Table of contents"><p>ON THIS PAGE</p>{{ $toc | safeHTML }}</nav></aside>{{ end }}
+    {{/* The theme's main.js fills #toc-content from the headings and highlights the current section on scroll. */}}
+    {{ if .Fragments.Headings }}<aside class="reading-contents"><nav class="toc" aria-label="Table of contents"><h4>On this page</h4><div id="toc-content"></div></nav></aside>{{ end }}
   </div>
 </div>
 <dialog class="image-viewer" aria-label="Enlarged image"><img alt=""></dialog>

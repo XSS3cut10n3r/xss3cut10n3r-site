@@ -394,6 +394,7 @@
       }
 
       const li = document.createElement("li");
+      if (heading.tagName === "H3") li.className = "toc-sub";
       const a = document.createElement("a");
       a.href = `#${heading.id}`;
       a.textContent = heading.textContent;
