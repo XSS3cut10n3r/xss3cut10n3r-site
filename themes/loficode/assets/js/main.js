@@ -118,6 +118,13 @@
   let chillIndex = 0;
   const chillSrc = (i) => `/audio/chill/part${String(i).padStart(2, "0")}.mp3`;
 
+  // Each part gets a display name. Styles rotate so consecutive songs differ:
+  // part00 Synthwave Mix No. 1, part01 Vaporwave Mix No. 1, ... part06 Synthwave Mix No. 2.
+  const CHILL_STYLES = ["Synthwave", "Vaporwave", "Cyberpunk", "Chillwave", "Retrowave", "Dreamwave"];
+  const chillTitle = (i) =>
+    `${CHILL_STYLES[i % CHILL_STYLES.length]} Mix No. ${Math.floor(i / CHILL_STYLES.length) + 1}`;
+  const soundName = (type) => (type === "chill" ? chillTitle(chillIndex) : sounds[type].name);
+
   // Visitors who stop the music are not auto-started again on later visits.
   const AUTOSTART_KEY = "ambient-autostart";
   function setAutostart(on) {
@@ -147,7 +154,7 @@
       }
       muteToggle.title = "Mute ambient sounds";
       equalizer.classList.remove("muted");
-      ambientLabel.textContent = `Playing: ${sounds[currentSound].name}`;
+      ambientLabel.textContent = `Now Playing: ${soundName(currentSound)}`;
     } else {
       muteToggle.classList.add("muted");
       if (muteIcon) {
@@ -156,7 +163,7 @@
       muteToggle.title = "Play ambient sounds";
       equalizer.classList.add("muted");
       if (currentSound) {
-        ambientLabel.textContent = `Paused: ${sounds[currentSound].name}`;
+        ambientLabel.textContent = `Paused: ${soundName(currentSound)}`;
       } else {
         ambientLabel.textContent = "Click to start ambient sounds";
       }
@@ -178,6 +185,7 @@
           chillIndex = (chillIndex + 1) % CHILL_PARTS;
           audio.src = chillSrc(chillIndex);
           audio.play().catch(() => {});
+          updateAmbientState();
         });
       }
       audio.volume = volumeSlider ? volumeSlider.value : 0.3;
@@ -338,6 +346,7 @@
       chillIndex = next;
       audio.src = chillSrc(chillIndex);
       audio.play().catch(() => {});
+      updateAmbientState();
     });
   }
 
