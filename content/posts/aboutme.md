@@ -1,6 +1,8 @@
 ---
 title: "About Me"
-subtitle: "Offensive security, cryptography, and the work I'm proud of"
+seoTitle: "Tomi Bodwell Mamic (XSS3cut10n3r)"
+subtitle: "About me: offensive security, cryptography, and the work I'm proud of"
+description: "About Tomi Bodwell Mamic, also known as XSS3cut10n3r: penetration tester, SANS Applied Cybersecurity student, CTF competitor, and security researcher."
 date: 2025-10-27
 lastmod: 2026-10-03
 draft: false
@@ -15,7 +17,7 @@ aliases: ["/posts/hireme/", "/aboutme/", "/hireme/"]
   <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hi, I'm Tomi, a penetration testing intern at LRQA and an Applied Cybersecurity student.</h1>
 </div>
 
-I focus on offensive security: penetration testing, cryptography, and digital and memory forensics. Most of this site is me working through hard challenges and writing up exactly how I solved them.
+I'm Tomislav Bodwell Mamic, usually Tomi and known online as XSS3cut10n3r. I focus on offensive security: penetration testing, cryptography, and digital and memory forensics. Most of this site is me working through hard challenges and writing up exactly how I solved them.
 
 ### What I'm Working On at LRQA
 

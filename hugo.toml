@@ -4,13 +4,16 @@ theme = "loficode"
 title = "XSS3cut10n3r"
 
 [params]
-  description = "Tomi Bodwell Mamic - Cybersecurity student specializing in penetration testing, cryptography, and web application security."
+  description = "Cybersecurity blog and portfolio of Tomislav “Tomi” Bodwell Mamic (XSS3cut10n3r), covering penetration testing, cryptography, forensics, CTFs, and research."
+  seoTitle = "Tomi Bodwell Mamic | XSS3cut10n3r Cybersecurity"
   tagline = "Don’t tell people your plans.  \nShow them your results."
   headerText = "XSS3cut10n3r"
   keywords = ["Tomi Bodwell Mamic", "Tomislav Bodwell Mamic", "cybersecurity", "penetration testing", "cryptography", "web application security", "incident response", "digital forensics", "NSA Codebreaker", "National Cyber League", "CTF", "exploit development", "security engineering"]
 
 [params.author]
-  name = "XSS3cut10n3r"
+  name = "Tomi Bodwell Mamic"
+  fullName = "Tomislav Bodwell Mamic"
+  username = "XSS3cut10n3r"
   image = "/images/profile.png"
 
 [params.social]

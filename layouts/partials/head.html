@@ -1,12 +1,31 @@
+{{- $description := .Site.Params.description -}}
+{{- with .Description -}}
+  {{- $description = . | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- else -}}
+  {{- if not .IsHome -}}
+    {{- $description = .Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 160 -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq $description "" -}}
+  {{- if eq .Kind "term" -}}
+    {{- $description = printf "Cybersecurity articles tagged %s by Tomi Bodwell Mamic (XSS3cut10n3r)." .Title -}}
+  {{- else if eq .Section "posts" -}}
+    {{- $description = "Cybersecurity articles by Tomi Bodwell Mamic (XSS3cut10n3r) on penetration testing, CTFs, cryptography, forensics, and security research." -}}
+  {{- else -}}
+    {{- $description = printf "Browse %s on the cybersecurity blog of Tomi Bodwell Mamic (XSS3cut10n3r)." .Title -}}
+  {{- end -}}
+{{- end -}}
+{{- $pageTitle := printf "%s | %s" .Title .Site.Title -}}
+{{- with .Params.seoTitle }}{{ $pageTitle = printf "%s | %s" . $.Site.Title }}{{ end -}}
+{{- if .IsHome }}{{ $pageTitle = .Site.Params.seoTitle }}{{ end -}}
+{{- $image := "/images/tomi.jpg" | absURL -}}
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>
- 🇽 {{ if .IsHome }}
-   {{ .Site.Title }}
- {{ else }}
-   {{ .Title }} - {{ .Site.Title }}
- {{ end }}
-</title>
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $description }}" />
+<meta name="author" content="Tomi Bodwell Mamic" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<link rel="canonical" href="{{ .Permalink }}" />
 <script>
  // Force dark mode for first-time visitors
  if (!localStorage.getItem('theme')) {
@@ -28,36 +47,34 @@
    new MutationObserver(setThemeColor).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
  })();
 </script>
-<!-- Meta Description -->
-{{ if .Description }}
-<meta name="description" content="{{ .Description }}" />
-{{ else if .IsHome }}
-<meta name="description" content="{{ .Site.Params.description }}" />
-{{ else }}
-<meta name="description" content="{{ .Summary | truncate 160 }}" />
-{{ end }}
-
 <!-- Open Graph -->
 <meta
  property="og:title"
- content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+ content="{{ $pageTitle }}" />
 <meta
  property="og:description"
- content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}" />
+ content="{{ $description }}" />
 <meta
  property="og:type"
  content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:image:alt" content="Tomi Bodwell Mamic, known online as XSS3cut10n3r" />
+{{ if .IsPage }}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />{{ end }}
+{{ if .IsPage }}<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />{{ end }}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta
  name="twitter:title"
- content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+ content="{{ $pageTitle }}" />
 <meta
  name="twitter:description"
- content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}" />
+ content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+<meta name="twitter:image:alt" content="Tomi Bodwell Mamic, known online as XSS3cut10n3r" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -82,25 +99,71 @@
  href="{{ .Permalink | safeURL }}" />
 {{ end -}}
 
-<!-- Structured Data for SEO -->
+<!-- Structured data connects the real name, username, site, profile and articles as one entity. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Tomislav Bodwell Mamic",
-  "alternateName": "Tomi Bodwell Mamic",
-  "url": "https://xss3cut10n3r.com",
-  "image": "https://xss3cut10n3r.com/images/tomi.jpg",
-  "jobTitle": "Cybersecurity Student",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "SANS Technology Institute"
-  },
-  "alumniOf": "University of Texas at Austin",
-  "knowsAbout": ["Penetration Testing", "Cryptography", "Web Application Security", "Incident Response", "Digital Forensics", "Exploit Development"],
-  "sameAs": [
-    "https://github.com/xss3cut10n3r",
-    "https://linkedin.com/in/tomibodwellmamic"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://xss3cut10n3r.com/#website",
+      "url": "https://xss3cut10n3r.com/",
+      "name": "XSS3cut10n3r",
+      "alternateName": ["Tomi Bodwell Mamic", "Tomislav Bodwell Mamic"],
+      "description": {{ .Site.Params.description | jsonify | safeJS }},
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "https://xss3cut10n3r.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://xss3cut10n3r.com/#person",
+      "name": "Tomi Bodwell Mamic",
+      "additionalName": "Tomislav Bodwell Mamic",
+      "alternateName": "XSS3cut10n3r",
+      "url": "https://xss3cut10n3r.com/",
+      "image": {{ $image | jsonify | safeJS }},
+      "jobTitle": "Associate Security Consultant Intern",
+      "worksFor": { "@type": "Organization", "name": "LRQA" },
+      "affiliation": { "@type": "CollegeOrUniversity", "name": "SANS Technology Institute" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "University of Texas at Austin" },
+        { "@type": "CollegeOrUniversity", "name": "Santa Monica College" }
+      ],
+      "knowsAbout": ["Penetration Testing", "Cryptography", "Web Application Security", "API Security", "Incident Response", "Digital Forensics", "Memory Forensics", "Exploit Development"],
+      "sameAs": [
+        "https://github.com/XSS3cut10n3r",
+        "https://linkedin.com/in/tomibodwellmamic",
+        "https://pwn.college/hacker/104499",
+        "https://www.iccf.com/player?id=900253"
+      ]
+    }{{ if eq .RelPermalink "/posts/aboutme/" }},
+    {
+      "@type": "ProfilePage",
+      "@id": {{ printf "%s#profile" .Permalink | jsonify | safeJS }},
+      "url": {{ .Permalink | jsonify | safeJS }},
+      "name": {{ $pageTitle | jsonify | safeJS }},
+      "description": {{ $description | jsonify | safeJS }},
+      "dateCreated": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+      "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+      "mainEntity": { "@id": "https://xss3cut10n3r.com/#person" },
+      "isPartOf": { "@id": "https://xss3cut10n3r.com/#website" },
+      "inLanguage": "en-GB"
+    }{{ else if and .IsPage (eq .Section "posts") }},
+    {
+      "@type": "BlogPosting",
+      "@id": {{ printf "%s#article" .Permalink | jsonify | safeJS }},
+      "url": {{ .Permalink | jsonify | safeJS }},
+      "headline": {{ .Title | jsonify | safeJS }},
+      "description": {{ $description | jsonify | safeJS }},
+      "image": {{ $image | jsonify | safeJS }},
+      "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+      "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify | safeJS }},
+      "author": { "@id": "https://xss3cut10n3r.com/#person" },
+      "publisher": { "@id": "https://xss3cut10n3r.com/#person" },
+      "mainEntityOfPage": {{ .Permalink | jsonify | safeJS }},
+      "isPartOf": { "@id": "https://xss3cut10n3r.com/#website" },
+      "inLanguage": "en-GB"
+    }{{ end }}
   ]
 }
 </script>
