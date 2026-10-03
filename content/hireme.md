@@ -13,6 +13,17 @@ draft: false
 
 ### What I'm Working On at LRQA
 
+<a class="role-card" href="https://www.lrqa.com/" target="_blank" rel="noopener noreferrer">
+  <span class="role-card-logo">
+    <img class="logo-on-light" src="/images/lrqa-logo.png" alt="LRQA" width="473" height="163">
+    <img class="logo-on-dark" src="/images/lrqa-logo-light.png" alt="LRQA" width="473" height="163">
+  </span>
+  <span class="role-card-text">
+    <span class="role-card-title">Associate Security Consultant</span>
+    <span class="role-card-meta">Birmingham, UK · AI-assisted penetration testing</span>
+  </span>
+</a>
+
 I'm currently working at **LRQA in Birmingham, UK**, as an **Associate Security Consultant**, with a focus on **implementing AI into penetration testing workflows**. My work includes developing vulnerability knowledge bases (VKBs) for local AI penetration testing tooling to help streamline testing automation.
 
 I also participate in **mobile, web application, API, and infrastructure penetration tests**, from the kick-off call through delivery. I'm interested in how AI can support the practical work of security consultants, alongside the technical judgment needed to assess findings.

@@ -117,3 +117,16 @@ body:has(.reading-shell) { background: #060907; color: #e6ece8; }
 .reading-contents-inline::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--btn-gradient); }
 .reading-contents-inline a { display: block; padding: .25rem .5rem; border-radius: 8px; color: var(--text-secondary); text-decoration: none; transition: all .3s ease; }
 .reading-contents-inline a:hover { color: var(--accent-primary); background: rgba(255, 0, 107, .1); transform: translateX(4px); }
+
+/* Employer card on the About Me page; shows the logo version that suits the current theme. */
+.reading-body .role-card { display: flex; align-items: center; gap: 22px; margin: 4px 0 28px; padding: 18px 22px; border: 1px solid var(--reading-line); border-radius: 12px; background: rgba(128, 160, 140, .06); text-decoration: none; color: inherit; transition: border-color .25s ease, transform .25s ease; }
+.reading-body .role-card:hover { border-color: #3cc2a6; transform: translateY(-2px); }
+.role-card-logo { flex: none; padding-right: 22px; border-right: 1px solid var(--reading-line); }
+.reading-body .role-card-logo img { width: 120px; height: auto; margin: 0; border-radius: 0; }
+.role-card-text { display: flex; flex-direction: column; gap: 4px; line-height: 1.4; }
+.role-card-title { font-weight: 600; font-size: 1.05rem; }
+.role-card-meta { font-size: .9rem; color: var(--reading-muted); }
+.reading-body .logo-on-dark { display: none; }
+[data-theme="dark"] .reading-body .logo-on-light { display: none; }
+[data-theme="dark"] .reading-body .logo-on-dark { display: block; }
+@media (max-width: 600px) { .reading-body .role-card { flex-direction: column; align-items: flex-start; gap: 14px; } .role-card-logo { padding: 0 0 14px; border-right: 0; border-bottom: 1px solid var(--reading-line); } }
