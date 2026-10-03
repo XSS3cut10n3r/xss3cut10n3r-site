@@ -9,8 +9,6 @@ tags: ["chess"]
 
 Most of this site is about cybersecurity. This post is about chess instead, which is where a lot of my spare time goes.
 
-<p class="chess-pieces">♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜</p>
-
 ### Correspondence chess
 
 I'm most invested in correspondence chess: the long-form version where a single game can run for weeks and you're free to analyse a position as deeply as you like. That depth is exactly what I love about it. Instead of guessing under a clock, you can actually get to the bottom of a position.
@@ -48,7 +46,5 @@ What I enjoy most is the chance to further chess theory: analysing complex posit
 ### Faster games
 
 When I want something quicker I also play bullet and blitz, where I've reached 2800 bullet on Chess.com and 2500+ blitz on Lichess.
-
-<p class="chess-pawns">♟ ♙ ♟ ♙ ♟ ♙ ♟ ♙</p>
 
 [← Back to About Me](/posts/aboutme/)
