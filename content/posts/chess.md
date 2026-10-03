@@ -1,19 +1,19 @@
 ---
 title: "Off the Clock: Chess"
-subtitle: "Correspondence chess, the research side, and a bit of bullet"
+subtitle: "Correspondence chess, deep analysis, and the community"
 date: "2026-10-02T18:00:00+01:00"
 draft: false
 featured: false
 tags: ["chess"]
 ---
 
-Most of this site is cybersecurity. This post is not. It's about the other thing I spend real time on: chess.
+Most of this site is about cybersecurity. This post is about chess instead, which is where a lot of my spare time goes.
 
 <p style="font-size: 1.7rem; letter-spacing: .6rem; text-align: center; margin: 1.75rem 0; background: linear-gradient(90deg, #0be052, #00e5ff, #ff35ff); -webkit-background-clip: text; background-clip: text; color: transparent;">♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜</p>
 
 ### Correspondence chess
 
-These days I'm most invested in **correspondence chess**, the slow, deeply analytical kind where a single game can run for weeks. You can consult your own analysis and databases, so games are decided less by clock pressure and more by who digs deeper. It rewards the same patience and methodical work that reverse engineering does, which is probably why it clicked for me.
+I'm most invested in **correspondence chess**: the long-form version where a single game can run for weeks and you're free to analyse a position as deeply as you like. That depth is exactly what I love about it. Instead of guessing under a clock, you can actually get to the bottom of a position.
 
 <a class="role-card" href="https://www.iccf.com/player?id=900253" target="_blank" rel="noopener noreferrer">
   <span class="role-card-logo" style="border-right-color: var(--reading-line);">
@@ -43,13 +43,17 @@ These days I'm most invested in **correspondence chess**, the slow, deeply analy
 
 I'm currently **rated 2403 on ICCF**, which puts me around **1010th in the world** for correspondence chess. If you play, [come find me](https://www.iccf.com/player?id=900253).
 
-### The research side
+### Analysis and theory
 
-The part I enjoy most is the research: poring over openings and endgames, testing ideas against engines and databases, and occasionally **contributing a small something back to chess theory and understanding**. It scratches the same itch as a good crypto or reverse-engineering problem, following a line patiently until the truth of the position falls out.
+The part I enjoy most is going deep: **analysing complex positions in detail** and **contributing to chess theory** where I can, testing ideas in openings and endgames and adding a little to the shared understanding of them.
 
-### Faster time controls
+### The community
 
-When I want something quicker, I play plenty of bullet and blitz. I've reached **2800 bullet on Chess.com** and **2500+ blitz on Lichess**. Different game entirely, pattern recognition and nerve instead of deep calculation, but a lot of fun.
+A lot of the appeal is the **correspondence chess community** itself: people who genuinely care about getting a position right and are happy to dig into it together. Being part of that is a big reason I keep coming back to the board.
+
+### Faster games
+
+When I want something quicker I also play bullet and blitz, where I've reached **2800 bullet on Chess.com** and **2500+ blitz on Lichess**.
 
 <p style="font-size: 1.7rem; letter-spacing: .6rem; text-align: center; margin: 2rem 0 0.5rem; background: linear-gradient(90deg, #ff35ff, #00e5ff, #0be052); -webkit-background-clip: text; background-clip: text; color: transparent;">♟ ♙ ♟ ♙ ♟ ♙ ♟ ♙</p>
 
