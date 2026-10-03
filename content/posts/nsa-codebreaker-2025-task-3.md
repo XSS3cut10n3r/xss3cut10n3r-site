@@ -1,7 +1,7 @@
 ---
 title: "NSA Codebreaker 2025 - Task 3: Digging Deeper"
 subtitle: "Moving from network evidence to a router memory image"
-date: 2025-10-04
+date: 2025-10-05
 draft: false
 featured: false
 tags: ["NSA Codebreaker 2025", "ctf", "reverse engineering"]
