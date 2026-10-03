@@ -25,7 +25,7 @@ title = "XSS3cut10n3r"
 
 [[menu.main]]
   name = "HTB"
-  url = "https://app.hackthebox.com/profile/2280564"
+  url = "https://app.hackthebox.com/users/2280564"
   weight = 3
   [menu.main.params]
     target = "_blank"
