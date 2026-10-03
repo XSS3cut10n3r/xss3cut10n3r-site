@@ -78,17 +78,11 @@
 <meta name="twitter:image:alt" content="Tomi Bodwell Mamic, known online as XSS3cut10n3r" />
 
 <!-- Minify and inline shared CSS so first paint has no stylesheet request chain. -->
-{{- if .IsHome -}}
-  {{- $homeCSS := resources.Get "css/home/critical.css" | minify -}}
-  {{- $ambientCSS := resources.Get "css/ambient-controls.css" | minify -}}
-  <style>{{ $homeCSS.Content | safeCSS }}{{ $ambientCSS.Content | safeCSS }}</style>
-{{- else -}}
-  {{- $baseCSS := resources.Get "css/style.css" | minify -}}
-  {{- $readingCSS := resources.Get "css/reading.css" | minify -}}
-  {{- $tagsCSS := resources.Get "css/tags.css" | minify -}}
-  {{- $ambientCSS := resources.Get "css/ambient-controls.css" | minify -}}
-  <style>{{ $baseCSS.Content | safeCSS }}{{ $readingCSS.Content | safeCSS }}{{ $tagsCSS.Content | safeCSS }}{{ $ambientCSS.Content | safeCSS }}</style>
-{{- end -}}
+{{- $baseCSS := resources.Get "css/style.css" | minify -}}
+{{- $readingCSS := resources.Get "css/reading.css" | minify -}}
+{{- $tagsCSS := resources.Get "css/tags.css" | minify -}}
+{{- $ambientCSS := resources.Get "css/ambient-controls.css" | minify -}}
+<style>{{ $baseCSS.Content | safeCSS }}{{ $readingCSS.Content | safeCSS }}{{ $tagsCSS.Content | safeCSS }}{{ $ambientCSS.Content | safeCSS }}</style>
 
 <!-- RSS -->
 {{ range .AlternativeOutputFormats -}}
