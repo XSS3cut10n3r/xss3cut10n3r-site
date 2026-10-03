@@ -1,2 +1,5 @@
 public/
 .hugo_build.lock
+
+# Full-length source of the chill mix (over GitHub's 100 MB limit); the site uses static/audio/chill/
+/Chill.mp3

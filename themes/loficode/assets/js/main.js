@@ -97,6 +97,7 @@
   const ambientLabel = document.querySelector(".ambient-label");
   const volumeSlider = document.querySelector(".volume-slider");
   const equalizer = document.querySelector(".equalizer");
+  const shuffleBtn = document.querySelector(".ambient-shuffle");
 
   let currentSound = null;
   let isPlaying = false;
@@ -107,9 +108,34 @@
     coffee: { name: "Coffee Shop Ambience", emoji: "☕" },
     rain: { name: "Gentle Rain", emoji: "🌧️" },
     fireplace: { name: "Crackling Fireplace", emoji: "🔥" },
+    chill: { name: "Chill Mix", emoji: "🎵" },
   };
 
+  // The chill mix is one long track cut losslessly into parts at the quiet gaps between songs
+  // (static/audio/chill/part00.mp3 ... part35.mp3). It plays the parts in order from the start,
+  // and shuffle jumps to the beginning of a random part.
+  const CHILL_PARTS = 36;
+  let chillIndex = 0;
+  const chillSrc = (i) => `/audio/chill/part${String(i).padStart(2, "0")}.mp3`;
+
+  // Visitors who stop the music are not auto-started again on later visits.
+  const AUTOSTART_KEY = "ambient-autostart";
+  function setAutostart(on) {
+    try {
+      if (on) localStorage.removeItem(AUTOSTART_KEY);
+      else localStorage.setItem(AUTOSTART_KEY, "off");
+    } catch (e) {}
+  }
+  function autostartAllowed() {
+    try {
+      return localStorage.getItem(AUTOSTART_KEY) !== "off";
+    } catch (e) {
+      return true;
+    }
+  }
+
   function updateAmbientState() {
+    if (shuffleBtn) shuffleBtn.hidden = !(isPlaying && currentSound === "chill");
     if (!muteToggle || !ambientLabel || !equalizer) return;
 
     const muteIcon = muteToggle.querySelector("i");
@@ -144,8 +170,16 @@
     }
 
     try {
-      const audio = new Audio(`/audio/${soundType}.mp3`);
-      audio.loop = true;
+      const isChill = soundType === "chill";
+      const audio = new Audio(isChill ? chillSrc(chillIndex) : `/audio/${soundType}.mp3`);
+      audio.loop = !isChill;
+      if (isChill) {
+        audio.addEventListener("ended", () => {
+          chillIndex = (chillIndex + 1) % CHILL_PARTS;
+          audio.src = chillSrc(chillIndex);
+          audio.play().catch(() => {});
+        });
+      }
       audio.volume = volumeSlider ? volumeSlider.value : 0.3;
 
       // Handle loading errors gracefully
@@ -187,16 +221,23 @@
 
   if (muteToggle) {
     muteToggle.addEventListener("click", async () => {
+      if (!currentSound) {
+        const chillIcon = document.querySelector('.ambient-icon[data-sound="chill"]');
+        if (chillIcon) chillIcon.click();
+        return;
+      }
       if (currentSound) {
         const audio = audioElements[currentSound];
         if (audio) {
           if (isPlaying) {
             audio.pause();
             isPlaying = false;
+            setAutostart(false);
           } else {
             try {
               await audio.play();
               isPlaying = true;
+              setAutostart(true);
             } catch (e) {
               console.log("Could not play audio:", e);
             }
@@ -236,6 +277,7 @@
         // If clicking the same sound that's playing, stop it
         currentSound = null;
         isPlaying = false;
+        setAutostart(false);
       } else {
         // Start new sound
         currentSound = soundType;
@@ -246,6 +288,7 @@
             await audio.play();
             isPlaying = true;
             icon.classList.add("active");
+            setAutostart(true);
           } else {
             // Audio file not available
             isPlaying = false;
@@ -283,6 +326,33 @@
         bar.style.opacity = Math.max(0.3, volume);
       });
     });
+  }
+
+  // Shuffle: jump to the start of a different random part of the chill mix.
+  if (shuffleBtn) {
+    shuffleBtn.addEventListener("click", () => {
+      const audio = audioElements.chill;
+      if (!audio || currentSound !== "chill") return;
+      let next = chillIndex;
+      while (next === chillIndex) next = Math.floor(Math.random() * CHILL_PARTS);
+      chillIndex = next;
+      audio.src = chillSrc(chillIndex);
+      audio.play().catch(() => {});
+    });
+  }
+
+  // Browsers only allow sound after the visitor interacts with the page, so the chill mix
+  // starts from the beginning on the first click or key press anywhere outside the sound bar.
+  const chillIcon = document.querySelector('.ambient-icon[data-sound="chill"]');
+  if (chillIcon && autostartAllowed()) {
+    const startChill = (e) => {
+      document.removeEventListener("click", startChill, true);
+      document.removeEventListener("keydown", startChill, true);
+      if (e.target.closest && e.target.closest(".ambient-bar")) return;
+      if (!currentSound) chillIcon.click();
+    };
+    document.addEventListener("click", startChill, true);
+    document.addEventListener("keydown", startChill, true);
   }
 
   // Initialize ambient state
