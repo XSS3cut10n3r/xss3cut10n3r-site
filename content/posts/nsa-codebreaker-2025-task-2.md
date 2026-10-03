@@ -65,15 +65,15 @@ Filtering for Transaction ID `0xc0c1` revealed three DNS responses to the same q
 
 - **Frame 538** from `192.168.2.254` → Returned legitimate Ubuntu mirror IPs (91.189.91.83, etc.)
 - **Frame 1703** from `192.168.1.254` → Returned legitimate Ubuntu mirror IPs (91.189.91.83, etc.)
-- **Frame 2028** from `192.168.3.254` → Returned **203.0.113.108**
+- **Frame 2028** from `192.168.3.254` → Returned 203.0.113.108
 
 <p align="center">
 <img src="/images/codebreaker-2025/poisoned_router.png" alt="Poisoned Router"/>
 </p>
 
-The IP address `203.0.113.108` immediately raised a red flag. The `203.0.113.0/24` subnet is part of TEST-NET-3, a reserved documentation range defined in RFC 5737 that should never appear in production traffic. This was clearly a **poisoned DNS response**.
+The IP address `203.0.113.108` immediately raised a red flag. The `203.0.113.0/24` subnet is part of TEST-NET-3, a reserved documentation range defined in RFC 5737 that should never appear in production traffic. This was clearly a poisoned DNS response.
 
-**Router 3 (192.168.3.254)** had intercepted the DNS query and responded with a malicious IP address, attempting to redirect the client to an attacker-controlled server. This is a classic DNS spoofing attack where a man-in-the-middle device races to answer DNS queries before the legitimate server.
+Router 3 (192.168.3.254) had intercepted the DNS query and responded with a malicious IP address, attempting to redirect the client to an attacker-controlled server. This is a classic DNS spoofing attack where a man-in-the-middle device races to answer DNS queries before the legitimate server.
 
 ### Extracting Router 3 Configuration
 

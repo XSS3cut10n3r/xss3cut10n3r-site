@@ -37,8 +37,8 @@ Back in Task 2 I flagged one TCP conversation between the infected host and an o
 
 Cross-referencing this with the `Comms` class in the Task 4 payload, the exchange is a handshake:
 
-1. The server sends an **RSA public key** in the clear.
-2. The client makes up two **AES keys**, encrypts them with that RSA public key, and sends them back. RSA here is just an envelope: only the server (which holds the matching private key) can open it, so the keys are hidden from anyone watching the wire.
+1. The server sends an RSA public key in the clear.
+2. The client makes up two AES keys, encrypts them with that RSA public key, and sends them back. RSA here is just an envelope: only the server (which holds the matching private key) can open it, so the keys are hidden from anyone watching the wire.
 3. The server replies `KEY_RECEIVED` in the clear.
 4. From here on both sides talk using those AES keys. There are four encrypted messages left, and the last ones are where the URL lives.
 
@@ -48,8 +48,8 @@ Every message, once decrypted, begins with the same `dec0dec0ffee` marker. Hold 
 
 If you already know AES you can skip this. If not, here is everything you need for this task:
 
-- **A symmetric cipher** like **AES** scrambles data with a secret number called a **key**. Whoever has the key can scramble (encrypt) and unscramble (decrypt). AES works on **16-byte chunks** called blocks.
-- The key is normally **128 bits**, a number between 0 and roughly 340 undecillion (`2^128`). You cannot guess it by trying every value: even at a billion billion guesses a second you would not finish before the sun burns out. That huge space of possibilities is the entire reason AES is safe.
+- **A symmetric cipher** like AES scrambles data with a secret number called a key. Whoever has the key can scramble (encrypt) and unscramble (decrypt). AES works on 16-byte chunks called blocks.
+- The key is normally 128 bits, a number between 0 and roughly 340 undecillion (`2^128`). You cannot guess it by trying every value: even at a billion billion guesses a second you would not finish before the sun burns out. That huge space of possibilities is the entire reason AES is safe.
 - **ECB mode** is the simplest way to use a block cipher: chop the message into 16-byte blocks and encrypt each one on its own. It is simple and, as we will see, leaky.
 - A **known-plaintext attack** is when you already know what some encrypted message *says*. If you know both the plaintext and its ciphertext, you can test a guessed key by encrypting the plaintext yourself and checking whether you get the matching ciphertext.
 
@@ -57,7 +57,7 @@ The malware's security rests entirely on that `2^128` number being too big to se
 
 ### Flaw 1: the keys are almost entirely zero
 
-Looking at `gen_key` in the payload, it starts out doing the right thing: it reads 32 bytes of real randomness from `/dev/random`. Then it throws nearly all of it away. After a chain of hashing, XORs and bit shifts, the net effect is that only the **low 26 bits** survive. The finished 16-byte key always looks like this:
+Looking at `gen_key` in the payload, it starts out doing the right thing: it reads 32 bytes of real randomness from `/dev/random`. Then it throws nearly all of it away. After a chain of hashing, XORs and bit shifts, the net effect is that only the low 26 bits survive. The finished 16-byte key always looks like this:
 
 ```text
 XX XX XX 0Y 00 00 00 00 00 00 00 00 00 00 00 00
@@ -65,13 +65,13 @@ XX XX XX 0Y 00 00 00 00 00 00 00 00 00 00 00 00
   26 bits that actually vary (0Y is only 0x00-0x03)
 ```
 
-In plain terms: instead of `2^128` possible keys, there are only `2^26`, which is about **67 million**. That is not a cryptographic key space, that is a number a laptop chews through in seconds. Both AES keys the malware generates have this same weakness.
+In plain terms: instead of `2^128` possible keys, there are only `2^26`, which is about 67 million. That is not a cryptographic key space, that is a number a laptop chews through in seconds. Both AES keys the malware generates have this same weakness.
 
 ### Flaw 2: ECB with no randomization leaks structure
 
-AES-ECB has a well-known property: **the same 16-byte input always encrypts to the same 16-byte output** under a given key. There is no IV (initialization vector), the random salt that normally makes two identical blocks encrypt differently. Here there is none, so identical plaintext blocks are visible as identical ciphertext blocks.
+AES-ECB has a well-known property: the same 16-byte input always encrypts to the same 16-byte output under a given key. There is no IV (initialization vector), the random salt that normally makes two identical blocks encrypt differently. Here there is none, so identical plaintext blocks are visible as identical ciphertext blocks.
 
-You can see it directly in the capture. The last 16 bytes of all four encrypted messages are **byte-for-byte identical**:
+You can see it directly in the capture. The last 16 bytes of all four encrypted messages are byte-for-byte identical:
 
 ```text
 msg4 tail: 409a5a9dafac6df2db0a970fb723a1bb
@@ -84,9 +84,9 @@ That repeated block is padding (explained next), and because ECB leaks it, it ha
 
 ### Flaw 3: double encryption that helps the attacker
 
-The author clearly worried that one layer of AES was not enough, so `send_message` encrypts every message **twice**, first with key 1, then the result again with key 2. The idea is "twice the encryption, twice the safety." It does not work that way when each key only has 26 bits, and it actually leaks a gift.
+The author clearly worried that one layer of AES was not enough, so `send_message` encrypts every message twice, first with key 1, then the result again with key 2. The idea is "twice the encryption, twice the safety." It does not work that way when each key only has 26 bits, and it actually leaks a gift.
 
-AES needs messages to be a whole number of 16-byte blocks, so it pads them out using a scheme called **PKCS#7**. A quirk of that scheme: if the data is *already* a multiple of 16 bytes, it adds a **whole extra block of all `0x10` bytes**. Because the message is encrypted twice, the second (key 2) layer adds its own padding block on top. That trailing block is therefore just the value `10 10 ... 10` encrypted with **key 2 alone**. That is the identical tail we saw above, and it is a known-plaintext pair for key 2 by itself.
+AES needs messages to be a whole number of 16-byte blocks, so it pads them out using a scheme called PKCS#7. A quirk of that scheme: if the data is *already* a multiple of 16 bytes, it adds a whole extra block of all `0x10` bytes. Because the message is encrypted twice, the second (key 2) layer adds its own padding block on top. That trailing block is therefore just the value `10 10 ... 10` encrypted with key 2 alone. That is the identical tail we saw above, and it is a known-plaintext pair for key 2 by itself.
 
 ### The cribs
 

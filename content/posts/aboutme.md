@@ -30,41 +30,42 @@ I focus on offensive security: penetration testing, cryptography, and digital an
   </span>
 </a>
 
-I'm an intern on the **Penetration Testing team at LRQA in Birmingham, UK**, where I'm helping the team **bring AI into its workflows**. My main project is building vulnerability knowledge bases (VKBs) for the team's local AI tooling, to make testing automation more reliable and less repetitive.
+I'm an intern on the Penetration Testing team at LRQA in Birmingham, UK, where I'm helping the team bring AI into its workflows. My main project is building vulnerability knowledge bases (VKBs) for the team's local AI tooling, to make testing automation more reliable and less repetitive.
 
-I also take part in **mobile, web application, API, and infrastructure penetration tests**, from the kick-off call through to delivery. I'm especially interested in where AI can genuinely assist a consultant, and where the technical judgment to assess a finding still has to come from a person.
+I also take part in mobile, web application, API, and infrastructure penetration tests, from the kick-off call through to delivery. I'm especially interested in where AI can genuinely assist a consultant, and where the technical judgment to assess a finding still has to come from a person.
 
 ### Education & Certifications
 
-I'm pursuing a **BSc in Applied Cybersecurity at the SANS Technology Institute**, expected in 2027, after studying at the **University of Texas at Austin** and **Santa Monica College**. My GIAC certifications are:
+I'm pursuing a BSc in Applied Cybersecurity at the SANS Technology Institute, expected in 2027, after studying at the University of Texas at Austin and Santa Monica College. My GIAC certifications are:
 
 - **GFACT** - Foundational Cybersecurity Technologies
 - **GSEC** - Security Essentials
 - **GCIH** - Certified Incident Handler
 - **GPYC** - Python Coder
 
-I'm currently working toward **GCFA** (Certified Forensic Analyst).
+I'm currently working toward GCFA (Certified Forensic Analyst).
 
 ### Projects & Competitions
 
-- **Fireplace** - an open-source chat app I'm building in **Flutter**, where I'm implementing end-to-end encryption.
-- **NSA Codebreaker Challenge** - I completed the full challenge in **2025** (one of 82 students to finish) and again in **2026** (the 12th student to finish). Most of the writeups on this site come from it.
-- **SANS Core NetWars 12 (Amsterdam, 2026)** - 2nd place, qualifying for the **SANS Tournament of Champions** in Washington, DC.
+- **Fireplace** - an open-source chat app I'm building in Flutter, where I'm implementing end-to-end encryption.
+- **NSA Codebreaker Challenge 2025** - completed the full challenge, one of 82 students to finish. Most of the writeups on this site come from it.
+- **NSA Codebreaker Challenge 2026** - completed the full challenge, the 12th student to finish.
+- **SANS Core NetWars 12 (Amsterdam, 2026)** - 2nd place, qualifying for the SANS Tournament of Champions in Washington, DC.
 - **National Cyber League** - Fall 2025: 2nd of 617 in the experienced individual bracket. Spring 2026: my team placed 1st of 170 in the experienced bracket. I cover the web application exploitation and cryptography categories.
 
 ### Skills & Tooling
 
-My focus areas are **penetration testing, cryptography, digital and memory forensics, threat detection, and incident response**. Day to day I work with **Python, PowerShell, and SQL**, and tools including **Nmap, Wireshark, Metasploit, Netcat, and SQLmap**, across Linux, Windows, Active Directory, containers, virtualization, and cloud environments.
+My focus areas are penetration testing, cryptography, digital and memory forensics, threat detection, and incident response. Day to day I work with Python, PowerShell, and SQL, and tools including Nmap, Wireshark, Metasploit, Netcat, and SQLmap, across Linux, Windows, Active Directory, containers, virtualization, and cloud environments.
 
 ### Outside Security
 
-A quick side note on the rest of me: I play a serious amount of **chess** ([more on that here](/posts/chess/)), have volunteered at a local **soup kitchen**, and have worked as a **lifeguard**.
+A quick side note on the rest of me: I play a serious amount of chess ([more on that here](/posts/chess/)), have volunteered at a local soup kitchen, and have worked as a lifeguard.
 
 ### Get in Touch
 
-I'm always glad to talk about **AI in penetration testing, security research, and secure application development**.
+I'm always glad to talk about AI in penetration testing, security research, and secure application development.
 
-**[Download my resume](/files/BodwellMamicResume.pdf)**
+[Download my resume](/files/BodwellMamicResume.pdf)
 
 - Email: [contact@xss3cut10n3r.com](mailto:contact@xss3cut10n3r.com)
 - GitHub: [github.com/XSS3cut10n3r](https://github.com/XSS3cut10n3r)

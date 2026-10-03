@@ -27,7 +27,7 @@ echo 'os.system('/bin/bash')'
 ```console
 /bin/sh -i
 ```
-**or** 
+or
 ```console
 /bin/bash -i
 ```
