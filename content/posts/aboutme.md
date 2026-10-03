@@ -1,6 +1,6 @@
 ---
-title: "About Me: Cybersecurity, LRQA & AI"
-subtitle: "My work, projects, and journey in cybersecurity"
+title: "About Me"
+subtitle: "Security work, chess, and the rest of what I get up to"
 date: 2025-10-27
 lastmod: 2026-10-03
 draft: false
@@ -12,10 +12,12 @@ aliases: ["/posts/hireme/", "/aboutme/", "/hireme/"]
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 2rem;">
   <img src="/images/tomi.jpg" alt="Tomi Bodwell Mamic" style="border-radius: 15px; width: 250px; max-width: 100%; height: 250px; object-fit: cover; flex-shrink: 0;">
-  <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hey! I'm Tomi, an Associate Security Consultant (Intern) at LRQA and an Applied Cybersecurity student.</h1>
+  <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hey, I'm Tomi. I break things for a living and push wood pawns for fun.</h1>
 </div>
 
-### What I'm Working On at LRQA
+I'm a cybersecurity student and a penetration testing intern. Most of this blog is me working through challenges and writing up what I learned. This page is the rest of me.
+
+### What I do at LRQA
 
 <a class="role-card" href="https://www.lrqa.com/" target="_blank" rel="noopener noreferrer">
   <span class="role-card-logo">
@@ -28,45 +30,64 @@ aliases: ["/posts/hireme/", "/aboutme/", "/hireme/"]
   </span>
 </a>
 
-I'm currently working at **LRQA in Birmingham, UK**, as an **Associate Security Consultant (Intern)** with the **Penetration Testing team**, helping the team **implement AI into its workflows**. My work includes developing vulnerability knowledge bases (VKBs) for the team's local AI tooling to help streamline testing automation.
+I'm an intern on the **Penetration Testing team at LRQA in Birmingham, UK**, where I'm helping the team **bring AI into its workflows**. A lot of that is building vulnerability knowledge bases for the team's local AI tooling so the repetitive parts of testing get a little less repetitive.
 
-I also participate in **mobile, web application, API, and infrastructure penetration tests**, from the kick-off call through delivery. I'm interested in how AI can support the practical work of security consultants, alongside the technical judgment needed to assess findings.
+I also get to sit in on real **mobile, web, API, and infrastructure tests**, from the kick-off call through to the report. The part I find most interesting is where AI can genuinely help a consultant versus where human judgment still has to do the heavy lifting.
 
-### Education & Certifications
+### What I'm studying
 
-I'm pursuing a **Bachelor of Science in Applied Cybersecurity at the SANS Technology Institute**, with a **4.0 GPA** and expected graduation in **June 2027**. I previously studied at **the University of Texas at Austin** and **Santa Monica College**, earning a 4.0 GPA at both, with University Honors and highest honors respectively.
+I'm working toward a **BSc in Applied Cybersecurity at the SANS Technology Institute**, graduating in 2027. Before that I studied at **UT Austin** and **Santa Monica College**. Along the way I've picked up a handful of GIAC certifications - **GFACT**, **GSEC**, **GCIH**, and **GPYC** - and I'm currently chipping away at **GCFA** (forensic analysis).
 
-My GIAC certifications include:
+### Things I've built and played in
 
-- **GFACT** - Foundational Cybersecurity Technologies
-- **GSEC** - Security Essentials
-- **GCIH** - Certified Incident Handler
-- **GPYC** - Python Coder
+- **Fireplace** - an open-source chat app I'm building in **Flutter**, where I'm implementing end-to-end encryption and learning a lot about getting crypto right in practice.
+- **NSA Codebreaker Challenge** - I completed the full challenge in both 2025 and 2026. Most of the writeups on this site come from it.
+- **SANS Core NetWars 12 (Amsterdam, 2026)** - a good run that sent me on to the Tournament of Champions in Washington, DC.
+- **National Cyber League** - I take the web exploitation and cryptography categories for my team, which is usually where I have the most fun.
 
-I'm also working toward **GCFA - Certified Forensic Analyst**.
+### Away from the keyboard
 
-### Projects & Competitions
+<p style="font-size: 1.6rem; letter-spacing: .5rem; text-align: center; margin: 1.5rem 0 0; background: linear-gradient(90deg, #0be052, #00e5ff, #ff35ff); -webkit-background-clip: text; background-clip: text; color: transparent;">♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜</p>
 
-- **Fireplace**: I'm building an open-source chat app with **Flutter** and working on implementing **end-to-end encryption**.
-- **NSA Codebreaker Challenge 2026**: The **12th student to complete the full challenge**.
-- **SANS Core NetWars 12, Amsterdam 2026**: **2nd place**, qualifying for the **SANS Tournament of Champions in Washington, DC**.
-- **National Cyber League Spring 2026**: My team placed **1st out of 170 teams in the experienced bracket**. I completed all web application exploitation and cryptography challenges for the team.
-- **National Cyber League Fall 2025**: **2nd out of 617 in the experienced individual bracket**, completing all challenges.
-- **NSA Codebreaker Challenge 2025**: One of **82 students to complete the full challenge**, covering network and memory forensics, reverse engineering, cryptography, and a custom Android application exploit.
+**Chess is the other thing I take seriously.** These days I'm most invested in **correspondence chess**, the slow, deeply analytical kind where a single game can run for weeks. It rewards the same patience and methodical digging that reverse engineering does, which is probably why I love it.
 
-I received **two $4,500 SANS Institute scholarships in 2025**, recognizing my National Cyber League performance and completion of all seven NSA Codebreaker tasks.
+<a class="role-card" href="https://www.iccf.com/player?id=900253" target="_blank" rel="noopener noreferrer">
+  <span class="role-card-logo" style="border-right-color: var(--reading-line);">
+    <svg viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Chess knight">
+      <defs>
+        <linearGradient id="knight-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0be052"/>
+          <stop offset="0.5" stop-color="#00e5ff"/>
+          <stop offset="1" stop-color="#ff35ff"/>
+        </linearGradient>
+        <clipPath id="knight-round"><rect x="0" y="0" width="96" height="96" rx="18"/></clipPath>
+      </defs>
+      <g clip-path="url(#knight-round)">
+        <rect width="96" height="96" fill="rgba(128,160,140,.08)"/>
+        <path d="M0 0 L96 0 L0 96 Z" fill="rgba(11,224,82,.14)"/>
+        <path d="M96 96 L96 0 L0 96 Z" fill="rgba(255,53,255,.14)"/>
+      </g>
+      <rect x="1.5" y="1.5" width="93" height="93" rx="16.5" fill="none" stroke="url(#knight-grad)" stroke-width="2.5" opacity=".75"/>
+      <text x="48" y="70" font-size="60" text-anchor="middle" fill="url(#knight-grad)">♞</text>
+    </svg>
+  </span>
+  <span class="role-card-text">
+    <span class="role-card-title">Correspondence chess · ICCF</span>
+    <span class="role-card-meta">2403 rated · around 1010th in the world</span>
+  </span>
+</a>
 
-### Skills & Other Experience
+What I enjoy most is the research side: poring over openings and endgames, testing ideas, and occasionally **contributing a small something back to chess theory and understanding**. When I want something faster, I play a lot of bullet and blitz too - I've reached **2800 bullet on Chess.com** and **2500+ blitz on Lichess**. If you play, [come find me on ICCF](https://www.iccf.com/player?id=900253).
 
-My interests span **penetration testing, cryptography, digital and memory forensics, threat detection, and incident response**. I work with **Python, PowerShell, and SQL**, and tools including **Nmap, Wireshark, Metasploit, Netcat, and SQLmap**, across Linux, Windows, Active Directory, containers, virtualization, and cloud environments.
+**Giving back.** I volunteer at a local **soup kitchen**, which is a good, grounding way to spend time and a nice reminder that not everything worth doing happens on a screen.
 
-Outside cybersecurity, I've contributed to research at UT Austin: using **R** to investigate genetic selection trends in a high-altitude adaptation study with the **Childebayeva Lab**, and presenting soil microbiome research at the **University of Wisconsin–Madison**. My time as a **UT RecSports lifeguard** also gave me experience with emergency response drills and maintaining CPR, AED, and First Aid certifications.
+**Before security.** I did a stint in research at UT Austin - using **R** to study genetic selection in a high-altitude adaptation project with the **Childebayeva Lab**, and presenting soil microbiome research at the **University of Wisconsin-Madison**. I also worked as a **UT RecSports lifeguard**, which is where I learned to stay calm when things go sideways (and to keep my CPR, AED, and First Aid current).
 
-### Get in Touch
+### Get in touch
 
-I'm always interested in connecting with people working on **AI in penetration testing, security research, and secure application development**.
+I'm always happy to talk about **AI in penetration testing, security research, secure app development** - or chess.
 
-**[Download My Resume](/files/BodwellMamicResume.pdf)**
+**[Download my resume](/files/BodwellMamicResume.pdf)**
 
 - Email: [contact@xss3cut10n3r.com](mailto:contact@xss3cut10n3r.com)
 - GitHub: [github.com/XSS3cut10n3r](https://github.com/XSS3cut10n3r)
