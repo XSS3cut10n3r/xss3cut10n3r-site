@@ -7,7 +7,7 @@ draft: false
 featured: true
 pinned: true
 tags: ["career", "about"]
-aliases: ["/posts/hireme/"]
+aliases: ["/posts/hireme/", "/aboutme/", "/hireme/"]
 ---
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 2rem;">
