@@ -26,8 +26,7 @@
 <meta name="author" content="Tomi Bodwell Mamic" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="canonical" href="{{ .Permalink }}" />
-<link rel="icon" href="{{ "images/profile.webp" | relURL }}" type="image/webp" />
-{{ if .IsHome }}<link rel="preload" href="{{ .Site.Params.Author.image | relURL }}" as="image" type="image/webp" fetchpriority="high" />{{ end }}
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000603'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='38' font-family='monospace' font-weight='700' fill='%230be052'%3EX%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
 <script>
  // Force dark mode for first-time visitors
  if (!localStorage.getItem('theme')) {
@@ -79,10 +78,15 @@
 <meta name="twitter:image:alt" content="Tomi Bodwell Mamic, known online as XSS3cut10n3r" />
 
 <!-- Minify and inline shared CSS so first paint has no stylesheet request chain. -->
-{{- $baseCSS := resources.Get "css/style.css" | minify -}}
-{{- $readingCSS := resources.Get "css/reading.css" | minify -}}
-{{- $tagsCSS := resources.Get "css/tags.css" | minify -}}
-<style>{{ $baseCSS.Content | safeCSS }}{{ $readingCSS.Content | safeCSS }}{{ $tagsCSS.Content | safeCSS }}</style>
+{{- if .IsHome -}}
+  {{- $homeCSS := resources.Get "css/home/critical.css" | minify -}}
+  <style>{{ $homeCSS.Content | safeCSS }}</style>
+{{- else -}}
+  {{- $baseCSS := resources.Get "css/style.css" | minify -}}
+  {{- $readingCSS := resources.Get "css/reading.css" | minify -}}
+  {{- $tagsCSS := resources.Get "css/tags.css" | minify -}}
+  <style>{{ $baseCSS.Content | safeCSS }}{{ $readingCSS.Content | safeCSS }}{{ $tagsCSS.Content | safeCSS }}</style>
+{{- end -}}
 
 <!-- RSS -->
 {{ range .AlternativeOutputFormats -}}

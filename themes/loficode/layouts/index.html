@@ -1,9 +1,10 @@
 {{ define "main" }}
+{{ $profile := resources.Get "images/profile.webp" }}
 <div class="container">
   <div class="author-profile-section">
     <div class="profile-photo-container">
       <img
-        src="{{ .Site.Params.Author.image | relURL }}"
+        src="data:image/webp;base64,{{ $profile.Content | base64Encode }}"
         alt="{{ .Site.Params.Author.name }}"
         class="profile-photo"
         width="200"
