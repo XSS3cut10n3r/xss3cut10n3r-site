@@ -91,25 +91,41 @@
   <div class="filter-section">
     <div class="filter-tags">
       <div class="tag active">All</div>
-      {{ range .Site.Taxonomies.tags.ByCount }}
-      <div class="tag" data-tag="{{ .Name | urlize }}">{{ .Name }}</div>
+      {{ $tags := .Site.Taxonomies.tags.ByCount }}
+      {{ $visible := 6 }}
+      {{ range $i, $t := $tags }}
+      <div class="tag{{ if ge $i $visible }} tag-extra{{ end }}" data-tag="{{ $t.Name | urlize }}"{{ if ge $i $visible }} hidden{{ end }}>{{ $t.Name }}</div>
+      {{ end }}
+      {{ if gt (len $tags) $visible }}
+      <button type="button" class="tag-more" aria-expanded="false" data-more="+{{ sub (len $tags) $visible }} more">+{{ sub (len $tags) $visible }} more</button>
+      <script>
+        document.querySelector(".tag-more").addEventListener("click", function () {
+          var open = this.getAttribute("aria-expanded") !== "true";
+          document.querySelectorAll(".tag-extra").forEach(function (t) { t.hidden = !open; });
+          this.setAttribute("aria-expanded", open);
+          this.textContent = open ? "Show less" : this.dataset.more;
+        });
+      </script>
       {{ end }}
     </div>
   </div>
 
   <div class="posts-list" id="posts-container">
-    {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{
-    $postsPerPage := 3 }} {{ range first $postsPerPage $posts }} {{ partial
-    "post-list-item.html" . }} {{ end }}
+    {{/* Posts marked `pinned: true` always come first; the rest run newest to oldest. */}}
+    {{ $all := where .Site.RegularPages "Section" "eq" "posts" }}
+    {{ $posts := (where $all "Params.pinned" true).ByDate.Reverse | append (where $all "Params.pinned" "!=" true).ByDate.Reverse }}
+    {{ range $index, $post := $posts }}
+      {{ partial "post-list-item.html" (dict "post" $post "hidden" (ge $index 5)) }}
+    {{ end }}
   </div>
 
   {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{ if gt (len
-  $posts) 3 }}
+  $posts) 5 }}
   <div class="load-more-section">
     <button
       id="load-more-btn"
       class="load-more-btn"
-      data-loaded="3"
+      data-loaded="5"
       data-total="{{ len $posts }}"
     >
       <span class="load-more-text">Load More Posts</span>

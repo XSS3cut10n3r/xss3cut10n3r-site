@@ -1,5 +1,10 @@
-<!-- Fixed post-list-item.html partial -->
-<article class="post-item{{ if .Params.featured }} featured{{ end }}">
+{{ $post := . }}
+{{ $hidden := false }}
+{{ if reflect.IsMap . }}{{ $post = .post }}{{ $hidden = .hidden }}{{ end }}
+{{ with $post }}
+{{ $tags := slice }}{{ range .Params.tags }}{{ $tags = $tags | append (. | urlize) }}{{ end }}
+<!-- The title link stretches over the whole card, so the card itself is the click target. -->
+<article class="post-item{{ if .Params.featured }} featured{{ end }}" data-tags="{{ $tags | jsonify }}"{{ if $hidden }} hidden{{ end }}>
   <div class="post-content">
     <div class="post-header-inline">
       <h2 class="post-title-vaporwave">
@@ -21,7 +26,7 @@
     {{ end }}
 
     <p class="post-excerpt-vaporwave">
-      {{ .Summary | plainify | truncate 160 }}
+      {{ .Summary | replaceRE `(?s)<p>\s*<a[^>]*>← Series overview</a>\s*</p>|<h1[^>]*>.*?</h1>` "" | plainify | truncate 160 }}
     </p>
 
     {{ if .Params.tags }}
@@ -31,10 +36,6 @@
       {{ end }}
     </div>
     {{ end }}
-
-    <a href="{{ .RelPermalink }}" class="continue-reading-vaporwave">
-      Read More →
-    </a>
   </div>
 
   <div class="post-meta-sidebar">
@@ -49,3 +50,5 @@
     </div>
   </div>
 </article>
+
+{{ end }}

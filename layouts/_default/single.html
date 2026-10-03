@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+{{/* Writeups open with a "Task N - Name - (Category)" heading that repeats the page title.
+     Drop it from the body and contents, and show its category in the meta line instead. */}}
+{{ $content := .Content }}
+{{ $toc := .TableOfContents }}
+{{ $kicker := "" }}
+{{ $content = replaceRE `<p>\s*<a href="/posts/nsa-codebreaker-2025/">← Series overview</a>\s*</p>` "" $content 1 }}
+{{ with findRESubmatch `<h[12] id="([^"]*)">Task \d+ [^<]*?\(([^)<]+)\)\s*</h[12]>` $content 1 }}
+  {{ $match := index . 0 }}
+  {{ $kicker = index $match 2 }}
+  {{ $content = replace $content (index $match 0) "" }}
+  {{ $toc = replaceRE (printf `<li><a href="#%s">.*?</a></li>\s*` (index $match 1)) "" $toc 1 }}
+{{ end }}
+<div class="reading-shell">
+  <div class="reading-grid">
+    <article class="reading-article post-content">
+      <header class="reading-header">
+        {{ with .Params.tags }}{{ if in . "NSA Codebreaker 2025" }}<a class="reading-series" href="/posts/nsa-codebreaker-2025/">NSA Codebreaker 2025</a>{{ end }}{{ end }}
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.subtitle }}<p class="reading-deck">{{ . }}</p>{{ end }}
+        <p class="reading-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min read{{ with $kicker }} · <span class="reading-kicker">{{ . }}</span>{{ end }}</p>
+        {{ with .Params.tags }}<div class="reading-tags">{{ range . }}<a href="{{ printf "/tags/%s/" (. | urlize) }}">{{ . }}</a>{{ end }}</div>{{ end }}
+      </header>
+      {{ if .Fragments.Headings }}<details class="reading-contents-inline"><summary>On this page</summary>{{ $toc | safeHTML }}</details>{{ end }}
+      <div class="post-body reading-body">{{ $content | safeHTML }}</div>
+      <nav class="reading-footer" aria-label="Post navigation">
+        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+        {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+      </nav>
+    </article>
+    {{ if .Fragments.Headings }}<aside class="reading-contents"><nav aria-label="Table of contents"><p>ON THIS PAGE</p>{{ $toc | safeHTML }}</nav></aside>{{ end }}
+  </div>
+</div>
+<dialog class="image-viewer" aria-label="Enlarged image"><img alt=""></dialog>
+<script>
+  // Click a screenshot to see it full size; click anywhere or press Esc to close.
+  (function () {
+    var viewer = document.querySelector(".image-viewer");
+    var big = viewer.querySelector("img");
+    document.querySelectorAll(".reading-body img").forEach(function (img) {
+      if (img.closest("a")) return;
+      img.classList.add("zoomable");
+      img.addEventListener("click", function () {
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt;
+        viewer.showModal();
+      });
+    });
+    viewer.addEventListener("click", function () { viewer.close(); });
+  })();
+</script>
+{{ end }}
