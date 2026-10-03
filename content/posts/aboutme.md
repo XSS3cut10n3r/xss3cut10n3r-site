@@ -17,7 +17,7 @@ aliases: ["/posts/hireme/", "/aboutme/", "/hireme/"]
   <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hi, I'm Tomi, a penetration testing intern at LRQA and an Applied Cybersecurity student.</h1>
 </div>
 
-I'm Tomislav Bodwell Mamic, usually Tomi and known online as XSS3cut10n3r. I focus on offensive security: penetration testing, cryptography, and digital and memory forensics. Most of this site is me working through hard challenges and writing up exactly how I solved them.
+I work in offensive security, with a particular interest in penetration testing, cryptography, and forensics. This site is where I document projects, challenges, and anything else I find worth writing about.
 
 ### What I'm Working On at LRQA
 
