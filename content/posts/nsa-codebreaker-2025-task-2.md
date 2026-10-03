@@ -9,40 +9,117 @@ tags: ["NSA Codebreaker 2025", "ctf", "network forensics"]
 
 [← Series overview](/posts/nsa-codebreaker-2025/)
 
-Task 2 moved from a workstation image to **network evidence**. The supplied packet capture contained roughly 2,400 packets, and the objective was to identify every IP address assigned to the malicious device.
+## Task 2 - The Hunt Continues - (Network Forensics)
 
-### Building a picture of the network
+> With your help, the team concludes that there was clearly a sophisticated piece of malware installed on that endpoint that was generating some network traffic. Fortunately, DAFIN-SOC also has an IDS which retained the recent network traffic in this segment.
 
-I opened the capture in **Wireshark** and found FTP traffic carrying three router configuration backups. Those backups would become important later: traffic could help identify the suspicious device, while its configuration could explain all of its interfaces.
-
-I also used **PcapXray** to visualize the network. The diagram helped organize the investigation, but I still needed packet-level evidence to distinguish the routers.
-
-### Comparing DNS answers
-
-Filtering for DNS reduced the capture to 36 packets, including 19 responses. The important anomaly was not simply an unfamiliar address: it was **conflicting answers associated with the same DNS transaction**.
-
-Responses for `archive.ubuntu.com` from two routers contained expected Ubuntu mirror addresses. A response associated with the third router instead returned `203.0.113.108`.
-
-My original notes called out that address as belonging to a documentation range. In a fictional challenge capture, that fact alone is not proof of malicious activity. The stronger evidence was the disagreement between answers to the same query, considered alongside the device configuration.
-
-### Identifying all interfaces
-
-The suspicious router's configuration backup listed three addresses:
-
-| Interface | Address |
-| --- | --- |
-| LAN | `192.168.3.254` |
-| Connection to the neighboring router | `192.168.5.1` |
-| Loopback | `127.7.5.3` |
-
-Submitting all three completed the task. Stopping at the address visible in the suspicious response would have left the answer incomplete.
-
-### What I took away
-
-This was an exercise in correlating evidence. Packet analysis pointed to a device; configuration data established its full identity. Looking back, I could have reached the anomaly sooner by filtering systematically instead of manually inspecting so much traffic.
+> DAFIN-SOC has provided a PCAP to analyze. Thoroughly evaluate the PCAP to identify potential malicious activity.
 
 ---
 
-Based on my [Task 2 repository notes](https://github.com/XSS3cut10n3r/My-NSA-Codebreaker-2025/blob/main/task2.md).
+## Downloads
+
+- **PCAP to analyze:** `traffic.pcap`
+
+---
+
+## Task
+
+- **Submit all the IP addresses that are assigned to the malicious device, one per line.**
+
+---
+
+## Writeup
+
+Upon opening the PCAP in Wireshark, I was greeted by approximately 2,400 packets consisting primarily of IPv4 and ARP traffic.
+
+<p align="center">
+<img src="/images/codebreaker-2025/statistics.png" alt="Statistics"/>
+</p>
+
+Initial reconnaissance revealed FTP traffic containing three router configuration backup files: `router1_backup.config`, `router2_backup.config`, and `router3_backup.config`. Since FTP transmits data in cleartext, these configurations would be accessible if I could locate the correct TCP streams.
+
+<p align="center">
+<img src="/images/codebreaker-2025/ftpdata.png" alt="FTPdata"/>
+</p>
+
+<p align="center">
+<img src="/images/codebreaker-2025/tcpstream.png" alt="TCPStream"/>
+</p>
+
+To better understand the network topology, I used [PcapXray](https://github.com/Srinivas11789/PcapXray) to generate a network diagram showing the most active devices.
+
+<p align="center">
+<img src="/images/codebreaker-2025/network.png" alt="Network"/>
+</p>
+
+With three routers in play, I needed a methodical approach to identify which one was compromised. Rather than guessing based on traffic patterns alone, I decided to examine the DNS traffic for anomalies.
+
+### DNS Traffic Analysis
+
+I filtered for DNS traffic using the display filter `dns`, which revealed 36 DNS packets. Narrowing this down to responses only (`dns.flags.response == 1`) showed 19 response packets.
+
+Most DNS responses originated from `192.168.46.2` (the legitimate DNS server), but I noticed something unusual: multiple responses with the same Transaction ID.
+
+Filtering for Transaction ID `0xc0c1` revealed three DNS responses to the same query for `archive.ubuntu.com`:
+
+- **Frame 538** from `192.168.2.254` → Returned legitimate Ubuntu mirror IPs (91.189.91.83, etc.)
+- **Frame 1703** from `192.168.1.254` → Returned legitimate Ubuntu mirror IPs (91.189.91.83, etc.)
+- **Frame 2028** from `192.168.3.254` → Returned **203.0.113.108**
+
+<p align="center">
+<img src="/images/codebreaker-2025/poisoned_router.png" alt="Poisoned Router"/>
+</p>
+
+The IP address `203.0.113.108` immediately raised a red flag. The `203.0.113.0/24` subnet is part of TEST-NET-3, a reserved documentation range defined in RFC 5737 that should never appear in production traffic. This was clearly a **poisoned DNS response**.
+
+**Router 3 (192.168.3.254)** had intercepted the DNS query and responded with a malicious IP address, attempting to redirect the client to an attacker-controlled server. This is a classic DNS spoofing attack where a man-in-the-middle device races to answer DNS queries before the legitimate server.
+
+### Extracting Router 3 Configuration
+
+Having identified `192.168.3.254` as the malicious device, I needed to enumerate all IP addresses assigned to it. I returned to the FTP traffic and extracted `router3_backup.config` by following the appropriate TCP stream.
+
+The configuration file revealed three interfaces:
+```
+config interface 'loopback'
+    option device 'lo'
+    option proto 'static'
+    option ipaddr '127.7.5.3'
+    option netmask '255.0.0.0'
+
+config interface 'lan'
+    option device 'br-lan'
+    option proto 'static'
+    option ipaddr '192.168.3.254'
+    option netmask '255.255.255.0'
+
+config interface 'to_openwrt2'
+    option device 'eth1'
+    option proto 'static'
+    list ipaddr '192.168.5.1/28'
+```
+
+<p align="center">
+<img src="/images/codebreaker-2025/router3config.png" alt="Router3 Config"/>
+</p>
+
+### Solution
+
+The malicious device (Router 3) had three IP addresses assigned:
+
+- **192.168.3.254** - LAN interface (`br-lan`)
+- **192.168.5.1** - Connection to OpenWRT2 (`eth1`)
+- **127.7.5.3** - Loopback interface (`lo`)
+
+Submitting all three addresses successfully completed the challenge.
+
+<p>
+<img src="/images/codebreaker-2025/badge2.png" alt="Badge" width="300"/>
+</p>
+
+**Success!** Two down, five to go.
+
+
+---
 
 [← Task 1](/posts/nsa-codebreaker-2025-task-1/) · [Series overview](/posts/nsa-codebreaker-2025/) · [Task 3 →](/posts/nsa-codebreaker-2025-task-3/)
