@@ -330,14 +330,24 @@
 
   // Shuffle: jump to the start of a different random part of the chill mix.
   if (shuffleBtn) {
-    shuffleBtn.addEventListener("click", () => {
+    shuffleBtn.addEventListener("click", async () => {
       const audio = audioElements.chill;
       if (!audio || currentSound !== "chill") return;
       let next = chillIndex;
       while (next === chillIndex) next = Math.floor(Math.random() * CHILL_PARTS);
       chillIndex = next;
+      audio.pause();
       audio.src = chillSrc(chillIndex);
-      audio.play().catch(() => {});
+      audio.load();
+      try {
+        await audio.play();
+        isPlaying = true;
+        const chillButton = document.querySelector('.ambient-icon[data-sound="chill"]');
+        if (chillButton) chillButton.classList.add("active");
+      } catch (e) {
+        isPlaying = false;
+        console.log("Could not play shuffled audio:", e);
+      }
       updateAmbientState();
     });
   }
