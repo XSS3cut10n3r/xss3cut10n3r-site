@@ -1,46 +1,60 @@
 ---
-title: "Looking for Opportunities in Cybersecurity"
-subtitle: "Why you should hire me"
-featured: true
+title: "About Me: Cybersecurity, LRQA & AI"
+subtitle: "My work, projects, and journey in cybersecurity"
 date: 2025-10-27
+lastmod: 2026-10-03
 draft: false
+featured: true
 tags: ["career", "about"]
 ---
 
-<div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
-  <img src="/images/tomi.jpg" alt="Tomi Bodwell Mamic" style="border-radius: 15px; width: 250px; height: 250px; object-fit: cover; flex-shrink: 0;">
-  <h1 style="margin: 0; font-size: 2.5rem;">Hey! I'm Tomi, a cybersecurity student looking for opportunities in the field.</h1>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+  <img src="/images/tomi.jpg" alt="Tomi Bodwell Mamic" style="border-radius: 15px; width: 250px; max-width: 100%; height: 250px; object-fit: cover; flex-shrink: 0;">
+  <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hey! I'm Tomi, an Associate Security Consultant at LRQA and an Applied Cybersecurity student.</h1>
 </div>
 
-### What I've Been Up To
+### What I'm Working On at LRQA
 
-I'm currently pursuing my **Bachelor's in Applied Cybersecurity** at the **SANS Technology Institute**. I've been lucky enough to do well in some competitions and pick up some practical skills along the way.
+I'm currently working at **LRQA in Birmingham, UK**, as an **Associate Security Consultant**, with a focus on **implementing AI into penetration testing workflows**. My work includes developing vulnerability knowledge bases (VKBs) for local AI penetration testing tooling to help streamline testing automation.
 
-### Recent Projects & Competitions
-- **NSA Codebreaker Challenge 2025**: Completed all 7 tasks, working through Android exploitation and reverse engineering
-- **National Cyber League Spring 2025**: Placed 13th individually out of 8,575 participants
-- **Fireplace**: Building an open-source chat app with Flutter and working on implementing end-to-end encryption
+I also participate in **mobile, web application, API, and infrastructure penetration tests**, from the kick-off call through delivery. I'm interested in how AI can support the practical work of security consultants, alongside the technical judgment needed to assess findings.
 
-### Skills & Experience
-- **Certifications**: GIAC Security Essentials (GSEC) and Foundational Cybersecurity Technologies (GFACT)
-- **Languages**: Python, C, Bash, SQL, PowerShell, Assembly
-- **Areas of interest**: Penetration testing, web app security, cryptography, incident response
+### Education & Certifications
 
-I've also spent time managing a team of 60+ residents as a Labor Operations Manager, which taught me a lot about communication and working with people from different backgrounds.
+I'm pursuing a **Bachelor of Science in Applied Cybersecurity at the SANS Technology Institute**, with a **4.0 GPA** and expected graduation in **June 2027**. I previously studied at **the University of Texas at Austin** and **Santa Monica College**, earning a 4.0 GPA at both, with University Honors and highest honors respectively.
 
-### What I'm Looking For
+My GIAC certifications include:
 
-I'm interested in entry-level or internship positions in cybersecurity, particularly in areas like penetration testing, security engineering, or incident response. I enjoy solving problems and learning new things, and I'd love to work with a team where I can contribute and continue growing.
+- **GFACT** — Foundational Cybersecurity Technologies
+- **GSEC** — Security Essentials
+- **GCIH** — Certified Incident Handler
+- **GPYC** — Python Coder
 
----
+I'm also working toward **GCFA — Certified Forensic Analyst**.
 
-<br>
+### Projects & Competitions
+
+- **Fireplace**: I'm building an open-source chat app with **Flutter** and working on implementing **end-to-end encryption**.
+- **NSA Codebreaker Challenge 2026**: The **12th student to complete the full challenge**.
+- **SANS Core NetWars 12, Amsterdam 2026**: **2nd place**, qualifying for the **SANS Tournament of Champions in Washington, DC**.
+- **National Cyber League Spring 2026**: My team placed **1st out of 170 teams in the experienced bracket**. I completed all web application exploitation and cryptography challenges for the team.
+- **National Cyber League Fall 2025**: **2nd out of 617 in the experienced individual bracket**, completing all challenges.
+- **NSA Codebreaker Challenge 2025**: One of **82 students to complete the full challenge**, covering network and memory forensics, reverse engineering, cryptography, and a custom Android application exploit.
+
+I received **two $4,500 SANS Institute scholarships in 2025**, recognizing my National Cyber League performance and completion of all seven NSA Codebreaker tasks.
+
+### Skills & Other Experience
+
+My interests span **penetration testing, cryptography, digital and memory forensics, threat detection, and incident response**. I work with **Python, PowerShell, and SQL**, and tools including **Nmap, Wireshark, Metasploit, Netcat, and SQLmap**, across Linux, Windows, Active Directory, containers, virtualization, and cloud environments.
+
+Outside cybersecurity, I've contributed to research at UT Austin: using **R** to investigate genetic selection trends in a high-altitude adaptation study with the **Childebayeva Lab**, and presenting soil microbiome research at the **University of Wisconsin–Madison**. My time as a **UT RecSports lifeguard** also gave me experience with emergency response drills and maintaining CPR, AED, and First Aid certifications.
+
+### Get in Touch
+
+I'm always interested in connecting with people working on **AI in penetration testing, security research, and secure application development**.
 
 **[Download My Resume](/files/BodwellMamicResume.pdf)**
 
-
-**Get in touch:**
-- Email: Bodwell@utexas.edu
+- Email: [contact@xss3cut10n3r.com](mailto:contact@xss3cut10n3r.com)
 - GitHub: [github.com/XSS3cut10n3r](https://github.com/XSS3cut10n3r)
 - LinkedIn: [linkedin.com/in/tomibodwellmamic](https://linkedin.com/in/tomibodwellmamic)
-
