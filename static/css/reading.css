@@ -62,7 +62,6 @@ body:has(.reading-shell) { background: #060907; color: #e6ece8; }
 .load-more-btn, .load-more-btn:hover, .load-more-btn:active { padding: .65rem 1.75rem; font-size: .95rem; letter-spacing: .06em; gap: .5rem; line-height: 1; white-space: nowrap; border-radius: 999px; box-shadow: 0 0 12px var(--glow-color); }
 .load-more-btn:hover { transform: translateY(-1px); box-shadow: 0 0 18px var(--glow-color); }
 .load-more-btn:active { transform: none; }
-.load-more-icon { display: none; }
 
 /* Brand accents on article pages, kept quieter than the homepage. */
 .reading-series { display: inline-block; margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }

@@ -26,6 +26,8 @@
 <meta name="author" content="Tomi Bodwell Mamic" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="canonical" href="{{ .Permalink }}" />
+<link rel="icon" href="{{ "images/profile.webp" | relURL }}" type="image/webp" />
+{{ if .IsHome }}<link rel="preload" href="{{ .Site.Params.Author.image | relURL }}" as="image" type="image/webp" fetchpriority="high" />{{ end }}
 <script>
  // Force dark mode for first-time visitors
  if (!localStorage.getItem('theme')) {
@@ -80,13 +82,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
- href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
- rel="stylesheet" />
-
-<!-- FontAwesome -->
-<link
- rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+ href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
+ rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ "css/style.css" | relLangURL }}">

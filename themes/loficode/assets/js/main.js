@@ -145,21 +145,13 @@
     if (shuffleBtn) shuffleBtn.hidden = !(isPlaying && currentSound === "chill");
     if (!muteToggle || !ambientLabel || !equalizer) return;
 
-    const muteIcon = muteToggle.querySelector("i");
-
     if (isPlaying && currentSound) {
       muteToggle.classList.remove("muted");
-      if (muteIcon) {
-        muteIcon.className = "fas fa-volume-up";
-      }
       muteToggle.title = "Mute ambient sounds";
       equalizer.classList.remove("muted");
       ambientLabel.textContent = `Now Playing: ${soundName(currentSound)}`;
     } else {
       muteToggle.classList.add("muted");
-      if (muteIcon) {
-        muteIcon.className = "fas fa-volume-mute";
-      }
       muteToggle.title = "Play ambient sounds";
       equalizer.classList.add("muted");
       if (currentSound) {
@@ -974,4 +966,3 @@
     Happy coding! ✨
     `);
 })();
-

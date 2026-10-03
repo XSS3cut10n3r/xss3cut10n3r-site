@@ -6,6 +6,10 @@
         src="{{ .Site.Params.Author.image | relURL }}"
         alt="{{ .Site.Params.Author.name }}"
         class="profile-photo"
+        width="200"
+        height="200"
+        fetchpriority="high"
+        decoding="async"
       />
     </div>
     <div class="profile-tagline">{{ .Site.Params.tagline | markdownify }}</div>
@@ -18,7 +22,7 @@
         class="social-link"
         title="GitHub"
       >
-        <i class="fab fa-github social-icon"></i>
+        {{ partial "icon.html" (dict "name" "github" "class" "social-icon") }}
       </a>
       {{ else if eq $name "twitter" }}
       <a
@@ -38,11 +42,11 @@
         class="social-link"
         title="LinkedIn"
       >
-        <i class="fab fa-linkedin social-icon"></i>
+        {{ partial "icon.html" (dict "name" "linkedin" "class" "social-icon") }}
       </a>
       {{ else if eq $name "email" }}
       <a href="mailto:{{ $url }}" class="social-link" title="Email">
-        <i class="fas fa-envelope social-icon"></i>
+        {{ partial "icon.html" (dict "name" "mail" "class" "social-icon") }}
       </a>
       {{ else if eq $name "mastodon" }}
       <a
@@ -52,7 +56,7 @@
         class="social-link"
         title="Mastodon"
       >
-        <i class="fab fa-mastodon social-icon"></i>
+        <span class="social-icon social-text-icon">M</span>
       </a>
       {{ else if eq $name "youtube" }}
       <a
@@ -62,7 +66,7 @@
         class="social-link"
         title="YouTube"
       >
-        <i class="fab fa-youtube social-icon"></i>
+        <span class="social-icon social-text-icon">▶</span>
       </a>
       {{ else if eq $name "instagram" }}
       <a
@@ -72,7 +76,7 @@
         class="social-link"
         title="Instagram"
       >
-        <i class="fab fa-instagram social-icon"></i>
+        <span class="social-icon social-text-icon">◎</span>
       </a>
       {{ else if eq $name "facebook" }}
       <a
@@ -82,7 +86,7 @@
         class="social-link"
         title="Facebook"
       >
-        <i class="fab fa-facebook social-icon"></i>
+        <span class="social-icon social-text-icon">f</span>
       </a>
       {{ end }} {{ end }}
     </div>
@@ -129,7 +133,6 @@
       data-total="{{ len $posts }}"
     >
       <span class="load-more-text">Load More Posts</span>
-      <img src="/images/file.svg" class="load-more-icon" alt="Load more">
     </button>
     <div class="load-more-loading" id="load-more-loading" style="display: none">
       <span class="loading-text">Brewing more content...</span>

@@ -1,22 +1,22 @@
 <div class="ambient-bar">
     <div class="ambient-controls">
         <button class="mute-toggle muted" title="Toggle ambient sounds">
-            <i class="fas fa-volume-mute"></i>
+            {{ partial "icon.html" (dict "name" "volume-off") }}
         </button>
         <button class="ambient-icon" data-sound="coffee" title="Coffee Shop Ambience">
-            <i class="fas fa-coffee"></i>
+            {{ partial "icon.html" (dict "name" "coffee") }}
         </button>
         <button class="ambient-icon" data-sound="rain" title="Gentle Rain">
-            <i class="fas fa-cloud-rain"></i>
+            {{ partial "icon.html" (dict "name" "rain") }}
         </button>
         <button class="ambient-icon" data-sound="fireplace" title="Crackling Fireplace">
-            <i class="fas fa-fire"></i>
+            {{ partial "icon.html" (dict "name" "fire") }}
         </button>
         <button class="ambient-icon" data-sound="chill" title="Synthwave Mixes">
-            <i class="fas fa-music"></i>
+            {{ partial "icon.html" (dict "name" "music") }}
         </button>
         <button class="ambient-shuffle" title="Shuffle to a random song in the mix" aria-label="Shuffle" hidden>
-            <i class="fas fa-random"></i>
+            {{ partial "icon.html" (dict "name" "shuffle") }}
         </button>
     </div>
 
