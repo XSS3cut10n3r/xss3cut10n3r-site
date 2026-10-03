@@ -26,12 +26,12 @@ I'm pursuing a **Bachelor of Science in Applied Cybersecurity at the SANS Techno
 
 My GIAC certifications include:
 
-- **GFACT** — Foundational Cybersecurity Technologies
-- **GSEC** — Security Essentials
-- **GCIH** — Certified Incident Handler
-- **GPYC** — Python Coder
+- **GFACT** - Foundational Cybersecurity Technologies
+- **GSEC** - Security Essentials
+- **GCIH** - Certified Incident Handler
+- **GPYC** - Python Coder
 
-I'm also working toward **GCFA — Certified Forensic Analyst**.
+I'm also working toward **GCFA - Certified Forensic Analyst**.
 
 ### Projects & Competitions
 

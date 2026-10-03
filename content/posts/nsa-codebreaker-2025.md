@@ -9,7 +9,7 @@ tags: ["NSA Codebreaker 2025", "ctf", "reflection"]
 
 The **2025 NSA Codebreaker Challenge** was my first Codebreaker, and I completed **all seven tasks**, becoming one of **82 students to finish the full challenge**. It was a chance to connect skills that I had often practiced separately: filesystem forensics, packet analysis, memory analysis, reverse engineering, cryptography, and application security.
 
-The challenge used a fictional investigation into suspicious activity on a military development network. Each task carried the investigation forward, so an answer was more than a flag—it supplied context for the next question.
+The challenge used a fictional investigation into suspicious activity on a military development network. Each task carried the investigation forward, so an answer was more than a flag - it supplied context for the next question.
 
 I've turned my [Codebreaker repository](https://github.com/XSS3cut10n3r/My-NSA-Codebreaker-2025) into this series so that each task has its own post, with this page as the starting point.
 

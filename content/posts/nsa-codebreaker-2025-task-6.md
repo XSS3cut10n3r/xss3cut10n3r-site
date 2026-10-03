@@ -1,5 +1,5 @@
 ---
-title: "NSA Codebreaker 2025 — Task 6: Crossing the Channel"
+title: "NSA Codebreaker 2025 - Task 6: Crossing the Channel"
 subtitle: "A lesson in destination-specific authorization"
 date: "2026-10-03T00:06:00+01:00"
 draft: false

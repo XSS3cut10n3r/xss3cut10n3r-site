@@ -1,5 +1,5 @@
 ---
-title: "NSA Codebreaker 2025 — Task 1: Getting Started"
+title: "NSA Codebreaker 2025 - Task 1: Getting Started"
 subtitle: "Finding a suspicious artifact in an EXT2 image"
 date: "2026-10-03T00:01:00+01:00"
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: "NSA Codebreaker 2025 — Task 3: Digging Deeper"
+title: "NSA Codebreaker 2025 - Task 3: Digging Deeper"
 subtitle: "Moving from network evidence to a router memory image"
 date: "2026-10-03T00:03:00+01:00"
 draft: false
