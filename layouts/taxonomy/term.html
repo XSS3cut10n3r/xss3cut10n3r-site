@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{ $current := .Title | lower }}
+<div class="container tags-index">
+  <header class="tags-hero">
+    <p class="tags-kicker"><a href="{{ "/tags/" | relLangURL }}">// tags</a></p>
+    <h1 class="tags-title"><span class="tag-hash">#</span>{{ $current }}</h1>
+    <p class="tags-sub">{{ .Pages.Len }} post{{ if ne .Pages.Len 1 }}s{{ end }}</p>
+  </header>
+
+  {{/* Other tags used by these posts, most common first. Compare in lowercase so the current tag is left out. */}}
+  {{ $counts := dict }}
+  {{ range .Pages }}{{ range .Params.tags }}
+    {{ $k := lower . }}
+    {{ if ne $k $current }}{{ $counts = merge $counts (dict $k (add 1 (index $counts $k | default 0))) }}{{ end }}
+  {{ end }}{{ end }}
+  {{ $related := slice }}
+  {{ range $name, $n := $counts }}{{ $related = $related | append (dict "name" $name "n" $n) }}{{ end }}
+  {{ if $related }}
+  <nav class="tag-related" aria-label="Related tags">
+    <span class="tag-related-label">Related</span>
+    {{ range sort $related "n" "desc" }}
+    <a class="tag-chip" href="{{ printf "/tags/%s/" (.name | urlize) | relLangURL }}">{{ .name }}<span>{{ .n }}</span></a>
+    {{ end }}
+  </nav>
+  {{ end }}
+
+  <div class="posts-list">
+    {{ $paginator := .Paginate .Pages }}
+    {{ range $paginator.Pages }}
+    {{ partial "post-list-item.html" . }}
+    {{ end }}
+  </div>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <div class="pagination">
+    {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-btn">← Previous</a>{{ end }}
+    <div class="pagination-info">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</div>
+    {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-btn">Next →</a>{{ end }}
+  </div>
+  {{ end }}
+
+  <div class="tags-back"><a class="tag-chip" href="{{ "/tags/" | relLangURL }}">← All tags</a></div>
+</div>
+{{ end }}
