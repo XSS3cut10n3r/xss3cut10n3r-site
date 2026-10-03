@@ -58,7 +58,7 @@ My focus areas are **penetration testing, cryptography, digital and memory foren
 
 ### Outside Security
 
-A quick side note on the rest of me: I play a serious amount of **chess** ([more on that here](/posts/chess/)), volunteer at a local **soup kitchen**, and have worked as a **lifeguard**.
+A quick side note on the rest of me: I play a serious amount of **chess** ([more on that here](/posts/chess/)), have volunteered at a local **soup kitchen**, and have worked as a **lifeguard**.
 
 ### Get in Touch
 
