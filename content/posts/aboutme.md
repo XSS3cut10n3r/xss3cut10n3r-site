@@ -4,11 +4,15 @@ subtitle: "My work, projects, and journey in cybersecurity"
 date: 2025-10-27
 lastmod: 2026-10-03
 draft: false
+featured: true
+pinned: true
+tags: ["career", "about"]
+aliases: ["/posts/hireme/"]
 ---
 
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 2rem;">
   <img src="/images/tomi.jpg" alt="Tomi Bodwell Mamic" style="border-radius: 15px; width: 250px; max-width: 100%; height: 250px; object-fit: cover; flex-shrink: 0;">
-  <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hey! I'm Tomi, an Associate Security Consultant at LRQA and an Applied Cybersecurity student.</h1>
+  <h1 style="margin: 0; font-size: 2.5rem; flex: 1 1 250px;">Hey! I'm Tomi, an Associate Security Consultant (Intern) at LRQA and an Applied Cybersecurity student.</h1>
 </div>
 
 ### What I'm Working On at LRQA
@@ -19,12 +23,12 @@ draft: false
     <img class="logo-on-dark" src="/images/lrqa-logo-light.png" alt="LRQA" width="473" height="163">
   </span>
   <span class="role-card-text">
-    <span class="role-card-title">Associate Security Consultant</span>
-    <span class="role-card-meta">Birmingham, UK · AI-assisted penetration testing</span>
+    <span class="role-card-title">Associate Security Consultant (Intern)</span>
+    <span class="role-card-meta">Penetration Testing team · Birmingham, UK</span>
   </span>
 </a>
 
-I'm currently working at **LRQA in Birmingham, UK**, as an **Associate Security Consultant**, with a focus on **implementing AI into penetration testing workflows**. My work includes developing vulnerability knowledge bases (VKBs) for local AI penetration testing tooling to help streamline testing automation.
+I'm currently working at **LRQA in Birmingham, UK**, as an **Associate Security Consultant (Intern)** with the **Penetration Testing team**, helping the team **implement AI into its workflows**. My work includes developing vulnerability knowledge bases (VKBs) for the team's local AI tooling to help streamline testing automation.
 
 I also participate in **mobile, web application, API, and infrastructure penetration tests**, from the kick-off call through delivery. I'm interested in how AI can support the practical work of security consultants, alongside the technical judgment needed to assess findings.
 

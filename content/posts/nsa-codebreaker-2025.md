@@ -45,6 +45,6 @@ The habit I want to carry forward is simple: record the evidence, explain what i
 
 Completing all seven tasks earned me a **$4,500 SANS Institute scholarship** in October 2025. The challenge also gave me practice connecting evidence across different technical domains.
 
-I'm now an **Associate Security Consultant at LRQA**, focused on **implementing AI into penetration testing workflows** while contributing to mobile, web application, API, and infrastructure tests. Codebreaker's lessons about methodical analysis and documentation remain relevant to that work.
+I'm now an **Associate Security Consultant (Intern) at LRQA**, helping the **Penetration Testing team** implement AI into its workflows while contributing to mobile, web application, API, and infrastructure tests. Codebreaker's lessons about methodical analysis and documentation remain relevant to that work.
 
 Start with [Task 1: Getting Started](/posts/nsa-codebreaker-2025-task-1/) or choose a topic from the table above.

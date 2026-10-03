@@ -26,7 +26,7 @@
     {{ end }}
 
     <p class="post-excerpt-vaporwave">
-      {{ .Summary | replaceRE `(?s)<p>\s*<a[^>]*>← Series overview</a>\s*</p>|<h1[^>]*>.*?</h1>` "" | plainify | truncate 160 }}
+      {{ .Summary | replaceRE `(?s)<p>\s*<a[^>]*>← Series overview</a>\s*</p>|<h1[^>]*>.*?</h1>|<a class="role-card".*?</a>` "" | plainify | truncate 160 }}
     </p>
 
     {{ if .Params.tags }}
