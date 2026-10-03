@@ -14,6 +14,20 @@
    localStorage.setItem('theme', 'dark'); // optional: remember default
  }
 </script>
+<!-- Colour the mobile browser chrome (address bar / status bar) to match the theme, and keep it in sync with the toggle. -->
+<meta name="color-scheme" content="dark light" />
+<script>
+ (function () {
+   function setThemeColor() {
+     var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+     var m = document.querySelector('meta[name="theme-color"]');
+     if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'theme-color'); document.head.appendChild(m); }
+     m.setAttribute('content', isLight ? '#fff5f2' : '#000000');
+   }
+   setThemeColor();
+   new MutationObserver(setThemeColor).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+ })();
+</script>
 <!-- Meta Description -->
 {{ if .Description }}
 <meta name="description" content="{{ .Description }}" />
