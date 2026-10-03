@@ -1,7 +1,7 @@
 ---
 title: "NSA Codebreaker 2025 - Task 6: Crossing the Channel"
 subtitle: "A lesson in destination-specific authorization"
-date: "2026-10-03T00:06:00+01:00"
+date: 2025-10-21
 draft: false
 featured: false
 tags: ["NSA Codebreaker 2025", "ctf", "vulnerability research"]

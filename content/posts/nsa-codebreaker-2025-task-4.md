@@ -1,7 +1,7 @@
 ---
 title: "NSA Codebreaker 2025 - Task 4: Unpacking Insight"
 subtitle: "Understanding an obfuscated Linux sample"
-date: "2026-10-03T00:04:00+01:00"
+date: 2025-10-04
 draft: false
 featured: false
 tags: ["NSA Codebreaker 2025", "ctf", "malware analysis"]

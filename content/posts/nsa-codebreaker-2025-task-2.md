@@ -1,7 +1,7 @@
 ---
 title: "NSA Codebreaker 2025 - Task 2: The Hunt Continues"
 subtitle: "Tracing inconsistent DNS responses back to a router"
-date: "2026-10-03T00:02:00+01:00"
+date: 2025-10-18
 draft: false
 featured: false
 tags: ["NSA Codebreaker 2025", "ctf", "network forensics"]

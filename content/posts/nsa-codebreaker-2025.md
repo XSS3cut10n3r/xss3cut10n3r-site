@@ -1,7 +1,7 @@
 ---
 title: "NSA Codebreaker 2025: My First Full Challenge"
 subtitle: "Seven tasks spanning forensics, reverse engineering, cryptanalysis, and application security"
-date: "2026-10-03T00:08:00+01:00"
+date: 2025-10-29
 draft: false
 featured: true
 tags: ["NSA Codebreaker 2025", "ctf", "reflection"]

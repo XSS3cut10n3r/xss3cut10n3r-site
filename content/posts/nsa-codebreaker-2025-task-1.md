@@ -1,7 +1,7 @@
 ---
 title: "NSA Codebreaker 2025 - Task 1: Getting Started"
 subtitle: "Finding a suspicious artifact in an EXT2 image"
-date: "2026-10-03T00:01:00+01:00"
+date: 2025-10-03
 draft: false
 featured: false
 tags: ["NSA Codebreaker 2025", "ctf", "forensics"]
