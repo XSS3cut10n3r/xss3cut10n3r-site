@@ -5,6 +5,7 @@ date: 2025-10-27
 lastmod: 2026-10-03
 draft: false
 featured: true
+pinned: true
 tags: ["career", "about"]
 ---
 

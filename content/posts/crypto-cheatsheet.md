@@ -2,7 +2,7 @@
 title: "Crypto Cheatsheet for CTFs"
 subtitle: "A useful cryptography cheatsheet"
 date: 2025-08-27
-tags: ["crypto", "cheatsheet", "ctf"]
+tags: ["cryptanalysis", "cheatsheet", "ctf"]
 featured: false
 draft: false
 ---
