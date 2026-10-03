@@ -355,4 +355,8 @@ Decrypted file path: /opt/dafin/intel/ops_brief_redteam.pdf
 
 ---
 
+<p>
+<img src="/images/codebreaker-2025/badge4.png" alt="NSA Codebreaker 2025 Task 4 completion badge" width="300"/>
+</p>
+
 [← Task 3](/posts/nsa-codebreaker-2025-task-3/) · [Series overview](/posts/nsa-codebreaker-2025/) · [Task 5 →](/posts/nsa-codebreaker-2025-task-5/)

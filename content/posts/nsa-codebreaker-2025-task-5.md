@@ -30,4 +30,8 @@ Enter here...
 
 ---
 
+<p>
+<img src="/images/codebreaker-2025/badge5.png" alt="NSA Codebreaker 2025 Task 5 completion badge" width="300"/>
+</p>
+
 [← Task 4](/posts/nsa-codebreaker-2025-task-4/) · [Series overview](/posts/nsa-codebreaker-2025/) · [Task 6 →](/posts/nsa-codebreaker-2025-task-6/)
