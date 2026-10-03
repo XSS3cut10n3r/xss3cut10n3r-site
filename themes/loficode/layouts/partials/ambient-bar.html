@@ -23,7 +23,7 @@
     <div class="ambient-label">Click to start ambient sounds</div>
 
     <div class="volume-container">
-        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="{{ .Site.Params.ambient_sounds.default_volume }}">
+        <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="{{ .Site.Params.ambient_sounds.default_volume }}" aria-label="Ambient sound volume">
         <div class="equalizer muted">
             {{ range (seq 8) }}
             <div class="equalizer-bar"></div>

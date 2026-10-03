@@ -1,4 +1,6 @@
 :root {
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     /* Light mode - Sunset vaporwave */
     --bg-primary: linear-gradient(135deg, #FFE5B4 0%, #FFCCCB 25%, #DDA0DD 75%, #98E8B9 100%);
     --bg-secondary: rgba(255, 255, 255, 0.85);
@@ -573,13 +575,9 @@ nav {
     transform: translate(-50%, -52%);
     background: var(--btn-gradient);
     border-radius: 50%;
-    animation: pulse-glow 3s ease-in-out infinite;
+    opacity: 0.8;
+    box-shadow: 0 0 15px var(--glow-color);
     z-index: 1;
-}
-
-@keyframes pulse-glow {
-    0%, 100% { opacity: 0.6; box-shadow: 0 0 10px var(--glow-color); }
-    50% { opacity: 1; box-shadow: 0 0 20px var(--glow-color); }
 }
 
 .profile-photo {
@@ -1000,12 +998,6 @@ nav {
     letter-spacing: 0.5px;
     margin-left: 0.5rem;
     box-shadow: 0 4px 15px var(--glow-color);
-    animation: glow-pulse 2s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 4px 15px var(--glow-color); }
-    50% { box-shadow: 0 6px 25px var(--glow-color); }
 }
 
 @media (max-width: 768px) {
