@@ -43,7 +43,7 @@ I'm most invested in **correspondence chess**: the long-form version where a sin
 
 I'm currently **rated 2403 on ICCF**, which puts me around **1010th in the world** for correspondence chess.
 
-What I enjoy most is the chance to **further chess theory**: analysing complex positions in real depth, testing ideas in openings and endgames, and adding a little to the shared understanding of them. Just as much of it is the **correspondence chess community**, people who genuinely care about getting a position right and are happy to dig into it together.
+What I enjoy most is the chance to **further chess theory**: analysing complex positions in real depth, testing ideas in openings and endgames, and adding a little to the shared understanding of them. The **correspondence chess community** is full of people who enjoy exploring the game in as much depth and detail as possible.
 
 ### Faster games
 
