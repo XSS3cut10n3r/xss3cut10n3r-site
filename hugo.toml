@@ -1,4 +1,5 @@
 baseURL = "https://xss3cut10n3r.com/"
+locale = "en-US"
 theme = "loficode"
 title = "XSS3cut10n3r"
 

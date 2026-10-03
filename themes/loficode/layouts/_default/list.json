@@ -3,8 +3,8 @@
   {{- if eq .Type "posts" -}}
     {{- $post := dict
       "title" .Title
-      "url" .Permalink
-      "permalink" .Permalink
+      "url" .RelPermalink
+      "permalink" .RelPermalink
       "date" (.Date.Format "2006-01-02")
       "dateFormatted" (.Date.Format "January 2, 2006")
       "summary" .Summary

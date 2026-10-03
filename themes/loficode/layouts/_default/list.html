@@ -1,13 +1,13 @@
 {{ define "main" }}
 
-{{ partial "header.html" . }}  <!-- ensures site header appears -->
+
 
 <div class="container">
   {{ if .IsHome }}
   <div class="author-profile-section">
     <div class="profile-photo-container">
       <img
-        src="{{ .Site.Params.profile_photo | absLangURL }}"
+        src="{{ .Site.Params.profile_photo | relLangURL }}"
         alt="{{ .Site.Params.author }}"
         class="profile-photo"
       />

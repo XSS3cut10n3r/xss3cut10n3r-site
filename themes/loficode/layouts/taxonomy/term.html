@@ -2,9 +2,9 @@
 <div class="container">
     <div class="taxonomy-header">
         <div class="breadcrumb">
-            <a href="{{ "/" | absLangURL }}">Home</a>
+            <a href="{{ "/" | relLangURL }}">Home</a>
             <span class="breadcrumb-separator">→</span>
-            <a href="{{ "/tags/" | absLangURL }}">Tags</a>
+            <a href="{{ "/tags/" | relLangURL }}">Tags</a>
             <span class="breadcrumb-separator">→</span>
             <span class="current-page">{{ .Title }}</span>
         </div>
@@ -35,7 +35,7 @@
         <h3>Related Topics</h3>
         <div class="related-tags">
             {{ range ($relatedTags | uniq | first 8) }}
-            <a href="{{ printf "/tags/%s/" (. | urlize) | absLangURL }}" class="related-tag">{{ . }}</a>
+            <a href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}" class="related-tag">{{ . }}</a>
             {{ end }}
         </div>
     </div>
@@ -68,7 +68,7 @@
 
     <!-- Back to all tags -->
     <div class="taxonomy-footer">
-        <a href="{{ "/tags/" | absLangURL }}" class="back-to-tags">
+        <a href="{{ "/tags/" | relLangURL }}" class="back-to-tags">
             ← Browse all tags
         </a>
     </div>

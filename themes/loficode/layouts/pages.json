@@ -3,8 +3,8 @@
   {{- if and (ne .Section "posts") (ne .Kind "home") -}}
     {{- $page := dict
       "title" .Title
-      "url" .Permalink
-      "permalink" .Permalink
+      "url" .RelPermalink
+      "permalink" .RelPermalink
       "date" (.Date.Format "2006-01-02")
       "dateFormatted" (.Date.Format "2006.01.02")
       "summary" .Summary

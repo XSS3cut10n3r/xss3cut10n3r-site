@@ -3,12 +3,12 @@
   <div class="author-profile-section">
     <div class="profile-photo-container">
       <img
-        src="{{ .Site.Params.Author.image | absURL }}"
+        src="{{ .Site.Params.Author.image | relURL }}"
         alt="{{ .Site.Params.Author.name }}"
         class="profile-photo"
       />
     </div>
-    <p class="profile-tagline">{{ .Site.Params.tagline | markdownify }}</p>
+    <div class="profile-tagline">{{ .Site.Params.tagline | markdownify }}</div>
     <div class="social-links">
       {{ range $name, $url := .Site.Params.Social }} {{ if eq $name "github" }}
       <a
@@ -113,7 +113,7 @@
       data-total="{{ len $posts }}"
     >
       <span class="load-more-text">Load More Posts</span>
-      <img src="/images/icon.svg" class="load-more-icon" alt="Load more">
+      <img src="/images/file.svg" class="load-more-icon" alt="Load more">
     </button>
     <div class="load-more-loading" id="load-more-loading" style="display: none">
       <span class="loading-text">Brewing more content...</span>
