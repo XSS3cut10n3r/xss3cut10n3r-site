@@ -39,7 +39,7 @@ You can verify who you are talking to. Compare safety numbers or scan a QR code 
 
 Private on your own phone, too. Search across all your conversations, unread counts and notification previews are worked out on your device from your encrypted local history. They need no extra data on the server, so they cannot leak from it. There are no read receipts, no typing indicators and no "last seen", on purpose: those small cues say a lot about you.
 
-A server that knows as little as possible. It has to route messages, so metadata is the hard part of any messenger. We keep what it can see to the minimum, write down exactly what that is in the threat model, and delete encrypted messages from the server after 30 days.
+A server that knows as little as possible. It has to route messages, so metadata is the hard part of any messenger. We keep what it can see to the minimum and write down exactly what that is in the threat model.
 
 Free, with no tracking. No ads, no analytics, no data selling, and no third-party code that phones home. We would rather stay small and trustworthy than grow by watching people.
 
