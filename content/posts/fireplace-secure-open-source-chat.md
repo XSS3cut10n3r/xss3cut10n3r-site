@@ -47,7 +47,7 @@ Free, with no tracking. No ads, no analytics, no data selling, and no third-part
 
 ## Why we are doing this
 
-I work in offensive security and cryptography, and the longer I do it the more the same thing stands out: most of what makes a communication tool trustworthy is invisible to the person using it. You cannot see the key exchange. You cannot check the code. You are asked to believe. I wanted to build something where belief is not required, where the claims are specific enough to be tested and the code is there to be read.
+I work in offensive security and have a genuine interest in cryptography. The more I learn, the more the same thing stands out: most of what makes a communication tool trustworthy is invisible to the person using it. You cannot see the key exchange. You cannot check the code. You are asked to believe. I wanted to build something where belief is not required, where the claims are specific enough to be tested and the code is there to be read.
 
 Three reasons keep coming back:
 
