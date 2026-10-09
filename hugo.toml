@@ -5,7 +5,7 @@ title = "XSS3cut10n3r"
 
 [params]
   description = "Cybersecurity blog and portfolio of Tomislav “Tomi” Bodwell Mamic (XSS3cut10n3r), covering penetration testing, cryptography, forensics, CTFs, and research."
-  seoTitle = "Tomi Bodwell Mamic | XSS3cut10n3r Cybersecurity"
+  seoTitle = "XSS3cut10n3r a.k.a Tomi Bodwell Mamic"
   tagline = "Don’t tell people your plans.  \nShow them your results."
   headerText = "XSS3cut10n3r"
   keywords = ["Tomi Bodwell Mamic", "Tomislav Bodwell Mamic", "cybersecurity", "penetration testing", "cryptography", "web application security", "incident response", "digital forensics", "NSA Codebreaker", "National Cyber League", "CTF", "exploit development", "security engineering"]
