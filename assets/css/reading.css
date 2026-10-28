@@ -1,20 +1,17 @@
 /* Article layout: native page flow and a restrained reading surface. */
-body:has(.reading-shell) { background: #060907; color: #e6ece8; }
-[data-theme="light"] body:has(.reading-shell) { background: #fffafa; color: #2d1b3e; }
-.reading-shell { --reading-muted: #a4b5aa; --reading-line: #26332b; --reading-accent: #3ee67a; --reading-accent-2: #ff5cff; max-width: 1180px; margin: auto; padding: 56px 40px 80px; }
-[data-theme="light"] .reading-shell { --reading-muted: #5f4f72; --reading-line: #ecd9df; --reading-accent: #c4005a; --reading-accent-2: #c2531f; }
+body:has(.reading-shell) { background: var(--bg, #13151a); color: var(--text-primary, #eef1f3); }
+.reading-shell { --reading-muted: #98a2ab; --reading-line: #2a2f37; --reading-accent: #85a9d1; --reading-accent-2: #85a9d1; max-width: 1180px; margin: auto; padding: 56px 40px 80px; }
 .reading-shell a { color: var(--reading-accent); }
 .reading-grid { display: grid; grid-template-columns: minmax(0, 760px) minmax(0, 260px); gap: 56px; }
 .reading-article.post-content { padding: 0; overflow: visible; min-width: 0; }
 .reading-header { padding-bottom: 32px; margin-bottom: 36px; border-bottom: 1px solid var(--reading-line); }
 .reading-meta { font-size: 14px; color: var(--reading-muted); margin-bottom: 18px; }
-.reading-header h1 { font-family: Inter, sans-serif; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.16; letter-spacing: -.035em; color: inherit; text-shadow: none; }
+.reading-header h1 { font-family: "EB Garamond", Garamond, "Times New Roman", serif; font-weight: 500; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1.12; letter-spacing: 0; color: inherit; text-shadow: none; }
 .reading-deck { margin-top: 20px; font-size: 20px; line-height: 1.55; color: var(--reading-muted); }
-.reading-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; font-size: 13px; }
-.reading-body { font-family: Inter, sans-serif; font-size: 17px; line-height: 1.85; overflow-wrap: anywhere; }
+.reading-body { font-family: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; line-height: 1.85; overflow-wrap: anywhere; }
 .reading-body p, .reading-body li { color: inherit; font-size: inherit; line-height: inherit; }
 .reading-body p { margin: 0 0 1.35em; }
-.reading-body h2, .reading-body h3, .reading-body h4 { font-family: Inter, sans-serif; color: inherit; line-height: 1.35; margin: 2em 0 .8em; letter-spacing: -.02em; scroll-margin-top: 28px; }
+.reading-body h2, .reading-body h3, .reading-body h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif; font-weight: 600; color: inherit; line-height: 1.3; margin: 2em 0 .8em; letter-spacing: 0; scroll-margin-top: 28px; }
 .reading-body h2 { font-size: 1.65rem; }.reading-body h3 { font-size: 1.3rem; }
 .reading-body h2::before { display: none; }
 .reading-body strong { color: inherit; }.reading-body em { font-style: italic; color: inherit; font-weight: inherit; }
@@ -22,8 +19,8 @@ body:has(.reading-shell) { background: #060907; color: #e6ece8; }
 .reading-body blockquote { border-left: 3px solid var(--reading-accent); margin: 28px 0; padding: 12px 24px; color: var(--reading-muted); background: transparent; }
 .reading-body blockquote p:last-child { margin-bottom: 0; }
 .reading-body img { display: block; max-width: 100%; height: auto; margin: 24px auto; border-radius: 8px; }
-.reading-body pre { max-width: 100%; overflow-x: auto; padding: 22px; border: 1px solid var(--reading-line); border-radius: 8px; background: #0e1410; font-size: 14px; line-height: 1.65; white-space: pre; overflow-wrap: normal; }
-.reading-body pre code { padding: 0; background: transparent; color: #e6ece8; font-size: inherit; white-space: pre; }
+.reading-body pre { max-width: 100%; overflow-x: auto; padding: 22px; border: 1px solid var(--reading-line); border-radius: 8px; background: #181b20; font-size: 14px; line-height: 1.65; white-space: pre; overflow-wrap: normal; }
+.reading-body pre code { padding: 0; background: transparent; color: #eef1f3; font-size: inherit; white-space: pre; }
 .reading-body :not(pre) > code { background: rgba(128,160,140,.14); color: inherit; padding: 2px 6px; border-radius: 4px; font-size: .88em; }
 .reading-body .highlight { max-width: 100%; overflow: hidden; }
 /* Reserve space for the language/copy header and keep Chroma colors readable. */
@@ -47,46 +44,26 @@ body:has(.reading-shell) { background: #060907; color: #e6ece8; }
 .reading-contents { position: sticky; top: 90px; align-self: start; }
 .reading-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 28px; margin-top: 48px; border-top: 1px solid var(--reading-line); font-size: 14px; }
 @media (max-width: 950px) { .reading-grid { grid-template-columns: minmax(0, 1fr); }.reading-contents { display: none; } }
-@media (max-width: 600px) { .reading-shell { padding: 20px 22px 48px; }.reading-body { font-size: 16px; }.reading-body pre { padding: 14px; font-size: 12px; }.reading-footer { flex-direction: column; }.reading-grid { gap: 30px; } }
+@media (max-width: 600px) { .reading-shell { padding: 36px 22px 48px; }.reading-body { font-size: 17px; }.reading-body pre { padding: 14px; font-size: 12px; }.reading-footer { flex-direction: column; }.reading-grid { gap: 30px; } }
 @media (max-width: 600px) { .reading-body .highlight pre { padding: 3rem 14px 14px; } }
 @media (max-width: 950px) { .reading-contents { grid-column: 1; }.reading-article { grid-column: 1; } }
 .reading-article.post-content { width: 100%; max-width: 100%; margin: 0; display: block; }
 
-.post-item[hidden] { display: none !important; }
 
 /* In-body H1s (pasted writeups) sit below the page title, so size them like section headings. */
-.reading-body h1 { font-family: Inter, sans-serif; font-size: 1.85rem; line-height: 1.25; letter-spacing: -.025em; color: inherit; margin: 1.4em 0 .8em; }
+.reading-body h1 { font-family: "EB Garamond", Garamond, "Times New Roman", serif; font-weight: 600; font-size: 2rem; line-height: 1.25; letter-spacing: 0; color: inherit; margin: 1.4em 0 .8em; }
 
-/* Load more: a slim pill instead of the theme's tall gradient block. */
-.load-more-section { margin-top: 1.5rem; padding: 1rem 0; }
-.load-more-btn, .load-more-btn:hover, .load-more-btn:active { padding: .65rem 1.75rem; font-size: .95rem; letter-spacing: .06em; gap: .5rem; line-height: 1; white-space: nowrap; border-radius: 999px; box-shadow: 0 0 12px var(--glow-color); }
-.load-more-btn:hover { transform: translateY(-1px); box-shadow: 0 0 18px var(--glow-color); }
-.load-more-btn:active { transform: none; }
-
-/* Brand accents on article pages, kept quieter than the homepage. */
-.reading-series { display: inline-block; margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+.reading-series { display: inline-block; margin-bottom: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
 .reading-header .reading-meta { margin: 22px 0 0; }
-.reading-kicker { color: var(--reading-accent-2); }
-.reading-body h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 10px; border-radius: 2px; background: linear-gradient(90deg, var(--reading-accent), var(--reading-accent-2)); }
-.reading-footer a:hover { color: var(--reading-accent); }
+.reading-kicker { color: var(--reading-accent); }
+.reading-body h2::after { content: ""; display: block; width: 40px; height: 2px; margin-top: 10px; background: var(--reading-line); }
+.reading-footer a:hover { color: var(--text-primary); }
 
-/* Code blocks: a thin, neutral label bar instead of the bright gradient header. */
+/* Code blocks: a thin, neutral label bar. */
 .reading-body .highlight { border: 1px solid var(--reading-line); border-radius: 8px; box-shadow: none; }
-.reading-body .highlight::before { background: #1d211c; color: #9fb3a6; padding: .55rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: .7rem; letter-spacing: .14em; border-bottom: 1px solid #2f362f; }
-.reading-body .highlight::after { top: .3rem; right: .6rem; padding: .25rem .65rem; font-size: .72rem; color: #c9d6cd; background: transparent; border: 1px solid #3a433b; border-radius: 6px; }
+.reading-body .highlight::before { background: #1e2228; color: #98a2ab; padding: .55rem 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .7rem; letter-spacing: .14em; border-bottom: 1px solid #2a2f37; }
+.reading-body .highlight::after { top: .3rem; right: .6rem; padding: .25rem .65rem; font-size: .72rem; color: #c3ccd4; background: transparent; border: 1px solid #3a404a; border-radius: 6px; }
 .reading-body .highlight:hover::after { border-color: var(--reading-accent); color: var(--reading-accent); }
-
-/* Homepage tag filter: top tags plus a toggle for the rest. */
-.tag[hidden] { display: none !important; }
-.tag-more { padding: .5rem 1rem; border-radius: 20px; border: 2px dashed var(--border-color); background: transparent; color: var(--text-muted); font: inherit; font-size: .9rem; cursor: pointer; }
-.tag-more:hover { color: var(--accent-primary); border-color: var(--accent-primary); }
-
-
-/* Homepage cards: the title link covers the whole card, replacing the separate "Read more" link. */
-.post-item > .post-content { position: static; }
-.post-item .post-title-vaporwave a::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
-.post-item:hover .post-title-vaporwave a { color: var(--accent-primary); }
-.post-item:focus-within { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
 
 /* Click-to-enlarge viewer for screenshots in posts. */
 .reading-body img.zoomable { cursor: zoom-in; }
@@ -100,49 +77,6 @@ body:has(.reading-shell) { background: #060907; color: #e6ece8; }
 .reading-contents-inline ul { list-style: none; padding-left: 0; margin: 12px 0 0; }
 .reading-contents-inline ul ul { padding-left: 14px; margin-top: 6px; }
 .reading-contents-inline li { margin-bottom: 8px; }
-.reading-contents-inline a { color: var(--reading-muted); }
+.reading-contents-inline a { color: var(--reading-muted); text-decoration: none; }
+.reading-contents-inline a:hover { color: var(--text-primary); }
 @media (max-width: 950px) { .reading-contents-inline { display: block; } }
-
-/* Sidebar contents: the theme's card, with sub-sections indented and a little tighter. */
-.reading-contents .toc { padding: 0; }
-.reading-contents .toc h4 { padding: 1.25rem 1.25rem .75rem; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; }
-.reading-contents #toc-content { padding: 0 .75rem 1.25rem; }
-.reading-contents #toc-content a { line-height: 1.45; }
-.reading-contents #toc-content .toc-sub { margin-left: .9rem; }
-.reading-contents #toc-content .toc-sub a { font-size: .8rem; }
-
-/* Phone contents box: same hover and colour treatment as the sidebar card. */
-.reading-contents-inline { position: relative; overflow: hidden; background: var(--bg-card); border-color: var(--border-color); border-radius: 12px; }
-.reading-contents-inline::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--btn-gradient); }
-.reading-contents-inline a { display: block; padding: .25rem .5rem; border-radius: 8px; color: var(--text-secondary); text-decoration: none; transition: all .3s ease; }
-.reading-contents-inline a:hover { color: var(--accent-primary); background: rgba(255, 0, 107, .1); transform: translateX(4px); }
-
-/* Employer card on the About Me page; shows the logo version that suits the current theme. */
-.reading-body .role-card { display: flex; align-items: center; gap: 22px; margin: 4px 0 28px; padding: 18px 22px; border: 1px solid var(--reading-line); border-radius: 12px; background: rgba(128, 160, 140, .06); text-decoration: none; color: inherit; transition: border-color .25s ease, transform .25s ease; }
-.reading-body .role-card:hover { border-color: #3cc2a6; transform: translateY(-2px); }
-.role-card-logo { flex: none; padding-right: 22px; border-right: 1px solid var(--reading-line); }
-.reading-body .role-card-logo img { width: 120px; height: auto; margin: 0; border-radius: 0; }
-.role-card-text { display: flex; flex-direction: column; gap: 4px; line-height: 1.4; }
-.role-card-title { font-weight: 600; font-size: 1.05rem; }
-.role-card-meta { font-size: .9rem; color: var(--reading-muted); }
-.reading-body .logo-on-dark { display: none; }
-[data-theme="dark"] .reading-body .logo-on-light { display: none; }
-[data-theme="dark"] .reading-body .logo-on-dark { display: block; }
-@media (max-width: 600px) { .reading-body .role-card { flex-direction: column; align-items: flex-start; gap: 14px; } .role-card-logo { padding: 0 0 14px; border-right: 0; border-bottom: 1px solid var(--reading-line); } }
-
-/* Shuffle button for the chill mix; only shown while the mix is playing. */
-.ambient-shuffle { display: inline-flex; align-items: center; gap: .4rem; height: 36px; padding: 0 .8rem; border: 2px solid var(--accent-tertiary); border-radius: 999px; background: transparent; color: var(--accent-tertiary); font: inherit; font-size: .78rem; cursor: pointer; transition: all .2s ease; }
-.ambient-shuffle:hover { background: var(--accent-tertiary); color: #000; box-shadow: 0 0 14px var(--accent-tertiary); }
-.ambient-shuffle:active { transform: scale(.95); }
-.ambient-shuffle[hidden] { display: none; }
-
-/* The volume control is unreliable on touch devices, so leave mobile playback at its saved/default level. */
-@media (max-width: 768px) {
-  .ambient-bar .equalizer { display: none; }
-  .ambient-bar .volume-container { display: none; }
-}
-@media (max-width: 360px) {
-  .site-header nav { grid-template-columns: minmax(0, 1fr) auto; }
-  .site-header .logo { font-size: .82rem; gap: .25rem; white-space: nowrap; word-break: normal; }
-  .site-header .logo::before { font-size: 1rem; }
-}

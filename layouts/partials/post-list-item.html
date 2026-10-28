@@ -1,0 +1,5 @@
+<article class="post-item">
+  <h2 class="post-item-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <p class="post-item-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min read</p>
+  {{ with .Params.subtitle }}<p class="post-item-subtitle">{{ . }}</p>{{ end }}
+</article>

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="container list-index">
+  <header class="list-hero">
+    <h1 class="list-title">{{ if eq .Section "posts" }}Writeups{{ else }}{{ .Title }}{{ end }}</h1>
+    <p class="list-sub">{{ len .Pages }} post{{ if ne (len .Pages) 1 }}s{{ end }}</p>
+  </header>
+  <div class="posts-list">
+    {{ range .Pages.ByDate.Reverse }}{{ partial "post-list-item.html" . }}{{ end }}
+  </div>
+</div>
+{{ end }}

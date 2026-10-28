@@ -1,48 +1,27 @@
 baseURL = "https://xss3cut10n3r.com/"
 locale = "en-US"
-theme = "loficode"
-title = "XSS3cut10n3r"
+title = "Tomi Bodwell Mamic"
+disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Cybersecurity blog and portfolio of Tomislav “Tomi” Bodwell Mamic (XSS3cut10n3r), covering penetration testing, cryptography, forensics, CTFs, and research."
-  seoTitle = "XSS3cut10n3r a.k.a Tomi Bodwell Mamic"
-  tagline = "Don’t tell people your plans.  \nShow them your results."
-  headerText = "XSS3cut10n3r"
-  keywords = ["Tomi Bodwell Mamic", "Tomislav Bodwell Mamic", "cybersecurity", "penetration testing", "cryptography", "web application security", "incident response", "digital forensics", "NSA Codebreaker", "National Cyber League", "CTF", "exploit development", "security engineering"]
+  description = "Tomislav “Tomi” Bodwell Mamic: penetration tester and Applied Cybersecurity student. Writeups, research, and CV covering penetration testing, cryptography, and forensics."
+  seoTitle = "Tomi Bodwell Mamic | Penetration Testing & Security Research"
+  tagline = "Penetration Tester · Applied Cybersecurity Student"
+  keywords = ["Tomi Bodwell Mamic", "Tomislav Bodwell Mamic", "XSS3cut10n3r", "cybersecurity", "penetration testing", "cryptography", "web application security", "incident response", "digital forensics", "NSA Codebreaker", "National Cyber League", "security research"]
 
 [params.author]
   name = "Tomi Bodwell Mamic"
   fullName = "Tomislav Bodwell Mamic"
   username = "XSS3cut10n3r"
-  image = "/images/profile.webp"
 
 [params.social]
   email = "contact@xss3cut10n3r.com"
   github = "https://github.com/xss3cut10n3r"
   linkedin = "https://linkedin.com/in/tomibodwellmamic"
 
-[[menu.main]]
-  name = "Tags"
-  url = '/tags/'
-  weight = 2
-
-[[menu.main]]
-  name = "HTB"
-  url = "https://app.hackthebox.com/users/2280564"
-  weight = 3
-  [menu.main.params]
-    target = "_blank"
-    rel = "noopener noreferrer"
-
 [markup.goldmark.renderer]
   unsafe = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "pages"]
-  section = ["HTML", "RSS", "JSON"]
-
-[outputFormats.pages]
-  mediaType = "application/json"
-  baseName = "pages"
-  isPlainText = true
-  notAlternative = true
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]

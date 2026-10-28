@@ -1,0 +1,9 @@
+<footer class="site-footer">
+  <span>&copy; {{ now.Year }} {{ .Site.Params.author.name }}</span>
+  <span>
+    <a href="{{ "/posts/" | relURL }}">All writeups</a> ·
+    <a href="mailto:{{ .Site.Params.social.email }}">Email</a> ·
+    <a href="{{ .Site.Params.social.github }}" rel="noopener">GitHub</a> ·
+    <a href="{{ .Site.Params.social.linkedin }}" rel="noopener">LinkedIn</a>
+  </span>
+</footer>

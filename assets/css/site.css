@@ -1,0 +1,119 @@
+/* Shared palette and chrome for every page that isn't the Dimension-style
+   homepage (writeups, the writeups list, 404). Keeps one restrained dark theme
+   site-wide, no light mode, no neon. */
+:root {
+  --bg: #13151a;
+  --surface: #1b1e24;
+  --text-primary: #eef1f3;
+  --text-muted: #98a2ab;
+  --border-color: #2a2f37;
+  --accent-primary: #85a9d1;
+  --accent-tertiary: #85a9d1;
+  --btn-gradient: #85a9d1;
+  --glow-color: transparent;
+  --tag-gradient: rgba(133, 169, 209, .12);
+  --tag-text: #cddcec;
+}
+
+html, body { background: var(--bg); color: var(--text-primary); }
+body { font-family: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: var(--accent-primary); }
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-primary);
+  z-index: 1000;
+  transition: width .1s ease;
+}
+
+/* Slim top bar used on every page except the homepage. */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem 40px 0;
+}
+.site-nav .logo {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-primary);
+  letter-spacing: -.01em;
+}
+.site-nav .nav-links { display: flex; gap: 1.5rem; font-size: .95rem; }
+.site-nav .nav-links a { color: var(--text-muted); text-decoration: none; }
+.site-nav .nav-links a:hover { color: var(--text-primary); }
+@media (max-width: 600px) {
+  .site-nav { padding: 1.25rem 22px 0; flex-wrap: wrap; }
+  .site-nav .nav-links { gap: 1rem; font-size: .9rem; }
+}
+
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 40px 56px;
+  color: var(--text-muted);
+  font-size: .9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.site-footer a { color: var(--text-muted); text-decoration: none; }
+.site-footer a:hover { color: var(--text-primary); }
+@media (max-width: 600px) { .site-footer { padding: 32px 22px 48px; } }
+
+/* Post rows on tag pages. */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+.posts-list { max-width: 760px; margin: 0 auto; }
+.post-item { padding: 1.4rem 0; border-bottom: 1px solid var(--border-color); }
+.post-item-title { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.35; }
+.post-item-title a { color: var(--text-primary); text-decoration: none; }
+.post-item-title a:hover { color: var(--accent-primary); }
+.post-item-meta { margin: .35rem 0 0; font-size: .85rem; color: var(--text-muted); }
+.post-item-subtitle { margin: .5rem 0 0; color: var(--text-muted); line-height: 1.55; }
+.pagination { display: flex; justify-content: space-between; align-items: center; max-width: 760px; margin: 2rem auto 0; font-size: .9rem; color: var(--text-muted); }
+@media (max-width: 600px) { .container { padding: 0 22px; } }
+
+/* Sticky table of contents beside long writeups. */
+.toc h4 { margin: 0 0 .75rem; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); }
+.toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--border-color); }
+.toc li a { display: block; padding: .3rem 0 .3rem .9rem; margin-left: -1px; border-left: 1px solid transparent; font-size: .85rem; line-height: 1.4; color: var(--text-muted); text-decoration: none; }
+.toc li.toc-sub a { padding-left: 1.7rem; }
+.toc li a:hover { color: var(--text-primary); }
+.toc li a.active { color: var(--text-primary); border-left-color: var(--accent-primary); }
+.not-found { max-width: 760px; }
+.not-found h1 { font-size: 2.4rem; font-weight: 600; margin: 0 0 1rem; }
+.not-found p { color: var(--text-muted); line-height: 1.7; }
+
+/* Code blocks: language label strip plus a copy button (site.js handles the click). */
+.highlight { position: relative; margin: 2rem 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+.highlight::before { content: attr(data-lang); position: absolute; top: 0; left: 0; right: 0; text-transform: uppercase; z-index: 2; }
+.highlight::after { content: "Copy"; position: absolute; cursor: pointer; user-select: none; z-index: 3; }
+.highlight:hover::after { color: var(--text-primary); border-color: var(--text-muted); }
+.highlight[data-copied="true"]::after { content: "Copied"; }
+.highlight code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.highlight .chroma .lntable { border-spacing: 0; width: 100%; margin: 0; border: 0; }
+.highlight .chroma .lntable td { padding: 0; border: 0; vertical-align: top; }
+.highlight .chroma .lnt, .highlight .chroma .ln { margin-right: 1rem; padding-right: 1rem; color: var(--text-muted); user-select: none; }
+
+/* Writeups archive heading. */
+.list-index { max-width: 1100px; }
+.list-hero { text-align: center; padding: 3rem 0 2.5rem; }
+.list-title { margin: 0; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1.05; letter-spacing: -.03em; font-weight: 600; color: var(--text-primary); }
+.list-sub { margin: .9rem 0 0; color: var(--text-muted); font-size: .95rem; }
+@media (max-width: 600px) { .list-hero { padding: 2rem 0 1.75rem; } }
+
+/* Headings and titles in EB Garamond; body text stays in Source Sans. */
+.site-nav .logo, .post-item-title, .list-title, .not-found h1 { font-family: "EB Garamond", Garamond, "Times New Roman", serif; }
+.site-nav .logo { font-size: 1.2rem; font-weight: 600; letter-spacing: 0; }
+.post-item-title { font-size: 1.45rem; font-weight: 600; }
+.list-title { font-weight: 500; letter-spacing: 0; }

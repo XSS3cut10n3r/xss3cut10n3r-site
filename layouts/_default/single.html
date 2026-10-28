@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{ partial "header.html" . }}
 {{/* Writeups open with a "Task N - Name - (Category)" heading that repeats the page title.
      Drop it from the body and contents, and show its category in the meta line instead. */}}
 {{ $content := .Content }}
@@ -20,7 +19,6 @@
         <h1>{{ .Title }}</h1>
         {{ with .Params.subtitle }}<p class="reading-deck">{{ . }}</p>{{ end }}
         <p class="reading-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min read{{ with $kicker }} · <span class="reading-kicker">{{ . }}</span>{{ end }}</p>
-        {{ with .Params.tags }}<div class="reading-tags">{{ range . }}<a href="{{ printf "/tags/%s/" (. | urlize) }}">{{ . }}</a>{{ end }}</div>{{ end }}
       </header>
       {{ if .Fragments.Headings }}<details class="reading-contents-inline"><summary>On this page</summary>{{ $toc | safeHTML }}</details>{{ end }}
       <div class="post-body reading-body">{{ $content | safeHTML }}</div>
@@ -29,7 +27,7 @@
         {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
       </nav>
     </article>
-    {{/* The theme's main.js fills #toc-content from the headings and highlights the current section on scroll. */}}
+    {{/* site.js fills #toc-content from the headings and highlights the current section on scroll. */}}
     {{ if .Fragments.Headings }}<aside class="reading-contents"><nav class="toc" aria-label="Table of contents"><h4>On this page</h4><div id="toc-content"></div></nav></aside>{{ end }}
   </div>
 </div>

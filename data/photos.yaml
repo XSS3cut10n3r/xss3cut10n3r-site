@@ -1,0 +1,7 @@
+# Photos for the homepage Photos panel. The Photos tab only appears once this list has entries.
+# Put image files in static/images/photos/ and add one entry per photo, newest first:
+#
+# - src: /images/photos/example.jpg
+#   caption: "Where and when it was taken"
+#   alt: "Short description of what's in the photo"
+[]
