@@ -1,7 +1,221 @@
-# Photos for the homepage Photos panel. The Photos tab only appears once this list has entries.
-# Put image files in static/images/photos/ and add one entry per photo, newest first:
+# Photos for the homepage Photos panel, grouped by trip, newest trip first.
+# The Photos tab only appears once there is at least one photo.
 #
-# - src: /images/photos/example.jpg
-#   caption: "Where and when it was taken"
-#   alt: "Short description of what's in the photo"
-[]
+# To add a photo: put the full-size image in static/images/photos/ and a copy about
+# 600px wide with the same file name in static/images/photos/thumbs/, then list it below.
+# Optional per trip: crop: "4 / 3" shows every photo in that trip at the same shape.
+
+- title: "Honduras"
+  date: "Spring 2026"
+  crop: "1 / 1"
+  photos:
+    - src: /images/photos/honduras-01.jpg
+      caption: "A carved stela at Copán Ruinas"
+      alt: "A weathered Maya stela carved with figures, with visitors on the ruins behind"
+    - src: /images/photos/honduras-02.jpg
+      caption: "Rosalila temple replica, Copán Sculpture Museum"
+      alt: "A brightly painted red and green Maya temple facade seen through a dark entrance tunnel"
+    - src: /images/photos/honduras-03.jpg
+      caption: "Scarlet macaws"
+      alt: "Two scarlet macaws perched among tropical plants"
+    - src: /images/photos/honduras-04.jpg
+      caption: "Green macaw"
+      alt: "A green macaw with a red forehead perched on a wooden post"
+    - src: /images/photos/honduras-05.jpg
+      caption: "Cautious toucan"
+      alt: "A black toucan with a large multicoloured bill standing on the ground"
+    - src: /images/photos/honduras-06.jpg
+      caption: "Sunset over the rooftops"
+      alt: "Palm trees and a white church bell tower under a pink evening sky"
+    - src: /images/photos/honduras-07.jpg
+      caption: "A terrifyingly large dog"
+      alt: "Two people sitting on a step beside a very large mastiff"
+    - src: /images/photos/honduras-08.jpg
+      caption: "Engineers"
+      alt: "A tiled patio with a wood-fired oven, a fan, and potted tropical plants"
+
+- title: "Los Angeles to Seattle"
+  date: "Summer 2025"
+  crop: "4 / 3"
+  photos:
+    - src: /images/photos/santa-monica-pier.jpg
+      caption: "Santa Monica Pier, Los Angeles"
+      alt: "The Pacific Park Ferris wheel on Santa Monica Pier under an overcast sky"
+    - src: /images/photos/pacific-coast.jpg
+      caption: "The Pacific coast from the train, Southern California"
+      alt: "A coastal highway curving along the beach beneath green hills"
+    - src: /images/photos/vineyards.jpg
+      caption: "Vineyards on California's Central Coast"
+      alt: "Rows of grapevines stretching toward dry hills at sunset"
+    - src: /images/photos/pine-forest.jpg
+      caption: "Pine forest in southern Oregon"
+      alt: "Tall pines and sagebrush under a blue sky streaked with cloud"
+    - src: /images/photos/seattle-puget-sound.jpg
+      caption: "Puget Sound and the Olympic Mountains, Seattle"
+      alt: "Clear water over rocks, with snow-capped mountains across the sound"
+
+- title: "Starbase and South Padre Island"
+  date: "Spring 2025"
+  crop: "1 / 1"
+  photos:
+    - src: /images/photos/starbase-01.jpg
+      caption: "The beach at South Padre Island"
+      alt: "A wide sandy beach with tyre tracks, dune fencing, and buildings in the distance"
+    - src: /images/photos/starbase-02.jpg
+      caption: "Starhopper, Starbase"
+      alt: "SpaceX's stainless steel Starhopper test vehicle on its landing legs under a blue sky"
+    - src: /images/photos/starbase-03.jpg
+      caption: "The launch tower at Starbase"
+      alt: "The tall steel Starship launch tower rising above sand dunes"
+    - src: /images/photos/starbase-04.jpg
+      caption: "The border wall near Boca Chica"
+      alt: "A tall dark wall running away across a grassy field beside a dirt road"
+    - src: /images/photos/starbase-05.jpg
+      caption: "Sunset over the Laguna Madre"
+      alt: "The sun setting over calm water and low buildings, seen from under a roof"
+    - src: /images/photos/starbase-06.jpg
+      caption: "A sea turtle at Sea Turtle Inc."
+      alt: "A sea turtle swimming in a blue tank beside a coral structure"
+    - src: /images/photos/starbase-07.jpg
+      caption: "Stopped by US Border Patrol"
+      alt: "A nighttime roadside selfie of me with three friends, one holding up a passport"
+
+- title: "Jordan"
+  date: "Winter 2024"
+  crop: "1 / 1"
+  photos:
+    - src: /images/photos/jordan-04.jpg
+      caption: "The Treasury (Al-Khazneh), Petra"
+      alt: "The rose-coloured facade of the Treasury carved into the cliff at Petra"
+    - src: /images/photos/jordan-05.jpg
+      caption: "Walking the Siq, Petra"
+      alt: "Two people walking through the narrow sandstone gorge leading into Petra"
+    - src: /images/photos/jordan-01.jpg
+      caption: "A narrow canyon in Wadi Rum"
+      alt: "Towering red rock walls closing in on a sliver of blue sky"
+    - src: /images/photos/jordan-02.jpg
+      caption: "3 camels in Wadi Rum"
+      alt: "Saddled camels resting on red sand with rock formations behind"
+    - src: /images/photos/jordan-03.jpg
+      caption: "Desert camp in Wadi Rum"
+      alt: "Rows of dome tents on red sand below rocky outcrops"
+    - src: /images/photos/jordan-06.jpg
+      caption: "In shorts, at the lookout"
+      alt: "A group standing at a railing looking out over a hazy valley"
+    - src: /images/photos/jordan-07.jpg
+      caption: "Around the fire in a Bedouin tent"
+      alt: "People relaxing on patterned rugs and cushions around a fire inside a tent"
+
+- title: "Texas"
+  date: "Fall 2024"
+  crop: "1 / 1"
+  photos:
+    - src: /images/photos/texas-01.jpg
+      caption: "Game day with Ben"
+      alt: "Me and Ben taking a selfie on the sideline of a packed football stadium"
+    - src: /images/photos/texas-02.jpg
+      caption: "On the field"
+      alt: "Me in a white shirt making the Hook 'em hand sign on the stadium field"
+    - src: /images/photos/texas-03.jpg
+      caption: "Bevo and the Tower"
+      alt: "The Longhorn mascot Bevo in a pen, with the UT Tower and a Texas flag behind"
+    - src: /images/photos/texas-04.jpg
+      caption: "Longhorn Lights"
+      alt: "A group of friends standing in front of a large longhorn sculpture covered in lights at night"
+    - src: /images/photos/texas-05.jpg
+      caption: "Out with friends"
+      alt: "Four friends posing together under string lights"
+    - src: /images/photos/texas-06.jpg
+      caption: "Dinner with Raj"
+      alt: "Me and Raj sitting together at a restaurant table"
+
+- title: "Italy"
+  date: "Summer 2024"
+  crop: "1 / 1"
+  photos:
+    - src: /images/photos/italy-01.jpg
+      caption: "The Leaning Tower of Pisa"
+      alt: "The white marble Leaning Tower of Pisa under a grey sky, with visitors on the lawn"
+    - src: /images/photos/italy-02.jpg
+      caption: "The beach at Monterosso al Mare"
+      alt: "Clear turquoise water along a curving beach below green hills"
+    - src: /images/photos/italy-03.jpg
+      caption: "The Cinque Terre coast from the trail"
+      alt: "Green terraced hillsides dropping to the sea, seen from high above"
+    - src: /images/photos/italy-04.jpg
+      caption: "A narrow alley in Cinque Terre"
+      alt: "A tall, narrow passage between red and orange buildings, lit from the far end"
+    - src: /images/photos/italy-05.jpg
+      caption: "A village on the cliffs"
+      alt: "Colourful houses perched on a rocky headland above clear green water"
+    - src: /images/photos/italy-06.jpg
+      caption: "Rain on the way out"
+      alt: "Apartment buildings and green trees under a grey, rainy sky"
+
+- title: "Death Valley - credit to Josh for all of the photos"
+  date: "Spring 2023"
+  crop: "2 / 3"
+  photos:
+    - src: /images/photos/death-valley-01.jpg
+      caption: "Badwater Basin salt flats"
+      alt: "A person walking alone across the white salt flats under a hazy sky"
+    - src: /images/photos/death-valley-19.jpg
+      caption: "Badwater Basin, with Grant"
+      alt: "Me and Grant giving thumbs up on the salt flats, with a huge rocky mountain behind us"
+    - src: /images/photos/death-valley-20.jpg
+      caption: "Alone on the salt flats"
+      alt: "Me standing small in the middle of flat white salt under a pale grey sky"
+    - src: /images/photos/death-valley-02.jpg
+      caption: "Sunset over the ridgeline"
+      alt: "Pink clouds above a dark ridge with two small figures on top"
+    - src: /images/photos/death-valley-03.jpg
+      caption: "Zabriskie Point badlands"
+      alt: "Folded, eroded badlands in shades of tan and brown"
+    - src: /images/photos/death-valley-04.jpg
+      caption: "Do Not Enter, Wrong Way"
+      alt: "Red Do Not Enter and Wrong Way signs above desert scrub"
+    - src: /images/photos/death-valley-05.jpg
+      caption: "The road into the valley"
+      alt: "A two-lane road curving around a dry hillside"
+    - src: /images/photos/death-valley-06.jpg
+      caption: "Avoid overheating: turn off A/C"
+      alt: "A roadside sign warning drivers to turn off air conditioning for the next 10 miles"
+    - src: /images/photos/death-valley-07.jpg
+      caption: "Snow-capped peaks beyond the fields"
+      alt: "Green fields and a fence line with snowy mountains in the distance"
+    - src: /images/photos/death-valley-08.jpg
+      caption: "Me in the badlands"
+      alt: "Me in a bucket hat and patterned shirt in front of eroded hills"
+    - src: /images/photos/death-valley-09.jpg
+      caption: "Mesquite Flat Sand Dunes"
+      alt: "Smooth sand dunes dotted with small shrubs below distant mountains"
+    - src: /images/photos/death-valley-10.jpg
+      caption: "Elevation 2000 ft"
+      alt: "A green elevation sign reading 2000 feet beside a desert shrub"
+    - src: /images/photos/death-valley-11.jpg
+      caption: "Dusk over the hills"
+      alt: "Dark desert slopes with sunlit hills behind them at dusk"
+    - src: /images/photos/death-valley-21.jpg
+      caption: "Golden hour on the mountains"
+      alt: "Rugged mountains lit warm by the low sun above pale badlands and a cloudy sky"
+    - src: /images/photos/death-valley-12.jpg
+      caption: "Ridge at last light"
+      alt: "The silhouette of a mountain ridge against a pale evening sky"
+    - src: /images/photos/death-valley-13.jpg
+      caption: "Evening at camp"
+      alt: "Trees in silhouette against a pink sky with mountains behind"
+    - src: /images/photos/death-valley-14.jpg
+      caption: "Rock formations from the car"
+      alt: "Rocky outcrops and hills seen past the edge of a car window"
+    - src: /images/photos/death-valley-15.jpg
+      caption: "Sunset through the trees"
+      alt: "Orange and purple clouds behind the branches of a desert tree"
+    - src: /images/photos/death-valley-16.jpg
+      caption: "Telephone pole and mountains"
+      alt: "A lone wooden telephone pole in front of desert mountains"
+    - src: /images/photos/death-valley-17.jpg
+      caption: "A hawk over the desert"
+      alt: "A single bird flying above flat desert scrub and a road"
+    - src: /images/photos/death-valley-18.jpg
+      caption: "Afterglow"
+      alt: "Bands of red and orange cloud above a dark horizon after sunset"

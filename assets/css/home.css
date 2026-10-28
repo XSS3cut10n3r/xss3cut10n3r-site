@@ -6,6 +6,8 @@ h1, h2, h3, h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif;
 #header .content .inner h1 { letter-spacing: 0.3rem; }
 #header .content p { letter-spacing: 0.15rem; text-transform: uppercase; font-size: 0.8rem; }
 #header nav ul li a { font-weight: 500; }
+/* Frosted-glass tint behind the menu so it reads more clearly over the photo. */
+#header nav ul { background-color: rgba(255, 255, 255, 0.06); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 
 /* Portrait in place of the template's icon circle. */
 #header .logo { overflow: hidden; line-height: 0; }
@@ -44,10 +46,17 @@ h1, h2, h3, h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif;
 .contact-list a:hover span { border-bottom: dotted 1px; }
 .contact-list svg { width: 1.25rem; height: 1.25rem; flex: none; }
 
-.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1rem; }
+/* Photos fill left to right. A trip can set `crop` in data/photos.yaml to give mixed portrait and landscape shots one shape. */
+.trip-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; margin: 2.5rem 0 1rem; }
+.trip-head:first-of-type { margin-top: 0.5rem; }
+#main article .trip-head h3 { margin: 0; }
+.trip-head span { opacity: 0.7; font-size: 0.9rem; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: 1rem; align-items: start; }
 .photo-grid figure { margin: 0; }
-.photo-grid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
-.photo-grid figcaption { margin-top: 0.4rem; font-size: 0.8rem; opacity: 0.7; }
+.photo-grid a { display: block; border-bottom: 0; }
+.photo-grid img { display: block; width: 100%; height: auto; border-radius: 4px; object-fit: cover; }
+.photo-grid a:hover img { opacity: 0.85; }
+.photo-grid figcaption { margin-top: 0.4rem; font-size: 0.8rem; line-height: 1.4; opacity: 0.7; }
 
 @media screen and (max-width: 480px) {
   #header nav ul li a { min-width: 7.5rem; }
@@ -60,7 +69,8 @@ h1, h2, h3, h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif;
 /* Phones: compact header and a two-column menu so every link and the footer fit on one screen. */
 @media screen and (max-width: 480px) {
   #header > * { margin-top: 1.25rem; }
-  #header > *:before { top: calc(-1.25rem - 1px); height: calc(1.25rem + 1px); }
+  /* The 2-column menu's divider starts exactly at 50%, so centre the connector lines there too. */
+  #header > *:before { left: 50%; }
   #header .logo { width: 4rem; height: 4rem; }
   #header .content .inner { padding: 1.5rem 0; }
   #header .content .inner h1 { font-size: 1.6rem; letter-spacing: 0.15rem; line-height: 1.3; }
@@ -71,6 +81,8 @@ h1, h2, h3, h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif;
   #header nav ul li { border-left: 0; border-top: solid 1px #ffffff; }
   #header nav ul li:nth-child(-n+2) { border-top: 0; }
   #header nav ul li:nth-child(even) { border-left: solid 1px #ffffff; }
+  /* main.js strips the border from the "middle" item for its desktop connector line, which phones hide. */
+  #header nav.use-middle ul li.is-middle:nth-child(even) { border-left: solid 1px #ffffff; }
   #header nav ul li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   #header nav ul li a { min-width: 0; height: 2.75rem; line-height: 2.75rem; letter-spacing: 0.12rem; font-size: 0.75rem; }
 
@@ -78,3 +90,31 @@ h1, h2, h3, h4 { font-family: "EB Garamond", Garamond, "Times New Roman", serif;
 }
 
 .contact-list span { overflow-wrap: anywhere; }
+
+@media screen and (max-width: 480px) {
+  .photo-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .photo-grid figcaption { font-size: 0.7rem; }
+}
+
+/* Header connector lines. The template draws each one 1px longer than its gap so it overlaps the
+   border it meets; browsers round that overlap differently and a pixel pokes out. Instead, each line
+   spans exactly the gap (sharing its end coordinate with the border edge) and is drawn as a border
+   so it snaps to the same thickness as the outlines. .content has a 1px top border inside its box,
+   so its line starts 1px higher; nav has no border of its own. */
+#header > *:before { width: 0; background: none; border-left: solid 1px #ffffff; }
+#header .content:before { top: calc(-3.5rem - 1px); height: 3.5rem; }
+#header nav:before { top: -3.5rem; height: 3.5rem; }
+/* The template hangs the menu's middle line off <nav>, which can be a fraction of a pixel taller than the
+   menu box, so the line poked out below it. Draw it inside the menu box instead, between its borders. */
+#header nav.use-middle:after { display: none; }
+#header nav.use-middle ul { position: relative; }
+#header nav.use-middle ul:after { content: ''; position: absolute; top: 0; bottom: 0; left: calc(50% - 1px); width: 0; border-left: solid 1px #ffffff; pointer-events: none; }
+@media screen and (max-width: 736px) {
+  #header .content:before { top: calc(-2rem - 1px); height: 2rem; }
+  #header nav:before { top: -2rem; height: 2rem; }
+}
+@media screen and (max-width: 480px) {
+  #header nav.use-middle ul:after { display: none; }
+  #header .content:before { top: calc(-1.25rem - 1px); height: 1.25rem; }
+  #header nav:before { top: -1.25rem; height: 1.25rem; }
+}

@@ -38,7 +38,7 @@
 
       <article id="intro">
         <h2 class="major">Intro</h2>
-        <span class="intro-photo"><img src="{{ "/images/tomi-and-cat.jpg" | relURL }}" alt="Me with Nacho" width="600" height="789" /></span>
+        <span class="intro-photo"><img src="{{ "/images/tomi-intro.jpg" | relURL }}" alt="Me in a festival tent, wearing a Texas Longhorns cap" width="600" height="696" /></span>
         <p>I'm a penetration testing intern at LRQA in Birmingham, UK, and a BSc Applied Cybersecurity student at the SANS Technology Institute. My work centres on offensive security, particularly penetration testing, cryptography, and digital forensics.</p>
         <p>On LRQA's Penetration Testing team I take part in mobile, web application, API, and infrastructure assessments from kick-off through delivery, and I am building a benchmark for AI-driven web application testing tools.</p>
         <p>This site collects my <a href="#writeups">competition writeups</a>, <a href="#research">research projects</a>, and <a href="#cv">CV</a>.</p>
@@ -133,14 +133,18 @@
       {{ if $photos }}
       <article id="photos">
         <h2 class="major">Photos</h2>
+        {{ range $photos }}
+        {{ $crop := .crop }}
+        <div class="trip-head"><h3>{{ .title }}</h3><span>{{ .date }}</span></div>
         <div class="photo-grid">
-          {{ range $photos }}
+          {{ range .photos }}
           <figure>
-            <img src="{{ .src | relURL }}" alt="{{ .alt | default .caption }}" loading="lazy" />
+            <a href="{{ .src | relURL }}" target="_blank" rel="noopener"><img src="{{ replace .src "/images/photos/" "/images/photos/thumbs/" | relURL }}" alt="{{ .alt | default .caption }}" loading="lazy"{{ with $crop }} style="{{ printf "aspect-ratio: %s" . | safeCSS }}"{{ end }} /></a>
             {{ with .caption }}<figcaption>{{ . }}</figcaption>{{ end }}
           </figure>
           {{ end }}
         </div>
+        {{ end }}
       </article>
       {{ end }}
 
