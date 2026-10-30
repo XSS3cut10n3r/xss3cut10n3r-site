@@ -18,5 +18,11 @@
     var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
     try { localStorage.setItem("theme", next); } catch (err) {}
     apply(next);
+    // The homepage replays its load fade-in on a switch; other pages just change.
+    if (document.getElementById("wrapper") && document.body.classList.contains("is-loading") === false) {
+      document.body.classList.add("is-loading");
+      void document.body.offsetWidth;
+      setTimeout(function () { document.body.classList.remove("is-loading"); }, 100);
+    }
   });
 })();
