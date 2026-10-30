@@ -2,3 +2,20 @@
 #main article.post-reader { padding: 0; background: #14171c; }
 #main article.post-reader > .close { z-index: 2; }
 .reader-content { display: block; min-width: 0; }
+
+/* Phones: trim the page gutter while a post is open so the text runs wider. */
+@media screen and (max-width: 736px) {
+  body:has(#main article.post-reader.active) #wrapper { padding-left: .375rem; padding-right: .375rem; }
+}@media screen and (max-width: 736px) {
+  body #main article.post-reader { padding: 0; }
+}
+/* Between phone (480px) and desktop (1024px), scale sizes and gutters smoothly
+   instead of jumping at 736px. Both ends match the existing phone and desktop looks. */
+@media screen and (min-width: 481px) and (max-width: 1023px) {
+  html { font-size: clamp(18.6667px, 0.49vw + 16.31px, 21.3333px); }
+  body #main article.post-reader { padding: 0; }
+  body:has(#main article.post-reader.active) #wrapper {
+    padding-left: clamp(7px, 6.556vw - 24.47px, 42.6667px);
+    padding-right: clamp(7px, 6.556vw - 24.47px, 42.6667px);
+  }
+}

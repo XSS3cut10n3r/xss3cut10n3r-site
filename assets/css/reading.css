@@ -130,3 +130,25 @@ html.embedded-post, .embedded-post body { background: transparent; }
 .reading-body { font-size: 16pt; }
 @media (max-width: 736px) { .reading-body { font-size: 14pt; } }
 @media (max-width: 360px) { .reading-body { font-size: 12pt; } }
+
+/* Phones: give posts more of the screen width. Desktop is unchanged. */
+@media (max-width: 736px) {
+  .reading-shell { width: calc(100% - 12px); margin: 12px auto; padding: 28px 18px; }
+}
+@media (max-width: 480px) {
+  .reading-shell { padding: 22px 14px; }
+  .reading-body { font-size: 12pt; line-height: 1.7; }
+  .reading-header h1 { font-size: 1.9rem; }
+  .reading-deck { font-size: 16px; }
+}/* Phones: tighter tables so short two-column tables like "Read the series" fit. */
+@media (max-width: 736px) {
+  .reading-body table { font-size: .85em; line-height: 1.45; margin: 20px 0; }
+  .reading-body th, .reading-body td { padding: 8px 10px; }
+}
+/* Between phone (480px) and desktop (1024px), scale the reading column smoothly. */
+@media (min-width: 481px) and (max-width: 1023px) {
+  .reading-shell { padding: clamp(22px, 15.69vw - 53.3px, 106.667px) clamp(14px, 17.034vw - 67.76px, 106.667px); }
+  .reading-body { font-size: clamp(16px, 0.9804vw + 11.29px, 21.3333px); }
+  .reading-header h1 { font-size: clamp(35.4667px, 2.108vw + 25.35px, 46.9333px); }
+  .reading-deck { font-size: clamp(16px, 0.735vw + 12.47px, 20px); }
+}
