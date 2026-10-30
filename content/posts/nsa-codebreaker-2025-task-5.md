@@ -25,9 +25,9 @@ Submit the full URL to the adversary's server
 
 ## Writeup
 
-This task is unusual: it ships no new files. Everything needed is already in hand, the packet capture from Task 2 and the implant we unpacked in Task 4. The goal is to read the one conversation in that capture we could never make sense of, because it was encrypted, and pull the adversary's server URL out of it.
+This task provides no new files. Everything we need is already in the packet capture from Task 2 and the implant unpacked in Task 4. The implant gives us the code behind an encrypted conversation in the capture. The goal is to use it to recover the keys and read the adversary's server URL.
 
-The short version: the malware's author rolled their own encryption on top of AES and made three mistakes. Any one of them would have been bad. Together they let a laptop recover the secret keys in under a minute and read every message.
+The malware uses AES, but the way it generates keys and encrypts messages leaves enough information to recover both keys in under a minute on a laptop. The interesting part is how the weaknesses fit together: the small key space makes searching practical, and predictable padding gives us something to search for.
 
 ### The conversation we could not read
 
@@ -86,7 +86,7 @@ That repeated block is padding (explained next), and because ECB leaks it, it ha
 
 The author clearly worried that one layer of AES was not enough, so `send_message` encrypts every message twice, first with key 1, then the result again with key 2. The idea is "twice the encryption, twice the safety." It does not work that way when each key only has 26 bits, and it actually leaks a gift.
 
-AES needs messages to be a whole number of 16-byte blocks, so it pads them out using a scheme called PKCS#7. A quirk of that scheme: if the data is *already* a multiple of 16 bytes, it adds a whole extra block of all `0x10` bytes. Because the message is encrypted twice, the second (key 2) layer adds its own padding block on top. That trailing block is therefore just the value `10 10 ... 10` encrypted with key 2 alone. That is the identical tail we saw above, and it is a known-plaintext pair for key 2 by itself.
+The implementation uses PKCS#7 padding to make each encryption input a whole number of 16-byte blocks. If the input is *already* a multiple of 16 bytes, PKCS#7 adds a full block of sixteen `0x10` bytes. The first encryption produces whole blocks, so the second layer always adds that same padding block. Crucially, this new block has never passed through key 1: it is encrypted with key 2 alone. That explains the identical tails in the capture and gives us a known-plaintext pair for the outer key.
 
 ### The cribs
 

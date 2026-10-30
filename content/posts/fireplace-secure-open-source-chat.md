@@ -6,6 +6,7 @@ date: 2026-10-05
 draft: false
 featured: true
 pinned: true
+research: true
 image: "/images/fireplace/fireplace-share.png"
 imageAlt: "The orange flame mark next to the Fireplace wordmark on a cream background"
 tags: ["cryptography", "open source", "privacy"]

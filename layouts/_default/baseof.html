@@ -2,6 +2,11 @@
 <html lang="{{ .Site.Language.Locale }}">
 <head>
   {{ partial "head.html" . }}
+  {{ if eq .Section "posts" }}
+  <script>
+    window.location.replace({{ "/" | relURL | jsonify | safeJS }} + '#post=' + encodeURIComponent(window.location.pathname + window.location.hash));
+  </script>
+  {{ end }}
 </head>
 <body>
   {{ if .IsPage }}<div class="reading-progress"></div>{{ end }}

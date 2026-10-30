@@ -2,7 +2,7 @@
 title: "Whoami"
 subtitle: "简短介绍 - Краткий обзор - A brief overview"
 date: 2025-08-26
-featured: true
+featured: false
 draft: false
 ---
 ### 中國人

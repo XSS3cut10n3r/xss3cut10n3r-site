@@ -46,10 +46,9 @@
 
       <article id="writeups">
         <h2 class="major">Writeups</h2>
-        <p>Technical writeups from capture-the-flag competitions and security challenges, plus reference notes I keep for offensive work.</p>
         <ul class="entry-list">
-          {{ range slice "/posts/nsa-codebreaker-2026" "/posts/nsa-codebreaker-2025" "/posts/crypto-cheatsheet" "/posts/interactive-shells" }}
-          {{ with site.GetPage . }}
+          {{ range (where (where site.RegularPages "Section" "posts") "Params.featured" true) }}
+          {{ if not .Params.research }}
           <li>
             <a class="entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
             {{ with .Params.subtitle }}<span class="entry-desc">{{ . }}</span>{{ end }}
@@ -62,8 +61,8 @@
 
       <article id="research">
         <h2 class="major">Research</h2>
-        <h3>Benchmarking AI-driven web application testing</h3>
-        <p>At LRQA I am building a benchmark that measures how AI-driven web application testing tools perform in real enterprise environments, rather than simply whether they can exploit a vulnerability. A reverse proxy in front of deliberately vulnerable .NET, Flask, and Node.js applications records every request, so tools are judged on their methodology and on whether they would be safe to run against a client.</p>
+        <h3>AI-Driven Penetration Testing</h3>
+        <p>At LRQA I am developing a benchmark methodology for evaluating web application penetration testing. It uses reported findings and recorded requests to assess coverage, verification, conduct, and testing quality, whether testing is performed by a person or an automated product.{{ with site.GetPage "/posts/benchmarking-ai-human-web-penetration-testing" }} <a href="#post-{{ .File.ContentBaseName }}">Read the research introduction →</a>{{ end }}</p>
 
         <h3>CVE-????-?????</h3>
         <p>A vulnerability I discovered and reported through coordinated disclosure. Details will be published here once the advisory is public.</p>
@@ -71,7 +70,7 @@
         <h3>VKB Sync</h3>
         <p>A Python tool that uses the PlexTrac API to keep LRQA's library of vulnerability findings synchronised across its Singapore, United Kingdom, and United States instances. It runs at no operating cost on scheduled GitHub Actions workflows and has run daily in production since deployment.</p>
         {{ with site.GetPage "/posts/fireplace-secure-open-source-chat" }}
-        <h3><a href="{{ .RelPermalink }}">Fireplace</a></h3>
+        <h3>Fireplace</h3>
         <p>An open-source, end-to-end encrypted messenger I'm building in Flutter, using hybrid post-quantum cryptography and requiring no phone number. The design goal is a chat app that is private by default and whose security claims anyone can verify. <a href="{{ .RelPermalink }}">Read the project write-up →</a></p>
         {{ end }}
       </article>
@@ -148,6 +147,20 @@
       </article>
       {{ end }}
 
+      {{ range where site.RegularPages "Section" "posts" }}
+      <article id="post-{{ .File.ContentBaseName }}" class="post-reader" data-path="{{ .RelPermalink }}"><div class="reader-content"></div></article>
+      {{ end }}
+      <article id="post-archive" data-path="{{ "/posts/" | relURL }}">
+        <h2 class="major">All writeups</h2>
+        <ul class="entry-list">
+          {{ range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+          <li>
+            <a class="entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ with .Params.subtitle }}<span class="entry-desc">{{ . }}</span>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </article>
       <article id="contact">
         <h2 class="major">Contact</h2>
         <p>I'm glad to talk about penetration testing, AI in offensive security, security research, and secure application development.</p>
@@ -173,5 +186,15 @@
   <script src="{{ "js/skel.min.js" | relURL }}"></script>
   <script src="{{ "js/util.js" | relURL }}"></script>
   <script src="{{ "js/main.js" | relURL }}"></script>
+  {{ $readingCSS := slice (resources.Get "css/site.css") (resources.Get "css/reading.css") | resources.Concat "css/reader-content.css" | minify }}
+  <template id="reader-styles"><style>{{ $readingCSS.Content | safeCSS }}
+    :host { display: block; font-size: 16px; color: #eef1f3; --reading-muted: #98a2ab; }
+    .reading-shell { width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; background: transparent; }
+  </style></template>
+  {{ range where site.RegularPages "Section" "posts" }}
+  <template class="reader-post" data-path="{{ .RelPermalink }}">{{ partial "article.html" . }}</template>
+  {{ end }}
+  {{ with resources.Get "css/reader.css" | minify }}<style>{{ .Content | safeCSS }}</style>{{ end }}
+  {{ with resources.Get "js/reader.js" | minify }}<script>{{ .Content | safeJS }}</script>{{ end }}
 </body>
 </html>

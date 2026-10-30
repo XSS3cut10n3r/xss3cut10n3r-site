@@ -19,7 +19,7 @@ body:has(.reading-shell) { background: var(--bg, #13151a); color: var(--text-pri
 .reading-body blockquote { border-left: 3px solid var(--reading-accent); margin: 28px 0; padding: 12px 24px; color: var(--reading-muted); background: transparent; }
 .reading-body blockquote p:last-child { margin-bottom: 0; }
 .reading-body img { display: block; max-width: 100%; height: auto; margin: 24px auto; border-radius: 8px; }
-.reading-body pre { max-width: 100%; overflow-x: auto; padding: 22px; border: 1px solid var(--reading-line); border-radius: 8px; background: #181b20; font-size: 14px; line-height: 1.65; white-space: pre; overflow-wrap: normal; }
+.reading-body pre { max-width: 100%; overflow-x: auto; padding: 22px; border: 1px solid var(--reading-line); border-radius: 8px; background: #181b20; font-size: inherit; line-height: 1.65; white-space: pre; overflow-wrap: normal; }
 .reading-body pre code { padding: 0; background: transparent; color: #eef1f3; font-size: inherit; white-space: pre; }
 .reading-body :not(pre) > code { background: rgba(128,160,140,.14); color: inherit; padding: 2px 6px; border-radius: 4px; font-size: .88em; }
 .reading-body .highlight { max-width: 100%; overflow: hidden; }
@@ -37,14 +37,14 @@ body:has(.reading-shell) { background: var(--bg, #13151a); color: var(--text-pri
   overflow-wrap: normal;
   word-break: normal;
 }
-.reading-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 28px 0; font-size: 15px; }
+.reading-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 28px 0; font-size: inherit; }
 .reading-body th, .reading-body td { padding: 13px 16px; border: 1px solid var(--reading-line); text-align: left; }
 .reading-body th { background: rgba(128,160,140,.12); }
 .reading-body hr { border: 0; border-top: 1px solid var(--reading-line); margin: 40px 0; }
 .reading-contents { position: sticky; top: 90px; align-self: start; }
 .reading-footer { display: flex; justify-content: space-between; gap: 24px; padding-top: 28px; margin-top: 48px; border-top: 1px solid var(--reading-line); font-size: 14px; }
 @media (max-width: 950px) { .reading-grid { grid-template-columns: minmax(0, 1fr); }.reading-contents { display: none; } }
-@media (max-width: 600px) { .reading-shell { padding: 36px 22px 48px; }.reading-body { font-size: 17px; }.reading-body pre { padding: 14px; font-size: 12px; }.reading-footer { flex-direction: column; }.reading-grid { gap: 30px; } }
+@media (max-width: 600px) { .reading-shell { padding: 36px 22px 48px; }.reading-body { font-size: 17px; }.reading-body pre { padding: 14px; }.reading-footer { flex-direction: column; }.reading-grid { gap: 30px; } }
 @media (max-width: 600px) { .reading-body .highlight pre { padding: 3rem 14px 14px; } }
 @media (max-width: 950px) { .reading-contents { grid-column: 1; }.reading-article { grid-column: 1; } }
 .reading-article.post-content { width: 100%; max-width: 100%; margin: 0; display: block; }
@@ -80,3 +80,53 @@ body:has(.reading-shell) { background: var(--bg, #13151a); color: var(--text-pri
 .reading-contents-inline a { color: var(--reading-muted); text-decoration: none; }
 .reading-contents-inline a:hover { color: var(--text-primary); }
 @media (max-width: 950px) { .reading-contents-inline { display: block; } }
+
+/* Centered reading surface shared with the homepage's photographic setting. */
+body:has(.reading-shell), body:has(.list-index) { background: linear-gradient(#13151999, #131519cc), url('/images/bg.jpg') center / cover fixed; }
+.reading-shell { box-sizing: border-box; width: calc(100% - 64px); max-width: 1066.667px; margin: 24px auto; padding: 48px 53.333px; background: rgba(20,23,28,.95); border: 1px solid #ffffff18; border-radius: 12px; }
+.reading-grid { display: block; }
+.reading-contents { display: none; }
+.reading-contents-inline { display: block; margin: 0 0 36px; padding: 16px 0; border-width: 1px 0; border-radius: 0; }
+.reading-body { max-width: none; margin-inline: 0; line-height: 1.75; }
+.reading-header h1 { margin: 0; text-wrap: balance; }
+.reading-body h2::after { display: none; }
+.reading-body ul, .reading-body ol { padding-left: 1.5em; }
+.reading-body li + li { margin-top: .4em; }
+.reading-body li > ul, .reading-body li > ol { margin-top: .4em; }
+.reading-body blockquote { background: #ffffff04; border-radius: 0 8px 8px 0; }
+.reading-contents-inline nav > ul { columns: 2; column-gap: 32px; }
+.reading-contents-inline li { break-inside: avoid; }
+.reading-contents-inline a { line-height: 1.5; }
+html.embedded-post, .embedded-post body { background: transparent; }
+.embedded-post .site-nav, .embedded-post .site-footer, .embedded-post .reading-progress { display: none; }
+.embedded-post .reading-shell { width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; background: transparent; }
+.embedded-post .list-index { padding: 24px 40px; }
+@media (max-width: 600px) {
+  .reading-shell { width: calc(100% - 24px); margin: 20px auto; padding: 28px 22px; }
+  .reading-contents-inline nav > ul { columns: 1; }
+  .reading-header h1 { font-size: 2.2rem; }
+  .reading-deck { font-size: 18px; }
+}
+
+/* Use one shared column so headings, prose, lists, and dividers align. */
+.reading-article.post-content { max-width: 960px; margin-inline: auto; }
+.reading-header { margin-bottom: 28px; padding-bottom: 24px; }
+.reading-body h2, .reading-body h3, .reading-body h4 { margin: 1.6em 0 .65em; }
+.reading-body ul, .reading-body ol { margin: 0 0 1.25em; padding-left: 1.4em; }
+.reading-body li + li { margin-top: .2em; }
+.reading-body hr { margin: 28px 0; }
+.reading-body hr + h2, .reading-body hr + h3 { margin-top: 28px; }
+/* Match Dimension's 50rem panel (its root is 16pt), including its gutters. */
+@media (max-width: 736px) {
+  .reading-shell { max-width: 933.333px; padding: 36px 37.333px; }
+}
+@media (max-width: 480px) {
+  .reading-shell { padding: 28px; }
+}
+@media (max-width: 360px) {
+  .reading-shell { padding: 24px; }
+}
+/* Research uses 1rem at a 16pt root, reducing to 14pt and 12pt on phones. */
+.reading-body { font-size: 16pt; }
+@media (max-width: 736px) { .reading-body { font-size: 14pt; } }
+@media (max-width: 360px) { .reading-body { font-size: 12pt; } }

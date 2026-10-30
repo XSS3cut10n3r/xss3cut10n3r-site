@@ -42,13 +42,13 @@ This task required reverse engineering an Android application to discover vulner
 
 Initially, I started with scanning licenses.txt to see what exactly we're working with. I also used a python script to scan the licenses for vulnerabilities. `Appache commons io 1.3.2` was the only one which seemed to be far far older than it should've been, and it had `CVE-2021-29425` a path traversal vulnerability to go with it. I thought this would be the exact vulnerability, but it turned out to just be a lead that pointed me toward looking for path traversal issues.
 
-I then began by decompiling the APK using jadx-gui. The application is heavily obfuscated, and really ugly in JADX. Below we see the FileDownloadWorker for the Mattermost message archiver app, which was one of the nicer looking functions. We know from the task description that the app automatically downloads files from channels and "archives them" - it does _something_ with them, that's what we need to exploit.
+I decompiled the APK using jadx-gui. Much of the code was heavily obfuscated, but `FileDownloadWorker` was readable enough to follow. The app automatically downloads and archives channel attachments, so this gave me a starting point: follow what happens to an attachment after it arrives on the phone.
 
 <p align="center">
 <img src="/images/codebreaker-2025/jadx_overview.png" alt="JADX Overview"/>
 </p>
 
-Examining the source code further revealed a custom archive format system with dynamic class loading for different file types (zip, 7z, tar, etc.). The format handlers are loaded from `/cache/zippier/formats/` and implement the `ZipFormat` interface:
+The app handles archive types such as ZIP, 7z, and TAR through dynamically loaded format handlers. These are loaded from `/cache/zippier/formats/` and implement the `ZipFormat` interface:
 ```java
 public interface ZipFormat {
     String getExtension();

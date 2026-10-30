@@ -43,7 +43,7 @@ The first place I looked was the root user’s `.bash_history`, since that often
 <img src="/images/codebreaker-2025/bash_history.png" alt="BashHistory"/>
 </p>
 
-With `/app/test` as a pivot point, I ran a `grep`-ed through the filesystem. This led me to an odd discovery:
+I searched the filesystem with `grep` for references to `/app/test`. One match stood out:
 
 <p>
 <img src="/images/codebreaker-2025/grep.png" alt="Grep"/>
@@ -51,9 +51,9 @@ With `/app/test` as a pivot point, I ran a `grep`-ed through the filesystem. Thi
 
 /etc/terminfo/s/nsuvzemaow
 
-This terminfo file references `/app/www`. That's a red flag - terminfo directories are supposed to store compiled terminal capability files, not random application paths. The filename itself looked odd too.
+The file references `/app/www`, an unexpected connection to the web application in a directory meant for terminal capability definitions. Alongside its unusual filename, that made it worth a closer look.
 
-To confirm, I calculated the SHA-1 hash of the file:
+I calculated the file's SHA-1 hash for submission:
 
 0068e0c3cba711e775fa374b201d5d04ffcef96c
 

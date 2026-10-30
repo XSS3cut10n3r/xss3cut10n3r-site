@@ -1,0 +1,4 @@
+﻿/* Posts use the same native article panel and transitions as Writeups. */
+#main article.post-reader { padding: 0; background: #14171c; }
+#main article.post-reader > .close { z-index: 2; }
+.reader-content { display: block; min-width: 0; }

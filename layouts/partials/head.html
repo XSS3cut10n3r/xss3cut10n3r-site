@@ -3,7 +3,8 @@
   {{- $description = . | plainify | htmlUnescape | strings.TrimSpace -}}
 {{- else -}}
   {{- if not .IsHome -}}
-    {{- $description = .Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 160 -}}
+    {{- /* Avoid automatic summary slicing during live content updates. */ -}}
+    {{- $description = .Plain | htmlUnescape | strings.TrimSpace | truncate 160 -}}
   {{- end -}}
 {{- end -}}
 {{- if eq $description "" -}}
