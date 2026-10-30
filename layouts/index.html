@@ -7,9 +7,11 @@
   {{ partial "head.html" . }}
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}" />
   {{ with resources.Get "css/home.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />{{ end }}
+  {{ with resources.Get "css/theme.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />{{ end }}
   <noscript><link rel="stylesheet" href="{{ "css/noscript.css" | relURL }}" /></noscript>
 </head>
 <body>
+  {{ partial "theme-toggle.html" . }}
   <div id="wrapper">
 
     <header id="header">
@@ -190,11 +192,17 @@
   <template id="reader-styles"><style>{{ $readingCSS.Content | safeCSS }}
     :host { display: block; font-size: 16px; color: #eef1f3; --reading-muted: #98a2ab; }
     .reading-shell { width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; background: transparent; }
+    :host([data-theme="light"]) { color: #1b1f24; --reading-muted: #5b6672; }
+    :host([data-theme="light"]) .reading-shell { --reading-muted: #5b6672; --reading-line: #d9dee4; --reading-accent: #2c5d92; --reading-accent-2: #2c5d92; color: #1b1f24; }
+    :host([data-theme="light"]) .reading-body :not(pre) > code { background: rgba(44,93,146,.1); }
+    :host([data-theme="light"]) .reading-body th { background: rgba(0,0,0,.04); }
+    :host([data-theme="light"]) .reading-body blockquote { background: #00000005; }
   </style></template>
   {{ range where site.RegularPages "Section" "posts" }}
   <template class="reader-post" data-path="{{ .RelPermalink }}">{{ partial "article.html" . }}</template>
   {{ end }}
   {{ with resources.Get "css/reader.css" | minify }}<style>{{ .Content | safeCSS }}</style>{{ end }}
+  {{ with resources.Get "js/theme.js" | minify }}<script>{{ .Content | safeJS }}</script>{{ end }}
   {{ with resources.Get "js/reader.js" | minify }}<script>{{ .Content | safeJS }}</script>{{ end }}
 </body>
 </html>

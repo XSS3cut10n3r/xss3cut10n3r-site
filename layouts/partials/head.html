@@ -36,7 +36,8 @@
 <link rel="icon" href="{{ "/favicon.png" | relURL }}?v={{ $iconVersion }}" type="image/png" sizes="192x192" />
 <link rel="icon" href="{{ "/favicon.ico" | relURL }}?v={{ $iconVersion }}" type="image/x-icon" sizes="16x16 32x32 48x48" />
 <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relURL }}?v={{ $iconVersion }}" sizes="180x180" />
-<meta name="color-scheme" content="dark" />
+<meta name="color-scheme" content="dark light" />
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")==="light"?"light":"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}</script>
 <meta name="theme-color" content="#13151a" />
 <!-- Open Graph -->
 <meta
@@ -74,6 +75,7 @@
 <!-- Minify and inline shared CSS so first paint has no stylesheet request chain. -->
 {{- $css := slice (resources.Get "css/site.css") (resources.Get "css/reading.css") | resources.Concat "css/bundle.css" | minify }}
 <style>{{ $css.Content | safeCSS }}</style>
+{{ with resources.Get "css/theme.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />{{ end }}
 {{- end }}
 
 <!-- RSS -->

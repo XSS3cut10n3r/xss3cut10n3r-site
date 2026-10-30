@@ -9,6 +9,7 @@
   {{ end }}
 </head>
 <body>
+  {{ partial "theme-toggle.html" . }}
   {{ if .IsPage }}<div class="reading-progress"></div>{{ end }}
   {{ partial "header.html" . }}
   <main>
@@ -17,5 +18,6 @@
   {{ partial "footer.html" . }}
   {{ $js := resources.Get "js/site.js" | minify }}
   <script>{{ $js.Content | safeJS }}</script>
+  {{ with resources.Get "js/theme.js" | minify }}<script>{{ .Content | safeJS }}</script>{{ end }}
 </body>
 </html>
