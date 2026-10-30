@@ -24,7 +24,7 @@ html[data-theme="light"] {
 }
 
 /* Inner pages: posts and the writeups list. */
-html[data-theme="light"] body:has(.reading-shell), html[data-theme="light"] body:has(.list-index) { background: linear-gradient(#dee2e899, #dee2e8aa), url('/images/bg.jpg') center / cover fixed; }
+html[data-theme="light"] body:has(.reading-shell), html[data-theme="light"] body:has(.list-index) { background: linear-gradient(#ecf0f680, #ecf0f680), url('/images/bg-light.jpg') center / cover fixed; }
 html[data-theme="light"] .reading-shell { --reading-muted: #5b6672; --reading-line: #d9dee4; --reading-accent: #2c5d92; --reading-accent-2: #2c5d92; background: rgba(255,255,255,.95); border-color: #00000014; color: #1b1f24; }
 html[data-theme="light"] .reading-body :not(pre) > code { background: rgba(44,93,146,.1); }
 html[data-theme="light"] .reading-body th { background: rgba(0,0,0,.04); }
@@ -48,7 +48,8 @@ html[data-theme="light"] .entry-list li:last-child { border-bottom-color: rgba(0
 html[data-theme="light"] table tbody tr, html[data-theme="light"] table thead, html[data-theme="light"] table tfoot, html[data-theme="light"] table.alt tbody tr td { border-color: #232830; }
 html[data-theme="light"] table tbody tr:nth-child(2n + 1) { background-color: rgba(0,0,0,.05); }
 
-html[data-theme="light"] #bg:before { background-image: linear-gradient(to top, rgba(222,226,232,.5), rgba(222,226,232,.5)), url("../images/overlay.png"); }
+html[data-theme="light"] #bg:after { background-image: url("../images/bg-light.jpg"); }
+html[data-theme="light"] #bg:before { background-image: linear-gradient(to top, rgba(236,240,246,.5), rgba(236,240,246,.5)), url("../images/overlay.png"); }
 html[data-theme="light"] body.is-loading #bg:before { background-color: #f6f7f9; }
 html[data-theme="light"] #main article, html[data-theme="light"] #main article.post-reader { background-color: rgba(255,255,255,.93); }
 html[data-theme="light"] #main article .close:before { background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cstyle%3Eline %7B stroke: %23232830%3B stroke-width: 1%3B %7D%3C/style%3E%3Cline x1='2' y1='2' x2='18' y2='18' /%3E%3Cline x1='18' y1='2' x2='2' y2='18' /%3E%3C/svg%3E"); }
