@@ -41,10 +41,14 @@ I also learned to keep better notes. Some of my repository writeups are much mor
 
 The habit I want to carry forward is simple: record the evidence, explain what it supports, and keep the next investigative question clear.
 
-### From the challenge to my current work
+### Award
 
-Completing all seven tasks earned me a $4,500 SANS Institute scholarship in October 2025. The challenge also gave me practice connecting evidence across different technical domains.
+Completing all seven tasks earned me an NSA-branded medallion, presented with a letter from the NSA congratulating me on being one of 82 student solvers. It also earned me a $4,500 SANS Institute scholarship in October 2025.
 
-I'm now an Associate Security Consultant (Intern) at LRQA, helping the Penetration Testing team implement AI into its workflows while contributing to mobile, web application, API, and infrastructure tests. Codebreaker's lessons about methodical analysis and documentation remain relevant to that work.
+<div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+<img src="/images/codebreaker-2025/award-medallion.jpg" alt="NSA medallion in its wooden presentation box" width="300"/>
+<img src="/images/codebreaker-2025/award-coin.jpg" alt="Back of the Codebreaker Challenge coin, engraved with hex bytes" width="300"/>
+<img src="/images/codebreaker-2025/award-letter.jpg" alt="Congratulations letter from the NSA for completing the 2025 Codebreaker Challenge" width="300"/>
+</div>
 
 Start with [Task 1: Getting Started](/posts/nsa-codebreaker-2025-task-1/) or choose a topic from the table above.
